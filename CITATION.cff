@@ -1,7 +1,7 @@
 cff-version: 1.2.0
-message: "If you cite this paper or repository, please use the following metadata."
-title: "Nicht-Physics: The Inversion of Fundamental Interactions"
-abstract: "A formal 0-consistency inversion of classical positive physics (1-logic), modeling fundamental forces, operational limits (c, h, G), and the Planck threshold as scale-dependent friction limits (Wéi) and measurement noise (sigma) against the invariant zero-baseline (B₀)."
+message: "If you cite this repository or any of its manuscripts, please use the following metadata."
+title: "Nicht-Physics: Publication Series on 0-Consistency Physics"
+abstract: "A formal 0-consistency inversion of classical positive physics (1-logic). Models fundamental interactions, operational limits (c, h, G), the Yang-Mills mass gap, and non-perturbative boundary limits as scale-dependent friction limits (Wéi) and measurement noise (sigma) against the invariant zero-baseline (B₀)."
 authors:
   - name: "xerx593"
     affiliation: "Institute of Applied Not-(but-(the-)only-)Knowledge"
@@ -16,30 +16,10 @@ keywords:
   - zero-consistency
   - hierarchy-problem
   - planck-aperture
+  - yang-mills-mass-gap
+  - color-confinement
   - dimensional-constants
   - aperture-noise
   - zero-baseline
-version: "1.0.0"
-date-released: "2026-08-23"cff-version: 1.2.0
-message: "If you cite this paper or repository, please use the following metadata."
-title: "Nicht-Physics: The Inversion of Fundamental Interactions"
-abstract: "A formal 0-consistency inversion of classical positive physics (1-logic), modeling fundamental forces, operational limits (c, h, G), and the Planck threshold as scale-dependent friction limits (Wéi) and measurement noise (sigma) against the invariant zero-baseline (B₀)."
-authors:
-  - name: "xerx593"
-    affiliation: "Institute of Applied Not-(but-(the-)only-)Knowledge"
-    orcid: "https://orcid.org/0009-0009-0820-0502"
-  - name: "Non-Human Interlocutors"
-    affiliation: "Apophatic Dialogue Baseline (B₀)"
-repository-code: "https://github.com/xerx593/nicht-physics"
-url: "https://github.com/xerx593/nicht-physics"
-license: "Unlicense"
-keywords:
-  - apophatic-physics
-  - zero-consistency
-  - hierarchy-problem
-  - planck-aperture
-  - dimensional-constants
-  - aperture-noise
-  - zero-baseline
-version: "1.0.0"
+version: "0.0.1"
 date-released: "2026-08-23"

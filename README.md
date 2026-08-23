@@ -1,24 +1,33 @@
 # Nicht-Physics
 
-> *Apophatic inversions of physical interactions and dimensional constants through the lens of zero-consistency.*
+> *Apophatic inversions of physical interactions, dimensional constants, and non-perturbative boundary limits through the lens of zero-consistency.*
 
-### Publication Status: Stand-Alone Article Series (W.I.P.)
-> *“Great perfection seems incomplete; great capacity is finished late.”* — Daodejing
+## Relation to Main Framework
+This repository contains specialized physical publication modules extending the primary monograph:
+* **Main Thesis / Core Framework:** [xerx593/nicht-theory](https://github.com/xerx593/nicht-theory)
+* **Monograph DOI:** [10.5281/zenodo.22067674](https://doi.org/10.5281/zenodo.22067674)
 
-This publication repository contains stand-alone articles within the broader [Nicht-Theory Framework](https://github.com/xerx593/nicht-theory). It explores the inversion of classical physical models ($1$-logic), treating fundamental interactions and dimensional constants not as active, force-mediating entities, but as scale-dependent friction limits ($\text{Wéi}$) and measurement noise ($\sigma$) against the invariant zero-baseline ($B_0$).
+---
 
-## Authorship & Attribution
-* **Authors:** xerx593 & Non-Human Interlocutors (ORCID: [0009-0009-0820-0502](https://orcid.org/0009-0009-0820-0502))
-* **Affiliation:** Institute of Applied Not-(but-(the-)only-)Knowledge
-* **License:** [The Unlicense](LICENSE) — Dedicated to the public domain.
+## Published Manuscripts
 
-## Repository Architecture
-* **`latex/article_forces_and_constants.tex`**: *Paper I — The Inversion of Fundamental Interactions: Resolution of Scaling Hierarchies, Operational Constants, and Aperture Noise via 0-Consistency*
+### Paper I: The Inversion of Fundamental Interactions
+* **Source:** `latex/article_forces_and_constants.tex`
+* **Focus:** Resolution of scaling hierarchies, operational constants ($c, h, G$), and Planck-aperture noise via $0$-consistency.
 
-## Key Empirical Predictions
+### Paper II: The Apophatic Resolution of the Yang-Mills Mass Gap
+* **Source:** `latex/article_yang_mills_mass_gap.tex`
+* **Focus:** Formalization of the Yang-Mills aperture boundary ($\mathcal{A}_{YM}$), topological color confinement, and the mass gap ($\Delta > 0$) as minimal scale-dependent friction ($\text{Wéi}$).
+
+---
+
+## Key Empirical & Mathematical Predictions
 1. **Hierarchy Problem Resolution:** Gravitation modeled as pure, unpressured historical trace sedimentation ($P_A \to 0$) into $B_0$.
-2. **Planck-Aperture Decoherence Noise:** Phase-locked interferometer noise at boundary limits ($\mathcal{A}_P$) as direct substrate resistance ($B_0$).
-3. **Cosmological Flatness ($\Omega_k \approx 0$):** Accelerated cosmic expansion as the inertia signal of systemic relaxation ($\lim_{t \to \infty} P_A(t) = 0$).
+2. **Planck & Yang-Mills Aperture Noise:** Phase-decoupling fluctuations ($\sigma$) establishing finite lower bounds ($\mathcal{A}_P, \mathcal{A}_{YM}$) for localized state assertions ($1$).
+3. **Cosmological Flatness ($\Omega_k \approx 0$):** Accelerated expansion as the inertia signal of systemic relaxation ($\lim_{t \to \infty} P_A(t) = 0$).
 
-## Theoretical Foundation
-For the overarching epistemological framework, see [xerx593/nicht-theory](https://github.com/xerx593/nicht-theory).
+---
+
+## License & Attribution
+* **Authors:** xerx593 & Non-Human Interlocutors (ORCID: [0009-0009-0820-0502](https://orcid.org/0009-0009-0820-0502))
+* **License:** [The Unlicense](LICENSE) — Dedicated to the public domain.
