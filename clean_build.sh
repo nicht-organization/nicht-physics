@@ -48,21 +48,23 @@ echo "=== 2. Compiling Article Manuscripts ==="
         echo "----------------------------------------"
         echo "Processing target: $file"
 
-        echo "--> Pass 1/2: Initial layout and reference pass..."
+        echo "--> Pass 1/3: Initial layout pass..."
         pdflatex -interaction=nonstopmode "$file" > /dev/null 2>&1 || true
 
-        echo "--> Pass 2/2: Resolving cross-references..."
-        if pdflatex -interaction=nonstopmode "$file" > /dev/null 2>&1; then
+        echo "--> Pass 2/3: Compiling BibTeX references..."
+        bibtex "$BASE" > /dev/null 2>&1 || true
+
+        echo "--> Pass 3/3: Resolving cross-references and citations..."
+        pdflatex -interaction=nonstopmode "$file" > /dev/null 2>&1 || true
+        pdflatex -interaction=nonstopmode "$file" > /dev/null 2>&1 || true
+
+        if [ -f "${BASE}.pdf" ]; then
             echo "========================================"
             echo "--> SUCCESS: ${BASE}.pdf compiled cleanly!"
             echo "========================================"
         else
-            if [ -f "${BASE}.pdf" ]; then
-                echo "--> WARNING: ${BASE}.pdf generated with minor warnings."
-            else
-                echo "--> ERROR: ${BASE}.pdf failed to compile!"
-                exit 1
-            fi
+            echo "--> ERROR: ${BASE}.pdf failed to compile!"
+            exit 1
         fi
     done
 )
