@@ -1,0 +1,26 @@
+name: Build LaTeX Documents
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX Documents & Monograph
+        uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: latex
+          root_file: |
+            article_forces_and_constants.tex
+
+      - name: Upload PDF Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Compiled-Manuscripts
+          path: latex/*.pdf

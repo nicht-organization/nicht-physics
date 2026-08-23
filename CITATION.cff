@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you cite this work, please use the following metadata."
+title: "Nicht-Physics: Inversions of Fundamental Interactions and Operational Constants"
+authors:
+  - family-names: "xerx593"
+repository-code: "https://github.com/xerx593/nicht-physics"
+license: Unlicense
+version: "1.0.0"
+date-released: 2026-08-23
