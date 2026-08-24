@@ -11,6 +11,16 @@ authors:
 repository-code: "https://github.com/xerx593/nicht-physics"
 url: "https://github.com/xerx593/nicht-physics"
 license: "Unlicense"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22072993"
+    description: "Repository / Software DOI"
+  - type: doi
+    value: "10.5281/zenodo.22077823"
+    description: "Paper I DOI"
+  - type: doi
+    value: "10.5281/zenodo.22078037"
+    description: "Paper II DOI"
 keywords:
   - apophatic-physics
   - zero-consistency
