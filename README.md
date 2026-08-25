@@ -1,8 +1,8 @@
 # Nicht-Physics
 
-[![DOI (Software)](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22072993-blue.svg)](https://doi.org/10.5281/zenodo.22072992)
-[![Paper I DOI](https://img.shields.io/badge/Paper_I-10.5281%2Fzenodo.22077823-blue.svg)](https://doi.org/10.5281/zenodo.22077822)
-[![Paper II DOI](https://img.shields.io/badge/Paper_II-10.5281%2Fzenodo.22078037-blue.svg)](https://doi.org/10.5281/zenodo.22078036)
+[![DOI (Software)](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22072992-blue.svg)](https://doi.org/10.5281/zenodo.22072992)
+[![Paper I DOI](https://img.shields.io/badge/Paper_I-10.5281%2Fzenodo.22077822-blue.svg)](https://doi.org/10.5281/zenodo.22077822)
+[![Paper II DOI](https://img.shields.io/badge/Paper_II-10.5281%2Fzenodo.22078036-blue.svg)](https://doi.org/10.5281/zenodo.22078036)
 [![Monograph DOI](https://img.shields.io/badge/Monograph-10.5281%2Fzenodo.22067674-blue.svg)](https://doi.org/10.5281/zenodo.22067674)
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](LICENSE)
 
