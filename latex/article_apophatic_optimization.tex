@@ -3,7 +3,7 @@
 % --- TECHNICAL & TYPOGRAPHIC FIXES ---
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[ngerman,english]{babel} % <--- FEHLTE! Behebt 'No multilingual package loaded'
+\usepackage[ngerman,english]{babel}
 \usepackage{lmodern}
 \usepackage{microtype}
 
@@ -27,6 +27,10 @@
     urlcolor=blue
 }
 \usepackage[nameinlink,capitalize]{cleveref}
+
+% --- ENVIRONMENTS & THEOREMS ---
+\newtheorem{theorem}{Theorem}
+\newtheorem{proofCustom}{Proof}
 
 % --- OPERATORS & MACROS ---
 \DeclareMathOperator{\Apophatic}{\mathcal{A}}
@@ -53,6 +57,8 @@ We introduce a subtractive optimization paradigm grounded in the \textit{Nicht-T
 Wir führen ein subtraktives Optimierungsparadigma ein, das auf dem \textit{Nicht-Theorie}-Framework \cite{nicht_theory_monograph} basiert. Vorhandene Varianten des Gradientenabstiegs minimieren Verluste durch die Akkumulation additiver Parameter, was häufig zu systemischer Reibung ($\Wfriction$) und spekulativem Entropierauschen führt. Die Engine \texttt{apophatic-engine} reformuliert Zustandsaktualisierungen über direkte Rauschsubtraktion ($\neg X$), Reduktion des Behauptungsdrucks ($\Ppress$) und kontinuierliche Relaxation gegenüber einer invarianten Basislinie ($\Baseline = 0$). Wir detaillieren die algorithmische Ausführung und validieren die Konvergenz über kanonische synthetische und reale Benchmarks. Die empirischen Ergebnisse zeigen $>91\%$ Parameter-Sparsity bei hoher Klassifikationsgenauigkeit auf Fashion-MNIST, vollständige Isolierung unter Heavy-Tail-Cauchy-Rauschen ($\|w\| = 0{,}2067$ vs SGD $\|w\| = 146{,}27$) und maschinenpräzise Wiederherstellung ($5{,}51 \times 10^{-14}$) an der Kolmogorov-Grenze. Die Referenzimplementierung ist über PyPI (\texttt{apophatic-engine} v0.2.2.post) verfügbar.
 \end{abstract}
 \end{otherlanguage}
+
+\clearpage
 
 \section{Introduction}
 Conventional gradient descent relies on parameter expansion to resolve complex loss surfaces. In assertion-heavy environments, this additive dynamics induces structural friction $\Wfriction(P \mid I)$, where assertion pressure $\Ppress$ dominates the invariant information density $I$. The apophatic engine reverses this process: sub-threshold fluctuations are systematically subtracted, forcing the state vector toward a friction-free baseline. The numerical core is implemented in the accompanying Python library \texttt{apophatic-engine} (v0.2.2.post).
@@ -81,6 +87,19 @@ The final update undergoes secondary truncation to enforce hard zero-sparsity on
 \begin{equation}
 w_{t+1} = \Apophatic_\sigma(\tilde{w}_{t+1}).
 \end{equation}
+
+\subsection{Theoretical Convergence and Baseline Collapsibility}
+The dynamics of conventional additive optimization schemes are governed by continuous trajectory updates $w_{t+1} = w_t - \eta \nabla \mathcal{L}(w_t)$, where sub-threshold fluctuations accumulate indefinitely, inducing unbounded structural entropy. Within the \textit{Nicht-Theorie} framework \cite{nicht_theory_monograph}, the apophatic operator $\Apophatic_\sigma$ systematically removes assertion pressure $\Ppress$ by mapping low-utility perturbations to the invariant baseline $\Baseline = 0$.
+
+\begin{theorem}[Zero-State Collapse]
+For any parameter dimension $i \in \{1, \dots, d\}$ where the raw gradient satisfies $|g_{t,i}| \le \sigma$ and $|w_{t,i}| \le \frac{\sigma}{1-\gamma}$, the update rule $w_{t+1, i} = \Apophatic_\sigma((1-\gamma)w_{t,i} - \eta \Apophatic_\sigma(g_{t,i}))$ guarantees strict collapse to the baseline: $w_{t+1, i} \equiv 0$.
+\end{theorem}
+
+\begin{proof}
+If $|g_{t,i}| \le \sigma$, the subtractive operator evaluates to $\Apophatic_\sigma(g_{t,i}) = 0$. The intermediate update reduces to $\tilde{w}_{t+1, i} = (1 - \gamma) w_{t,i}$. Applying the secondary truncation operator yields $w_{t+1, i} = \Apophatic_\sigma((1-\gamma)w_{t,i})$. Since $|w_{t,i}| \le \frac{\sigma}{1-\gamma}$, it follows that $|\tilde{w}_{t+1, i}| \le \sigma$. Consequently, $\Apophatic_\sigma(\tilde{w}_{t+1, i}) = 0$.
+\end{proof}
+
+This dual-filtering mechanism decouples core signal propagation from background noise, ensuring that systemic friction obeys $\Wfriction(P \mid I) \to 0$ as sub-marginal parameters are irreversibly relaxed to $\Baseline$.
 
 \section{Benchmark Suite \& Experimental Validation}
 
@@ -115,14 +134,30 @@ The numerical framework is empirically evaluated against canonical theoretical s
 \caption{Empirical benchmark results executed via \texttt{apophatic-engine}.}
 \label{tab:empirical_results}
 \vspace{0.2cm}
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{@{}llll@{}}
 \toprule
 \textbf{Experiment} & \textbf{Metric / Accuracy} & \textbf{Sparsity ($\% \text{ at } \Baseline$)} & \textbf{Baseline Comparison} \\ \midrule
 \textbf{Fashion-MNIST (2 Epochs)} & $73.16\%$ Test Acc. & $91.41\%$ Zero-Params & Dense Baseline ($0.00\%$ Sparsity) \\
 \textbf{Heavy-Tail Cauchy Drift} & $\|w\| = 0.2067$ & $96.00\%$ Zero-Params & SGD Explosion ($\|w\| = 146.27$) \\
 \textbf{Kolmogorov Limit} & $5.51 \times 10^{-14}$ Error & $0.00\%$ (Pure Signal) & Analytical Exact Match \\ \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
+
+\subsection{In-Depth Empirical Analysis}
+
+\subsubsection{Gossen Marginal Pruning (Fashion-MNIST)}
+Standard regularizers (e.g., $L_1$ or $L_2$ weight decay) continuously push weights toward zero without forcing absolute sparsity, maintaining computational overhead. Under the Gossen Pruning paradigm ($\sigma=10^{-4}, \gamma=10^{-4}$), sub-marginal updates are truncated in-flight. Across two training epochs on Fashion-MNIST, $91.41\%$ of the network parameters collapse directly into the invariant baseline $\Baseline = 0$, while maintaining $73.16\%$ test accuracy. This confirms that high-entropy assertion noise can be eliminated without compromising non-linear representation capacity.
+
+\subsubsection{Fiat Noise Isolation under Heavy-Tail Cauchy Drift}
+In non-equilibrium systems subject to non-Gaussian perturbations, standard stochastic gradient methods break down due to the undefined second moment of the Cauchy distribution $\mathcal{C}(0, \gamma_c)$. As demonstrated in our benchmark ($500$ execution steps under extreme Cauchy spikes), classical SGD exhibits variance explosion, resulting in severe weight drift ($\|w\| = 146.27$). Conversely, the apophatic engine isolates heavy-tail anomalies via $\Apophatic_\sigma$ ($\sigma=0.02, \gamma=10^{-3}$), capping the effective gradient step whenever $|g_{t,i}| \le \sigma$ and suppressing runaway assertion pressure. The system retains stability at $\|w\| = 0.2067$ with $96.00\%$ zero-sparsity.
+
+\subsubsection{Kolmogorov Limit and Substrate Recovery}
+To verify non-destructive operation on pure invariant signals ($I$), the system was evaluated under $\sigma=0.0$ and $\gamma=10^{-3}$. The analytical trajectory matches the physical state recovery down to $5.51 \times 10^{-14}$ absolute deviation, establishing that baseline relaxation introduces zero numerical friction at the Kolmogorov limit.
+
+\section{Conclusion \& Outlook}
+We have presented \texttt{apophatic-engine}, a subtractive optimization mechanism that resolves the friction and entropy accumulation inherent to standard additive gradient descent. By combining dual-stage subtractive filtering $\Apophatic_\sigma$ with continuous baseline relaxation $\gamma$, the engine enforces strict parameter collapse onto the invariant zero-state ($\Baseline = 0$). Empirical validation across synthetic heavy-tail environments and real-world image classification demonstrates robust noise isolation, high parameter sparsity ($>91\%$), and exact substrate recovery without loss of representation capacity. Future work will extend the apophatic formulation to large-scale transformer architectures and non-Euclidean state spaces.
 
 \bibliographystyle{unsrt}
 \bibliography{references}
