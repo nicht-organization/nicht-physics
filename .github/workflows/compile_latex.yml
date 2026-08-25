@@ -17,6 +17,7 @@ jobs:
         with:
           working_directory: latex
           root_file: |
+            article_apophatic_optimization.tex
             article_forces_and_constants.tex
             article_yang_mills_mass_gap.tex
           args: "-pdf -bibtex -file-line-error -interaction=nonstopmode"
