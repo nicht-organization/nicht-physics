@@ -3,6 +3,7 @@
 % --- TECHNICAL & TYPOGRAPHIC FIXES ---
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[ngerman,english]{babel} % <--- FEHLTE! Behebt 'No multilingual package loaded'
 \usepackage{lmodern}
 \usepackage{microtype}
 
@@ -97,7 +98,7 @@ The numerical framework is empirically evaluated against canonical theoretical s
 \caption{Consolidated empirical test suite specifications and theoretical bounds.}
 \label{tab:benchmarks}
 \vspace{0.2cm}
-\resizebox{\textwidth}{!}{%
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{@{}llll@{}}
 \toprule
 \textbf{Benchmark} & \textbf{Input Data ($X$, $g$)} & \textbf{Parameters ($\sigma, \gamma$)} & \textbf{Target Expectation} \\ \midrule
