@@ -1,7 +1,7 @@
 cff-version: 1.2.0
-message: "If you cite this repository or any of its manuscripts, please use the following metadata."
-title: "Nicht-Physics: Publication Series on 0-Consistency Physics"
-abstract: "A formal 0-consistency inversion of classical positive physics (1-logic). Models fundamental interactions, operational limits (c, h, G), the Yang-Mills mass gap, and non-perturbative boundary limits as scale-dependent friction limits (Wéi) and measurement noise (sigma) against the invariant zero-baseline (B₀)."
+message: "If you cite this repository, its underlying empirical frameworks, or any of its manuscripts, please use the following metadata."
+title: "Nicht-Physics & Empirical Inversions: Publication Series on 0-Consistency Physics and Apophatic Dynamics"
+abstract: "A formal 0-consistency inversion of classical positive physics (1-logic), cognitive AI architectures, and socio-economic systems. Models fundamental interactions, operational limits (c, h, G), the Yang-Mills mass gap, non-equilibrium optimization, and non-perturbative boundary limits as scale-dependent friction limits (Wéi) and subtractive noise filtering against the invariant zero-baseline (B₀)."
 authors:
   - name: "xerx593"
     affiliation: "Institute of Applied Not-(but-(the-)only-)Knowledge"
@@ -14,13 +14,16 @@ license: "Unlicense"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.22072992"
-    description: "Repository / Software DOI"
+    description: "Repository / Software Core Archival DOI"
   - type: doi
     value: "10.5281/zenodo.22077822"
-    description: "Paper I DOI"
+    description: "Paper I DOI: The Inversion of Fundamental Interactions"
   - type: doi
     value: "10.5281/zenodo.22078036"
-    description: "Paper II DOI"
+    description: "Paper II DOI: The Apophatic Resolution of the Yang-Mills Mass Gap"
+  - type: doi
+    value: "10.5281/zenodo.22098363"
+    description: "Special Edition DOI: Apophatic Optimization in Non-Equilibrium Systems"
 keywords:
   - apophatic-physics
   - zero-consistency
@@ -31,5 +34,17 @@ keywords:
   - dimensional-constants
   - aperture-noise
   - zero-baseline
-version: "0.0.1"
-date-released: "2026-08-23"
+  - apophatic-engine
+  - subtractive-optimization
+  - baseline-relaxation
+  - heavy-tail-isolation
+  - non-equilibrium-systems
+  - optimization
+  - subtractive-gradient-filtering
+  - nicht-theory
+  - noise-subtraction
+  - parameter-sparsity
+  - kolmogorov-limit
+  - machine-learning
+version: "0.0.3"
+date-released: "2026-08-25"
