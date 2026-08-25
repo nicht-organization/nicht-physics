@@ -47,20 +47,20 @@
 
 \begin{abstract}
 \textbf{Abstract} \\
-We introduce a subtractive optimization paradigm grounded in the \textit{Nicht-Theorie} framework \cite{nicht_theory_monograph}. Traditional gradient descent variants minimize loss by accumulating additive parameters, frequently inducing systemic friction ($\Wfriction$) and speculative high-entropy noise. The \texttt{apophatic-engine} reformulates updates via direct noise subtraction ($\neg X$), assertion pressure reduction ($\Ppress$), and continuous relaxation toward an invariant baseline ($\Baseline = 0$). We formally detail the algorithmic execution and validate convergence across canonical synthetic and real-world benchmarks. Empirical results demonstrate $>91\%$ parameter sparsity while maintaining classification accuracy on Fashion-MNIST, complete isolation under Heavy-Tail Cauchy noise ($\|w\| = 0.2067$ vs SGD $\|w\| = 146.27$), and machine-precision substrate recovery ($5.51 \times 10^{-14}$) at the Kolmogorov limit. The reference implementation is available via PyPI (\texttt{apophatic-engine} v0.2.2.post) and maintained at \url{https://github.com/nicht-organization/apophatic-opt}.
+We introduce a subtractive optimization paradigm grounded in the \textit{Nicht-Theorie} framework \cite{nicht_theory_monograph}. Traditional gradient descent variants minimize loss by accumulating additive parameters, frequently inducing systemic friction ($\Wfriction$) and speculative high-entropy noise. The \texttt{apophatic-engine} reformulates updates via direct noise subtraction ($\neg X$), assertion pressure reduction ($\Ppress$), and continuous relaxation toward an invariant baseline ($\Baseline = 0$). We formally detail the algorithmic execution and validate convergence across canonical synthetic and real-world benchmarks. Empirical results demonstrate $>91\%$ parameter sparsity while maintaining classification accuracy on Fashion-MNIST, complete isolation under Heavy-Tail Cauchy noise ($\|w\| = 0.2067$ vs SGD $\|w\| = 146.27$), and machine-precision substrate recovery ($5.51 \times 10^{-14}$) at the Kolmogorov limit. The reference implementation is available via PyPI \cite{apophatic_engine_pypi} and maintained as an open-source benchmark suite \cite{apophatic_opt_pypi}.
 \end{abstract}
 
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
 \textbf{Zusammenfassung} \\
-Wir führen ein subtraktives Optimierungsparadigma ein, das auf dem \textit{Nicht-Theorie}-Framework \cite{nicht_theory_monograph} basiert. Vorhandene Varianten des Gradientenabstiegs minimieren Verluste durch die Akkumulation additiver Parameter, was häufig zu systemischer Reibung ($\Wfriction$) und spekulativem Entropierauschen führt. Die Engine \texttt{apophatic-engine} reformuliert Zustandsaktualisierungen über direkte Rauschsubtraktion ($\neg X$), Reduktion des Behauptungsdrucks ($\Ppress$) und kontinuierliche Relaxation gegenüber einer invarianten Basislinie ($\Baseline = 0$). Wir detaillieren die algorithmische Ausführung und validieren die Konvergenz über kanonische synthetische und reale Benchmarks. Die empirischen Ergebnisse zeigen $>91\%$ Parameter-Sparsity bei hoher Klassifikationsgenauigkeit auf Fashion-MNIST, vollständige Isolierung unter Heavy-Tail-Cauchy-Rauschen ($\|w\| = 0{,}2067$ vs SGD $\|w\| = 146{,}27$) und maschinenpräzise Wiederherstellung ($5{,}51 \times 10^{-14}$) an der Kolmogorov-Grenze. Die Referenzimplementierung ist über PyPI (\texttt{apophatic-engine} v0.2.2.post) verfügbar.
+Wir führen ein subtraktives Optimierungsparadigma ein, das auf dem \textit{Nicht-Theorie}-Framework \cite{nicht_theory_monograph} basiert. Vorhandene Varianten des Gradientenabstiegs minimieren Verluste durch die Akkumulation additiver Parameter, was häufig zu systemischer Reibung ($\Wfriction$) und spekulativem Entropierauschen führt. Die Engine \texttt{apophatic-engine} reformuliert Zustandsaktualisierungen über direkte Rauschsubtraktion ($\neg X$), Reduktion des Behauptungsdrucks ($\Ppress$) und kontinuierliche Relaxation gegenüber einer invarianten Basislinie ($\Baseline = 0$). Wir detaillieren die algorithmische Ausführung und validieren die Konvergenz über kanonische synthetische und reale Benchmarks. Die empirischen Ergebnisse zeigen $>91\%$ Parameter-Sparsity bei hoher Klassifikationsgenauigkeit auf Fashion-MNIST, vollständige Isolierung unter Heavy-Tail-Cauchy-Rauschen ($\|w\| = 0{,}2067$ vs SGD $\|w\| = 146{,}27$) und maschinenpräzise Wiederherstellung ($5{,}51 \times 10^{-14}$) an der Kolmogorov-Grenze. Die Referenzimplementierung ist über PyPI \cite{apophatic_engine_pypi} verfügbar und wird als Benchmark-Suite gepflegt \cite{apophatic_opt_pypi}.
 \end{abstract}
 \end{otherlanguage}
 
 \clearpage
 
 \section{Introduction}
-Conventional gradient descent relies on parameter expansion to resolve complex loss surfaces. In assertion-heavy environments, this additive dynamics induces structural friction $\Wfriction(P \mid I)$, where assertion pressure $\Ppress$ dominates the invariant information density $I$. The apophatic engine reverses this process: sub-threshold fluctuations are systematically subtracted, forcing the state vector toward a friction-free baseline. The numerical core is implemented in the accompanying Python library \texttt{apophatic-engine} (v0.2.2.post).
+Conventional gradient descent relies on parameter expansion to resolve complex loss surfaces. In assertion-heavy environments, this additive dynamics induces structural friction $\Wfriction(P \mid I)$, where assertion pressure $\Ppress$ dominates the invariant information density $I$. The apophatic engine reverses this process: sub-threshold fluctuations are systematically subtracted, forcing the state vector toward a friction-free baseline. The numerical core is implemented in the Python package \texttt{apophatic-engine} \cite{apophatic_engine_pypi}, while the companion empirical validation framework is distributed via \texttt{apophatic-opt} \cite{apophatic_opt_pypi}. Theoretical foundations derive from the overarching monograph series \cite{nicht_theory_monograph}.
 
 \section{Algorithmic Mechanics \& Formalism}
 
@@ -77,7 +77,7 @@ g_{t, i} & \text{if } |g_{t, i}| > \sigma, \\
 \end{equation}
 
 \subsection{Baseline Relaxation \& State Collapse}
-The intermediate candidate state $\tilde{w}_{t+1}$ incorporates directional gradient step and continuous relaxation toward $\Baseline = 0$:
+The intermediate candidate state $\tilde{w}_{t+1}$ incorporates a directional gradient step and continuous relaxation toward $\Baseline = 0$:
 \begin{equation}
 \tilde{w}_{t+1} = w_t - \eta \Apophatic_\sigma(g_t) - \gamma w_t.
 \end{equation}
@@ -102,12 +102,12 @@ This dual-filtering mechanism decouples core signal propagation from background 
 
 \section{Benchmark Suite \& Experimental Validation}
 
-The numerical framework is empirically evaluated against canonical theoretical specifications and real-world high-entropy tasks. \Cref{tab:benchmarks} outlines the theoretical test suite parameters, while \Cref{tab:empirical_results} summarizes the empirical validation metrics obtained from the companion test suite in \texttt{apophatic-opt}.
+The numerical framework is empirically evaluated against canonical theoretical specifications and real-world high-entropy tasks using the reference validation suite \cite{apophatic_opt_pypi}. \Cref{tab:benchmarks} outlines the theoretical test suite parameters, while \Cref{tab:empirical_results} summarizes the empirical validation metrics obtained from execution of \texttt{apophatic-engine} \cite{apophatic_engine_pypi}.
 
 \begin{itemize}
     \item \textbf{Jevons Rebound Cancellation}: Input gradients $g \sim \mathcal{N}(2, 0.5)$ under $\sigma=0.5, \gamma=0.01$. Asserts containment of capacity inflation, bounding systemic weight growth ($\|w\| \le C$).
     \item \textbf{Gossen Marginal Pruning (Fashion-MNIST)}: Tested on real-world high-dimensional image classification ($\sigma=10^{-4}, \gamma=10^{-4}$). Demonstrates rapid collapse of uninformative parameters to absolute zero ($\Baseline$), achieving $91.41\%$ sparsity while retaining $73.16\%$ test accuracy.
-    \item \textbf{Fiat Noise Isolation (Heavy-Tail Drift)}: Evaluated under extreme non-Gaussian Cauchy noise spikes over $500$ steps ($\sigma=0.02, \gamma=10^{-3}$). While standard SGD explodes ($\|w\| = 146.27$), \texttt{apophatic-opt} contains the weight norm at $\|w\| = 0.2067$ with $96.00\%$ parameter sparsity.
+    \item \textbf{Fiat Noise Isolation (Heavy-Tail Drift)}: Evaluated under extreme non-Gaussian Cauchy noise spikes over $500$ steps ($\sigma=0.02, \gamma=10^{-3}$). While standard SGD explodes ($\|w\| = 146.27$), \texttt{apophatic-engine} contains the weight norm at $\|w\| = 0.2067$ with $96.00\%$ parameter sparsity.
     \item \textbf{Kolmogorov Friction Limits}: Pure invariant signal recovery under $\sigma=0.0, \gamma=10^{-3}$. Verifies analytical equilibrium convergence with exact machine precision deviation ($5.51 \times 10^{-14}$), proving zero friction ($\Wfriction \to 0$).
 \end{itemize}
 
@@ -130,7 +130,7 @@ The numerical framework is empirically evaluated against canonical theoretical s
 
 \begin{table}[htbp]
 \centering
-\caption{Empirical benchmark results executed via \texttt{apophatic-engine}.}
+\caption{Empirical benchmark results executed via \texttt{apophatic-engine} \cite{apophatic_engine_pypi}.}
 \label{tab:empirical_results}
 \vspace{0.2cm}
 \resizebox{\linewidth}{!}{%
