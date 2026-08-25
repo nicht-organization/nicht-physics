@@ -30,7 +30,6 @@
 
 % --- ENVIRONMENTS & THEOREMS ---
 \newtheorem{theorem}{Theorem}
-\newtheorem{proofCustom}{Proof}
 
 % --- OPERATORS & MACROS ---
 \DeclareMathOperator{\Apophatic}{\mathcal{A}}
@@ -65,7 +64,7 @@ Conventional gradient descent relies on parameter expansion to resolve complex l
 
 \section{Algorithmic Mechanics \& Formalism}
 
-Given a weight vector $w_t \in \mathbb{R}^d$, learning rate $\eta$, threshold $\sigma > 0$, and baseline relaxation factor $\gamma \in (0, 1)$:
+Given a weight vector $w_t \in \mathbb{R}^d$, learning rate $\eta > 0$, threshold $\sigma > 0$, and baseline relaxation factor $\gamma \in (0, 1)$:
 
 \subsection{Subtractive Gradient Filtering}
 The subtractive operator $\Apophatic_\sigma$ evaluates raw gradients $g_t = \nabla \mathcal{L}(w_t)$ element-wise:
