@@ -3,6 +3,7 @@
 [![DOI (Software)](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22072992-blue.svg)](https://doi.org/10.5281/zenodo.22072992)
 [![Paper I DOI](https://img.shields.io/badge/Paper_I-10.5281%2Fzenodo.22077822-blue.svg)](https://doi.org/10.5281/zenodo.22077822)
 [![Paper II DOI](https://img.shields.io/badge/Paper_II-10.5281%2Fzenodo.22078036-blue.svg)](https://doi.org/10.5281/zenodo.22078036)
+[![Special Edition I DOI](https://img.shields.io/badge/Special_Edition_I-10.5281%2Fzenodo.22098363-blue.svg)](https://doi.org/10.5281/zenodo.22098363)
 [![Monograph DOI](https://img.shields.io/badge/Monograph-10.5281%2Fzenodo.22067674-blue.svg)](https://doi.org/10.5281/zenodo.22067674)
 [![PyPI - apophatic-engine](https://img.shields.io/pypi/v/apophatic-engine.svg)](https://pypi.org/project/apophatic-engine/)
 [![PyPI - apophatic-opt](https://img.shields.io/pypi/v/apophatic-opt.svg)](https://pypi.org/project/apophatic-opt/)
@@ -39,7 +40,7 @@ This repository serves as the unified empirical and analytical publication hub e
 
 ### Special Empirical & Interdisciplinary Edition
 
-#### Special Edition: Apophatic Optimization in Non-Equilibrium Systems
+#### Special Edition I: Apophatic Optimization in Non-Equilibrium Systems
 * **DOI / Archival:** [10.5281/zenodo.22098363](https://doi.org/10.5281/zenodo.22098363)
 * **Focus:** Algorithmic realization of subtractive gradient filtering ($\mathcal{A}_\sigma$), assertion pressure decay ($P_A \to 0$), and baseline relaxation ($B_0 = 0$). Includes empirical benchmarks covering Heavy-Tail Cauchy noise containment, high-sparsity representation ($>91\%$ on Fashion-MNIST), and Kolmogorov substrate recovery.
 
