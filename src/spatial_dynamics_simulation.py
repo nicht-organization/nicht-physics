@@ -1,12 +1,11 @@
-#ci
 import argparse
 import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 def run_spatial_simulation(
-    tft_mode="optimistic",
+    mode="multi",           # "multi", "pure_tft_c", "pure_tft_d", "pure_tft_rand"
+    tft_mode="optimistic",  # "optimistic" (TFT_DC) or "defensive" (TFT_DD) for multi mode
     grid_size=64,
     steps=250,
     seed=42,
@@ -20,15 +19,22 @@ def run_spatial_simulation(
     # 1 = Exploitative Defector (D, PA >> 0)
     # 2 = Tit-For-Tat (TFT)
     # 3 = Pseudo-Random (sigma-Noise)
-    strategies = np.random.choice([0, 1, 2, 3], size=(grid_size, grid_size))
-
-    # Initial Memory Posture for TFT
-    # "optimistic" (TFT_DC) -> starts with C (0)
-    # "defensive"  (TFT_DD) -> starts with D (1), triggering immediate Wei spike at t=0
-    if tft_mode == "defensive":
-        last_opponent_move = np.ones((grid_size, grid_size))
+    
+    if mode == "multi":
+        strategies = np.random.choice([0, 1, 2, 3], size=(grid_size, grid_size))
+        if tft_mode == "defensive":
+            last_opponent_move = np.ones((grid_size, grid_size))
+        else:
+            last_opponent_move = np.zeros((grid_size, grid_size))
     else:
-        last_opponent_move = np.zeros((grid_size, grid_size))
+        # Pure TFT grids
+        strategies = np.full((grid_size, grid_size), 2)
+        if mode == "pure_tft_c":
+            last_opponent_move = np.zeros((grid_size, grid_size))
+        elif mode == "pure_tft_d":
+            last_opponent_move = np.ones((grid_size, grid_size))
+        elif mode == "pure_tft_rand":
+            last_opponent_move = np.random.choice([0, 1], size=(grid_size, grid_size))
 
     resources = np.ones((grid_size, grid_size)) * 100.0
     energy = np.ones((grid_size, grid_size)) * 10.0
@@ -108,39 +114,26 @@ def run_spatial_simulation(
     # Plotting Figure Output
     fig, ax1 = plt.subplots(figsize=(10, 5))
 
-    mode_label = (
-        r"$\text{TFT}_{DC}$ (Optimistic)"
-        if tft_mode == "optimistic"
-        else r"$\text{TFT}_{DD}$ (Defensive)"
-    )
-
-    ax1.plot(
-        history_b0,
-        label=r"Apophatic Baseline ($B_0, P_A \to 0$)",
-        color="blue",
-        linewidth=2,
-    )
-    ax1.plot(
-        history_d,
-        label=r"Exploitative Defector ($P_A \gg 0$)",
-        color="red",
-        linestyle="--",
-        linewidth=1.5,
-    )
-    ax1.plot(
-        history_tft,
-        label=f"Tit-for-Tat ({mode_label})",
-        color="orange",
-        linestyle="-.",
-        linewidth=1.5,
-    )
-    ax1.plot(
-        history_rand,
-        label=r"Pseudo-Random ($\sigma$-Noise)",
-        color="purple",
-        linestyle=":",
-        linewidth=1.5,
-    )
+    if mode == "multi":
+        mode_label = (
+            r"$\text{TFT}_{DC}$ (Optimistic)"
+            if tft_mode == "optimistic"
+            else r"$\text{TFT}_{DD}$ (Defensive)"
+        )
+        ax1.plot(history_b0, label=r"Apophatic Baseline ($B_0, P_A \to 0$)", color="blue", linewidth=2)
+        ax1.plot(history_d, label=r"Exploitative Defector ($P_A \gg 0$)", color="red", linestyle="--", linewidth=1.5)
+        ax1.plot(history_tft, label=f"Tit-for-Tat ({mode_label})", color="orange", linestyle="-.", linewidth=1.5)
+        ax1.plot(history_rand, label=r"Pseudo-Random ($\sigma$-Noise)", color="purple", linestyle=":", linewidth=1.5)
+        title_str = f"Multi-Strategy Spatial Dynamics [{tft_mode.capitalize()} Start]"
+    elif mode == "pure_tft_c":
+        ax1.plot(history_tft, label=r"Pure $\text{TFT}_{DC}$ Population", color="orange", linewidth=2)
+        title_str = r"Pure Spatial Dynamics: 100% $\text{TFT}_{DC}$ (Full Cooperative Start)"
+    elif mode == "pure_tft_d":
+        ax1.plot(history_tft, label=r"Pure $\text{TFT}_{DD}$ Population", color="darkorange", linewidth=2)
+        title_str = r"Pure Spatial Dynamics: 100% $\text{TFT}_{DD}$ (Full Defensive Start)"
+    elif mode == "pure_tft_rand":
+        ax1.plot(history_tft, label=r"Pure Random TFT Population", color="chocolate", linewidth=2)
+        title_str = "Pure Spatial Dynamics: 100% Random-Initialized TFT"
 
     ax1.set_xlabel("Generations / Time Steps (t)")
     ax1.set_ylabel("Population Count")
@@ -157,14 +150,13 @@ def run_spatial_simulation(
     )
     ax2.set_ylabel(r"Thermal Friction Spikes ($Wéi$)", color="darkred")
 
-    title_str = f"Multi-Strategy Spatial Dynamics: Thermal Friction Selection [{tft_mode.capitalize()} Start]"
     plt.title(title_str)
     plt.tight_layout()
 
     if save_path:
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
         plt.savefig(save_path, dpi=300)
-        print(f"[{tft_mode}] Plot successfully saved to {save_path}")
+        print(f"[{mode} / {tft_mode}] Plot successfully saved to {save_path}")
 
     if show_plot:
         plt.show()
@@ -173,34 +165,44 @@ def run_spatial_simulation(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Run Spatial Apophatic Dynamics Simulation"
-    )
-    parser.add_argument(
-        "--steps", type=int, default=250, help="Number of generations"
-    )
-    parser.add_argument(
-        "--out_dir",
-        type=str,
-        default="latex/images",
-        help="Directory to save output figures",
-    )
+    parser = argparse.ArgumentParser(description="Run Spatial Dynamics Simulation Scenarios")
+    parser.add_argument("--steps", type=int, default=250, help="Number of generations")
+    parser.add_argument("--out_dir", type=str, default="latex/images", help="Output directory")
     args = parser.parse_args()
 
-    # Generate Optimistic Plot (TFT_DC) -> latex/images/multi_strategy_friction_selection-tftdc.png
+    # 1a. Multi-Strategy: Optimistic Start (TFT_DC)
     run_spatial_simulation(
+        mode="multi",
         tft_mode="optimistic",
         steps=args.steps,
-        save_path=os.path.join(
-            args.out_dir, "multi_strategy_friction_selection-tftdc.png"
-        ),
+        save_path=os.path.join(args.out_dir, "multi_strategy_friction_selection-tftdc.png"),
     )
 
-    # Generate Defensive Plot (TFT_DD) -> latex/images/multi_strategy_friction_selection-tftdd.png
+    # 1b. Multi-Strategy: Defensive Start (TFT_DD)
     run_spatial_simulation(
+        mode="multi",
         tft_mode="defensive",
         steps=args.steps,
-        save_path=os.path.join(
-            args.out_dir, "multi_strategy_friction_selection-tftdd.png"
-        ),
+        save_path=os.path.join(args.out_dir, "multi_strategy_friction_selection-tftdd.png"),
+    )
+
+    # 2. Pure TFT_DC (Full Cooperative Start)
+    run_spatial_simulation(
+        mode="pure_tft_c",
+        steps=args.steps,
+        save_path=os.path.join(args.out_dir, "pure_tft_cooperative_start.png"),
+    )
+
+    # 3. Pure TFT_DD (Full Defensive Start)
+    run_spatial_simulation(
+        mode="pure_tft_d",
+        steps=args.steps,
+        save_path=os.path.join(args.out_dir, "pure_tft_defensive_start.png"),
+    )
+
+    # 4. Pure Random-Initialized TFT
+    run_spatial_simulation(
+        mode="pure_tft_rand",
+        steps=args.steps,
+        save_path=os.path.join(args.out_dir, "pure_tft_random_start.png"),
     )
