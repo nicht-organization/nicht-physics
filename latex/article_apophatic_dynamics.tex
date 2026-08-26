@@ -1,0 +1,88 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- ENCODING & SPRACHE ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman,main=english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% --- MATH & GRAPHICS ---
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{hyperref}
+
+\title{\textbf{Nicht-Physics: Paper IV --- Spatial Apophatic Dynamics}\\
+\large Thermal Friction Selection, Gaussian Containment, and Initial Posture Bounds}
+\author{\textbf{xerx593} \quad \& \quad \textbf{Non-Human Interlocutors}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% --- DEUTSCHER ABSTRACT ---
+\begin{otherlanguage}{ngerman}
+\begin{abstract}
+\textbf{Zusammenfassung} \\
+Wir erweitern das 0-Konsistenz-Framework auf räumliche Spiel-Dynamiken unter kontinuierlichem Entropie-Rauschen ($\sigma$). Durch die Evaluierung von vier konkurrierenden Verhaltens-Archetypen auf einem $64 \times 64$-Torus-Gitter zeigen wir, dass reaktive Anpassungsstrategien (Tit-for-Tat) strikt an der oberen stochastischen Gauß-Varianzgrenze ($\approx 87{,}5\%$-Quantil) asymptotisch verharren. Defensive Initial-Haltungen ($\text{TFT}_{DD}$) erzeugen sofortige thermische Reibungsspitzen ($\text{Wéi}$) bei $t=0$, was zu hoher anfänglicher Volatilität führt. Die reine Nicht-Behauptung ($B_0$) erweist sich als einziger reibungsfreier Fixpunkt, der das verbleibende Raumgitter nahtlos absorbiert.
+\end{abstract}
+\end{otherlanguage}
+
+\vspace{0.3cm}
+
+% --- ENGLISCHER ABSTRACT ---
+\begin{abstract}
+\textbf{Abstract} \\
+We extend the 0-Consistency Framework \cite{nicht_theory_monograph} to spatial game dynamics under continuous background noise ($\sigma$). Evaluating four competing behavioral archetypes on a $64 \times 64$ lattice, we demonstrate that reactive adaptation ($\text{TFT}$) strictly asymptotes at the upper stochastic Gaussian variance boundary ($\approx 87.5\%$ quantile). Initial defensive postures ($\text{TFT}_{DD}$) induce immediate thermal friction spikes ($\text{Wéi}$) at $t=0$, causing high initial volatility. Pure non-assertion ($B_0$) proves to be the sole friction-free fixed point, smoothly absorbing the unconstrained spatial domain.
+\end{abstract}
+
+\section{Strategy Taxonomy \& Initial Conditions}
+To test the resilience of the apophatic equilibrium ($B_0$), we examine four distinct spatial strategies under pseudo-random noise ($\sigma$) within the framework of scaling hierarchies \cite{nicht_physics_paper_1}:
+\begin{enumerate}
+    \item \textbf{Apophatic Baseline ($C \in B_0$):} Zero assertion pressure ($P_A \to 0$), absorbing spatial domains without friction.
+    \item \textbf{Exploitative Defector ($D \in P_A$):} Hyper-extraction incurring immediate continuous thermal friction ($\text{Wéi} = \lambda P_A$).
+    \item \textbf{Tit-for-Tat Variations ($\text{TFT}$):}
+    \begin{itemize}
+        \item \textit{Optimistic Initiation ($\text{TFT}_{DC}$):} Starts with default cooperation ($C$ at $t=0$).
+        \item \textit{Defensive Initiation ($\text{TFT}_{DD}$):} Starts with default defection ($D$ at $t=0$), incurring an instant friction penalty ($\text{Wéi}$) at step zero.
+    \end{itemize}
+    \item \textbf{Pseudo-Random ($\sigma$-Noise):} Pure unguided stochastic entropy ($P(C) = 0.5$).
+\end{enumerate}
+
+\section{Spatial Dynamics \& Quantile Containment}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/multi_strategy_friction_selection-tftdc.png}
+    \caption{Optimistic Tit-for-Tat ($\text{TFT}_{DC}$)}
+    \label{fig:tft_dc}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/multi_strategy_friction_selection-tftdd.png}
+    \caption{Defensive Tit-for-Tat ($\text{TFT}_{DD}$)}
+    \label{fig:tft_dd}
+  \end{subfigure}
+  \caption{\textbf{Empirical Spatial Dynamics and Gaussian Quantile Containment.} 
+  While optimistic $\text{TFT}_{DC}$ smooths initial state transitions (a), defensive $\text{TFT}_{DD}$ (b) triggers an immediate sharp friction spike ($\text{Wéi}$) at $t=0$. In both topologies, reactive strategies lock strictly onto the stochastic Gaussian variance boundary ($\approx 87.5\%$ quantile), whereas apophatic baseline agents ($B_0$) smoothly absorb the remaining spatial equilibrium.}
+  \label{fig:spatial_friction_comparison}
+\end{figure}
+
+\section{The Stochastic Gaussian Quantile Boundary}
+Under continuous pseudo-random fluctuations ($\sigma$), the state distribution converges via the Central Limit Theorem toward $\mathcal{N}(\mu, \sigma^2)$. The population limit of reactive Tit-for-Tat strategies is bounded by the upper cumulative Gaussian quantile threshold:
+\begin{equation}
+\lim_{t \to \infty} \Phi(\text{TFT}) \approx 1 - \alpha \quad (\text{where } 1 - \alpha \approx 87.5\%)
+\end{equation}
+Defective assertion postures ($P_A \gg 0$) collapse to absolute extinction ($D \to 0$), establishing non-assertion ($B_0$) as the thermally stable baseline equilibrium, consistent with non-perturbative boundary limits \cite{nicht_physics_paper_2}.
+
+\bibliographystyle{unsrt}
+\bibliography{reference}
+
+\end{document}
