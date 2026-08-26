@@ -2,7 +2,7 @@ name: Build LaTeX Documents
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feat/article4"]
   workflow_dispatch:
 
 jobs:
