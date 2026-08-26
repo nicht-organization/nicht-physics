@@ -175,7 +175,7 @@ if __name__ == "__main__":
         mode="multi",
         tft_mode="optimistic",
         steps=args.steps,
-        save_path=os.path.join(args.out_dir, "multi_strategy_friction_selection-tftdc.png"),
+        save_path=os.path.join(args.out_dir, "multi_selection-tftdc.png"),
     )
 
     # 1b. Multi-Strategy: Defensive Start (TFT_DD)
@@ -183,7 +183,7 @@ if __name__ == "__main__":
         mode="multi",
         tft_mode="defensive",
         steps=args.steps,
-        save_path=os.path.join(args.out_dir, "multi_strategy_friction_selection-tftdd.png"),
+        save_path=os.path.join(args.out_dir, "multi_selection-tftdd.png"),
     )
 
     # 2. Pure TFT_DC (Full Cooperative Start)
