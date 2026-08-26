@@ -31,5 +31,5 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add latex/images/*.png latex/images/*.jpg latex/images/*.svg 2>/dev/null || true
-          git diff --quiet && git diff --staged --quiet || (git commit -m "build(ci): auto-update simulation plots [skip ci]" && git push)
+          git add latex/images/*
+          git diff --quiet && git diff --cached --quiet || (git commit -m "build(ci): auto-update simulation plots [skip ci]" && git push)
