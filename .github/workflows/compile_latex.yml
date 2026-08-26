@@ -1,10 +1,6 @@
 name: Build LaTeX Documents
 
 on:
-  push:
-    branches: [ "main", "feature/*", "feat/*" ]
-    paths:
-      - 'latex/**'
   workflow_dispatch:
   workflow_run:
     workflows: ["Generate Simulation Images"]
