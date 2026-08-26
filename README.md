@@ -4,6 +4,7 @@
 [![Paper I DOI](https://img.shields.io/badge/Paper_I-10.5281%2Fzenodo.22077822-blue.svg)](https://doi.org/10.5281/zenodo.22077822)
 [![Paper II DOI](https://img.shields.io/badge/Paper_II-10.5281%2Fzenodo.22078036-blue.svg)](https://doi.org/10.5281/zenodo.22078036)
 [![Special Edition I DOI](https://img.shields.io/badge/Special_Edition_I-10.5281%2Fzenodo.22098363-blue.svg)](https://doi.org/10.5281/zenodo.22098363)
+[![Paper III DOI](https://img.shields.io/badge/Paper_III-10.5281%2Fzenodo.22110724-blue.svg)](https://doi.org/10.5281/zenodo.22110724)
 [![Monograph DOI](https://img.shields.io/badge/Monograph-10.5281%2Fzenodo.22067674-blue.svg)](https://doi.org/10.5281/zenodo.22067674)
 [![PyPI - apophatic-engine](https://img.shields.io/pypi/v/apophatic-engine.svg)](https://pypi.org/project/apophatic-engine/)
 [![PyPI - apophatic-opt](https://img.shields.io/pypi/v/apophatic-opt.svg)](https://pypi.org/project/apophatic-opt/)
@@ -36,6 +37,11 @@ This repository serves as the unified empirical and analytical publication hub e
 * **DOI:** [10.5281/zenodo.22078036](https://doi.org/10.5281/zenodo.22078036)
 * **Focus:** Formalization of the Yang-Mills aperture boundary ($\mathcal{A}_{YM}$), topological color confinement, and the mass gap ($\Delta > 0$) as minimal scale-dependent friction ($\mathcal{W}$).
 
+#### Paper III: Spatial Apophatic Dynamics
+* **Source:** `latex/article_apophatic_dynamics.tex`
+* **DOI:** [10.5281/zenodo.22110724](https://doi.org/10.5281/zenodo.22110724)
+* **Focus:** Thermal friction selection ($\text{Wéi}$), stochastic Gaussian quantile containment ($\approx 87.5\%$), and initial posture bounds ($\text{TFT}_{DC}$ vs. $\text{TFT}_{DD}$) in spatial game dynamics under continuous entropy noise ($\sigma$).
+
 ---
 
 ### Special Empirical & Interdisciplinary Edition
@@ -52,6 +58,20 @@ This repository serves as the unified empirical and analytical publication hub e
 2. **Cognitive AI & Machine Learning:** Subtractive inference engines ($\neg X$), parameter collapse into invariant zero-states ($B_0$), and entropy reduction in non-equilibrium optimization.
 3. **Formal Logic & Metaphysics:** Epistemological apophaticism, zero-consistency geometry, and resolution of Gödelian incompleteness limits via operational subtraction.
 4. **Socio-Economic Dynamics:** Wu-Wei equilibrium modeling, assertion pressure decay in high-friction environments, and structural Prisoner's Dilemma inversions.
+
+---
+
+## Repository Code Layout
+```
+nicht-physics/
+├── CITATION.cff          # CFF metadata file (v0.0.4)
+├── README.md             # Project overview
+├── latex/
+│   ├── **.tex            # Article TeX source
+│   ├── images/           # plots and images
+│   └── references.bib    # Master BibTeX reference database
+└── src/                  # Core simulation and evaluation scripts
+```
 
 ---
 

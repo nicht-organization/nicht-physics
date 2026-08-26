@@ -24,6 +24,9 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.22098363"
     description: "Special Edition DOI: Apophatic Optimization in Non-Equilibrium Systems"
+  - type: doi
+    value: "10.5281/zenodo.22110724"
+    description: "Paper III DOI: Spatial Apophatic Dynamics"
 keywords:
   - apophatic-physics
   - zero-consistency
@@ -46,5 +49,10 @@ keywords:
   - parameter-sparsity
   - kolmogorov-limit
   - machine-learning
-version: "0.0.3"
-date-released: "2026-08-25"
+  - spatial-dynamics
+  - thermal-friction-selection
+  - gaussian-quantile-containment
+  - tit-for-tat-friction
+  - initial-posture-bounds
+version: "0.0.4"
+date-released: "2026-08-26"
