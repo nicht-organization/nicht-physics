@@ -2,15 +2,23 @@ name: Build LaTeX Documents
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feature/*", "feat/*" ]
+    paths:
+      - 'latex/**'
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Generate Simulation Images"]
+    types: [completed]
 
 jobs:
   build_latex:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
 
       - name: Compile LaTeX Documents
         uses: xu-cheng/latex-action@v4
