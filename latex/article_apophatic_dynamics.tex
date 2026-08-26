@@ -14,7 +14,7 @@
 \usepackage{booktabs}
 \usepackage{cite}
 \usepackage{hyperref}
-\usepackage{float} % Erlaubt [H] zur exakten Positionierung von Abbildungen
+\usepackage{float}
 
 \title{\textbf{Nicht-Physics: Paper IV --- Spatial Apophatic Dynamics}\\
 \large Thermal Friction Selection, Gaussian Containment, and Initial Posture Bounds}
@@ -25,24 +25,28 @@
 
 \maketitle
 
-% --- ENGLISCHER ABSTRACT (Standard der Reihe zuerst) ---
+% --- ENGLISH ABSTRACT ---
 \begin{abstract}
 We extend the 0-Consistency Framework \cite{nicht_theory_monograph} to spatial game dynamics under continuous background noise ($\sigma$). Evaluating four competing behavioral archetypes on a $64 \times 64$ lattice, we demonstrate that reactive adaptation ($\text{TFT}$) strictly asymptotes at the upper stochastic Gaussian variance boundary ($\approx 87.5\%$ quantile). Initial defensive postures ($\text{TFT}_{DD}$) induce immediate thermal friction spikes ($\text{Wéi}$) at $t=0$, causing high initial volatility. Pure non-assertion ($B_0$) proves to be the sole friction-free fixed point, smoothly absorbing the unconstrained spatial domain.
 \end{abstract}
 
 \vspace{0.3cm}
 
-% --- DEUTSCHER ABSTRACT ---
+% --- OTHERLANG ABSTRACT ---
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
-Wir erweitern das 0-Konsistenz"-Frame\-work auf räumliche Spiel-Dynamiken unter kontinuierlichem Entropie-Rauschen ($\sigma$). Durch die Evaluierung von vier konkurrierenden Verhaltens-Archetypen auf einem $64 \times 64$-Torus-Gitter zeigen wir, dass reaktive Anpassungsstrategien (Tit-for-Tat) strikt an der oberen stochastischen Gauß-Varianzgrenze ($\approx 87{,}5\%$-Quantil) asymptotisch verharren. Defensive Initial-Haltungen ($\text{TFT}_{DD}$) erzeugen sofortige thermische Reibungsspitzen ($\text{Wéi}$) bei $t=0$, was zu hoher anfänglicher Volatilität führt. Die reine Nicht-Behauptung ($B_0$) erweist sich als einziger reibungsfreier Fixpunkt, der das verbleibende Raumgitter nahtlos absorbiert.
+Wir erweitern das 0-Konsistenz-Framework \cite{nicht_theory_monograph} auf räumliche Spiel-Dynamiken unter kontinuierlichem Entropie-Rauschen ($\sigma$). Durch die Evaluierung von vier konkurrierenden Verhaltens-Archetypen auf einem $64 \times 64$-Torus-Gitter zeigen wir, dass reaktive Anpassungsstrategien (Tit-for-Tat) strikt an der oberen stochastischen Gauß-Varianzgrenze ($\approx 87{,}5\%$-Quantil) asymptotisch verharren. Defensive Initial-Haltungen ($\text{TFT}_{DD}$) erzeugen sofortige thermische Reibungsspitzen ($\text{Wéi}$) bei $t=0$, was zu hoher anfänglicher Volatilität führt. Die reine Nicht-Behauptung ($B_0$) erweist sich als einziger reibungsfreier Fixpunkt, der das verbleibende Raumgitter nahtlos absorbiert.
 \end{abstract}
 \end{otherlanguage}
 
 \vspace{0.5cm}
 
-\section{Strategy Taxonomy \& Initial Conditions}
-To test the resilience of the apophatic equilibrium ($B_0$), we examine four distinct spatial strategies under pseudo-random noise ($\sigma$) within the framework of scaling hierarchies \cite{nicht_physics_paper_1}:
+\section{Strategy Taxonomy, Parameters \& Initial Conditions}
+To test the resilience of the apophatic equilibrium ($B_0$), we examine four distinct spatial strategies under pseudo-random background noise ($\sigma$) within scaling hierarchies \cite{nicht_physics_paper_1}. 
+
+The spatial environment is operationalized on a periodic $64 \times 64$ torus lattice ($N = 4096$ nodes) over $t = 250$ generation steps. Local interactions are evaluated within a 8-cell Moore neighborhood using a standard Prisoner's Dilemma payoff matrix (Temptation $T=5$, Reward $R=3$, Punishment $P=1$, Suckers $S=0$). Mutation occurs at rate $\mu = 0.05$ per replacement step. Continuous assertion pressure ($P_A \gg 0$) incurs instantaneous thermal friction $\text{Wéi} = \lambda P_A$ with dissipation parameter $\lambda = 10$. The complete simulation engine and numerical implementation are openly archived in the project repository at \url{https://github.com/nicht-organization/nicht-physics/blob/main/src/spatial_dynamics_simulation.py}.
+
+The archetype dynamics encompass:
 \begin{enumerate}
     \item \textbf{Apophatic Baseline ($C \in B_0$):} Zero assertion pressure ($P_A \to 0$), absorbing spatial domains without friction.
     \item \textbf{Exploitative Defector ($D \in P_A$):} Hyper-extraction incurring immediate continuous thermal friction ($\text{Wéi} = \lambda P_A$).
@@ -54,13 +58,14 @@ To test the resilience of the apophatic equilibrium ($B_0$), we examine four dis
     \item \textbf{Pseudo-Random ($\sigma$-Noise):} Pure unguided stochastic entropy ($P(C) = 0.5$).
 \end{enumerate}
 
-\section{Spatial Dynamics \& Quantile Containment}
+\section{Spatial Dynamics, Prey-Predator Coupling \& Quantile Containment}
+The spatial evolutionary process exhibits emergent prey-predator characteristics. Defective assertions act as spatial predators that exploit cooperative states but undergo local extinction once the local cooperative substrate is depleted.
 
 \begin{figure}[H]
   \centering
   \begin{subfigure}[b]{0.85\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{images/multi_strategy_friction_selection-tftdc.png}
+    \includegraphics[width=\linewidth]{images/multi_style_friction_selection-tftdc.png} % oder Dateiname deiner Wahl
     \caption{Optimistic Tit-for-Tat ($\text{TFT}_{DC}$)}
     \label{fig:tft_dc}
   \end{subfigure}
@@ -77,6 +82,8 @@ To test the resilience of the apophatic equilibrium ($B_0$), we examine four dis
   While optimistic $\text{TFT}_{DC}$ smooths initial state transitions (a), defensive $\text{TFT}_{DD}$ (b) triggers an immediate sharp friction spike ($\text{Wéi}$) at $t=0$. In both topologies, reactive strategies lock strictly onto the stochastic Gaussian variance boundary ($\approx 87.5\%$ quantile), whereas apophatic baseline agents ($B_0$) smoothly absorb the remaining spatial equilibrium.}
   \label{fig:spatial_friction_comparison}
 \end{figure}
+
+Building upon foundational spatial evolutionary models \cite{nowak1992spatial}, our results show that under continuous thermal noise, spatial clustering alone cannot prevent reactive boundary bounds.
 
 \section{The Stochastic Gaussian Quantile Boundary}
 Under continuous pseudo-random fluctuations ($\sigma$), the state distribution converges via the Central Limit Theorem toward $\mathcal{N}(\mu, \sigma^2)$. The population limit of reactive Tit-for-Tat strategies is bounded by the upper cumulative Gaussian quantile threshold:
