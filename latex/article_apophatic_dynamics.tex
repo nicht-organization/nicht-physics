@@ -16,7 +16,7 @@
 \usepackage{hyperref}
 \usepackage{float}
 
-\title{\textbf{Nicht-Physics: Paper IV --- Spatial Apophatic Dynamics}\\
+\title{\textbf{Nicht-Physics: Paper III --- Spatial Apophatic Dynamics}\\
 \large Thermal Friction Selection, Gaussian Containment, and Initial Posture Bounds}
 \author{\textbf{xerx593} \quad \& \quad \textbf{Non-Human Interlocutors}}
 \date{\today}
@@ -39,13 +39,13 @@ Wir erweitern das 0-Konsistenz-Framework \cite{nicht_theory_monograph} auf räum
 \end{abstract}
 \end{otherlanguage}
 
-\vspace{0.5cm}
+\clearpage
 
 \section{Strategy Taxonomy, Parameters \& Initial Conditions}
 To test the resilience of the apophatic equilibrium ($B_0$), we examine four distinct spatial strategies under pseudo-random background noise ($\sigma$) within scaling hierarchies \cite{nicht_physics_paper_1}. 
 
 The spatial environment is operationalized on a periodic $64 \times 64$ torus lattice ($N = 4096$ nodes) over $t = 250$ generation steps. Local interactions are evaluated within a 8-cell Moore neighborhood using a standard Prisoner's Dilemma payoff matrix (Temptation $T=5$, Reward $R=3$, Punishment $P=1$, Suckers $S=0$). Mutation occurs at rate $\mu = 0.05$ per replacement step. Continuous assertion pressure ($P_A \gg 0$) incurs instantaneous thermal friction $\text{Wéi} = \lambda P_A$ with dissipation parameter $\lambda = 10$. The complete simulation engine and numerical implementation are openly archived in the project repository at \url{https://github.com/nicht-organization/nicht-physics/blob/main/src/spatial_dynamics_simulation.py}.
-
+\vspace{0.3cm}
 The archetype dynamics encompass:
 \begin{enumerate}
     \item \textbf{Apophatic Baseline ($C \in B_0$):} Zero assertion pressure ($P_A \to 0$), absorbing spatial domains without friction.
