@@ -72,13 +72,14 @@ This repository serves as the unified empirical and analytical publication hub e
 ## Repository Code Layout
 ```
 nicht-physics/
-├── CITATION.cff          # CFF metadata file (v0.0.5)
-├── README.md             # Project overview
+├── CITATION.cff                       # CFF metadata file (v0.0.5)
+├── README.md                          # Project overview
 ├── latex/
-│   ├── article_triade_intractabilities.tex # Paper IV TeX source
-│   ├── images/                        # Simulation and quantile spectrum plots
-│   └── references.bib                 # Master BibTeX reference database
-└── src/                  # Core simulation and evaluation scripts
+│   ├── article_*.tex                  # Article TeX sources
+│   ├── images/                        # Article images
+│   ├── release_dates.def              # Release date database (and type writing convention/fallback)
+│   └── references.bib                 # Master BibTeX reference database   
+└── src/                               # Core simulation and evaluation scripts
 ```
 
 ---
