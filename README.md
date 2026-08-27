@@ -4,7 +4,7 @@
 [![Paper I DOI](https://img.shields.io/badge/Paper_I-10.5281%2Fzenodo.22077822-blue.svg)](https://doi.org/10.5281/zenodo.22077822)
 [![Paper II DOI](https://img.shields.io/badge/Paper_II-10.5281%2Fzenodo.22078036-blue.svg)](https://doi.org/10.5281/zenodo.22078036)
 [![Special Edition I DOI](https://img.shields.io/badge/Special_Edition_I-10.5281%2Fzenodo.22098363-blue.svg)](https://doi.org/10.5281/zenodo.22098363)
-[![Paper III DOI](https://img.shields.io/badge/Paper_III-10.5281%2Fzenodo.22110724-blue.svg)](https://doi.org/10.5281/zenodo.22110724)
+[![Paper III DOI](https://img.shields.io/badge/Paper_III-10.5281%2Fzenodo.22110723-blue.svg)](https://doi.org/10.5281/zenodo.22110723)
 [![Monograph DOI](https://img.shields.io/badge/Monograph-10.5281%2Fzenodo.22067674-blue.svg)](https://doi.org/10.5281/zenodo.22067674)
 [![PyPI - apophatic-engine](https://img.shields.io/pypi/v/apophatic-engine.svg)](https://pypi.org/project/apophatic-engine/)
 [![PyPI - apophatic-opt](https://img.shields.io/pypi/v/apophatic-opt.svg)](https://pypi.org/project/apophatic-opt/)
@@ -39,7 +39,7 @@ This repository serves as the unified empirical and analytical publication hub e
 
 #### Paper III: Spatial Apophatic Dynamics
 * **Source:** `latex/article_apophatic_dynamics.tex`
-* **DOI:** [10.5281/zenodo.22110724](https://doi.org/10.5281/zenodo.22110724)
+* **DOI:** [10.5281/zenodo.22110723](https://doi.org/10.5281/zenodo.22110723)
 * **Focus:** Thermal friction selection ($\text{Wéi}$), stochastic Gaussian quantile containment ($\approx 87.5\%$), and initial posture bounds ($\text{TFT}_{DC}$ vs. $\text{TFT}_{DD}$) in spatial game dynamics under continuous entropy noise ($\sigma$).
 
 ---

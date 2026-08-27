@@ -25,7 +25,7 @@ identifiers:
     value: "10.5281/zenodo.22098363"
     description: "Special Edition DOI: Apophatic Optimization in Non-Equilibrium Systems"
   - type: doi
-    value: "10.5281/zenodo.22110724"
+    value: "10.5281/zenodo.22110723"
     description: "Paper III DOI: Spatial Apophatic Dynamics"
 keywords:
   - apophatic-physics
