@@ -27,11 +27,15 @@ jobs:
 
       - name: Generate Simulation Plots
         run: |
-          python src/spatial_dynamics_simulation.py --steps 250 --out_dir latex/images
+          mkdir -p latex/images
+          for script in $(find src -type f -name "*.py" -not -name "__init__.py"); do
+            echo "--- Executing ${script} ---"
+            python "${script}"
+          done
 
       - name: Commit and Push Updated Images
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add latex/images/*
-          git diff --quiet && git diff --cached --quiet || (git commit -m "build(ci): auto-update simulation plots [skip ci]" && git push)
+          git add latex/images/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "build(ci): auto-update simulation plots [skip ci]" && git push)
