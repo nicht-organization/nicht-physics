@@ -1,0 +1,28 @@
+% ==============================================================================
+% Central Production Release Date Registry for nicht-physics
+% Maps root filename (\jobname) to first_release_date & last_release_date
+% ==============================================================================
+
+% Helper macro to set dates per file stem
+\newcommand{\registerarticledates}[3]{%
+  \expandafter\def\csname firstdate@#1\endcsname{#2}%
+  \expandafter\def\csname lastdate@#1\endcsname{#3}%
+}
+
+% --- Production Metadata Registry ---
+\registerarticledates{article_forces_and_constants}{August 24, 2026}{August 27, 2026}
+\registerarticledates{article_yang_mills_mass_gap}{August 24, 2026}{August 24, 2026}
+\registerarticledates{special_edition_1_optimization}{August 25, 2026}{August 25, 2026}
+\registerarticledates{article_apophatic_dynamics}{August 27, 2026}{August 27, 2026}
+\registerarticledates{article_triade_intractabilities}{August 27, 2026}{August 27, 2026}
+
+% --- Automatic Resolution via \jobname (with Apophatic Fallback) ---
+\expandafter\ifx\csname firstdate@\jobname\endcsname\relax
+  % Fallback for unregistered files or draft builds
+  \newcommand{\firstpublishdate}{Some day A.D.}
+  \newcommand{\apophaticdate}{\firstpublishdate}
+\else
+  % Load registered production dates
+  \edef\firstpublishdate{\csname firstdate@\jobname\endcsname}
+  \edef\apophaticdate{\csname lastdate@\jobname\endcsname}
+\fi

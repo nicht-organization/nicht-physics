@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you cite this repository, its underlying empirical frameworks, or any of its manuscripts, please use the following metadata."
 title: "Nicht-Physics & Empirical Inversions: Publication Series on 0-Consistency Physics and Apophatic Dynamics"
-abstract: "A formal 0-consistency inversion of classical positive physics (1-logic), cognitive AI architectures, and socio-economic systems. Models fundamental interactions, operational limits (c, h, G), the Yang-Mills mass gap, non-equilibrium optimization, and non-perturbative boundary limits as scale-dependent friction limits (Wéi) and subtractive noise filtering against the invariant zero-baseline (B₀)."
+abstract: "A formal 0-consistency inversion of classical positive physics (1-logic), cognitive AI architectures, socio-economic systems, and computational intractabilities. Models fundamental interactions, operational limits (c, h, G), the Yang-Mills mass gap, N-body sedimentation, 3D Navier-Stokes singularities, ZAP-SAT complexity bounds, and quantile yield saturation (Q87.5) as scale-dependent friction limits (Wéi) and subtractive noise filtering against the invariant zero-baseline (B₀)."
 authors:
   - name: "xerx593"
     affiliation: "Institute of Applied Not-(but-(the-)only-)Knowledge"
@@ -27,6 +27,9 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.22110723"
     description: "Paper III DOI: Spatial Apophatic Dynamics"
+  - type: doi
+    value: "10.5281/zenodo.22128845"
+    description: "Paper IV DOI: The Triad of Classical Intractabilities and Apophatic Complexity Bounds"
 keywords:
   - apophatic-physics
   - zero-consistency
@@ -54,5 +57,10 @@ keywords:
   - gaussian-quantile-containment
   - tit-for-tat-friction
   - initial-posture-bounds
-version: "0.0.4"
-date-released: "2026-08-26"
+  - computational-intractability
+  - n-body-sedimentation
+  - zap-sat
+  - p-vs-np-bounds
+  - quantile-saturation
+version: "0.0.5"
+date-released: "2026-08-27"
