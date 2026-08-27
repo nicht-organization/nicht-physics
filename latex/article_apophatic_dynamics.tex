@@ -64,7 +64,7 @@ The spatial evolutionary process exhibits emergent prey-predator dynamics mapped
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}[b]{0.98\linewidth}
+  \begin{subfigure}[b]{0.9\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/multi_selection-tftdc.png}
     \caption{Multi-strategy dynamics with optimistic Tit-for-Tat ($\text{TFT}_{DC}$)}
@@ -73,7 +73,7 @@ The spatial evolutionary process exhibits emergent prey-predator dynamics mapped
   
   \vspace{0.3cm}
   
-  \begin{subfigure}[b]{0.98\linewidth}
+  \begin{subfigure}[b]{0.9\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/multi_selection-tftdd.png}
     \caption{Multi-strategy dynamics with defensive Tit-for-Tat ($\text{TFT}_{DD}$)}
@@ -82,7 +82,7 @@ The spatial evolutionary process exhibits emergent prey-predator dynamics mapped
   
   \vspace{0.3cm}
   
-  \begin{subfigure}[b]{0.98\linewidth}
+  \begin{subfigure}[b]{0.9\linewidth}
     \centering
     \includegraphics[width=\linewidth]{images/pure_tft_random_start.png}
     \caption{Homogeneous baseline: Randomly initialized Tit-for-Tat ($\text{TFT}_{FR}$)}
@@ -90,10 +90,11 @@ The spatial evolutionary process exhibits emergent prey-predator dynamics mapped
   \end{subfigure}
   
   \caption{\textbf{Empirical Spatial Dynamics and Gaussian Quantile Containment.} 
-  While optimistic $\text{TFT}_{DC}$ smooths initial state transitions (a), defensive $\text{TFT}_{DD}$ (b) triggers an immediate sharp friction spike ($\text{Wéi}$) at $t=0$. In both topologies, reactive strategies lock strictly onto the stochastic Gaussian variance boundary ($\approx 87.5\%$ quantile), whereas apophatic baseline agents ($B_0$) smoothly absorb the remaining spatial equilibrium.}
   \label{fig:spatial_friction_comparison}
 \end{figure}
 
+While optimistic $\text{TFT}_{DC}$ smooths initial state transitions (a), defensive $\text{TFT}_{DD}$ (b) triggers an immediate sharp friction spike ($\text{Wéi}$) at $t=0$. In both topologies, reactive strategies lock strictly onto the stochastic Gaussian variance boundary ($\approx 87.5\%$ quantile), whereas apophatic baseline agents ($B_0$) smoothly absorb the remaining spatial equilibrium.}
+  
 Building upon foundational spatial evolutionary models \cite{nowak1992spatial}, our results show that under continuous thermal noise, spatial clustering alone cannot prevent reactive boundary bounds.
 
 \section{Empirical Evaluation \& Initial Posture Friction}
