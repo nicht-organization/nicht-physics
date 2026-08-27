@@ -24,6 +24,7 @@ jobs:
             article_apophatic_dynamics.tex
             article_apophatic_optimization.tex
             article_forces_and_constants.tex
+            article_triade_intractabilities.tex
             article_yang_mills_mass_gap.tex
           args: "-pdf -bibtex -file-line-error -interaction=nonstopmode"
 
