@@ -5,7 +5,7 @@
 [![Paper II DOI](https://img.shields.io/badge/Paper_II-10.5281%2Fzenodo.22078036-blue.svg)](https://doi.org/10.5281/zenodo.22078036)
 [![Special Edition I DOI](https://img.shields.io/badge/Special_Edition_I-10.5281%2Fzenodo.22098363-blue.svg)](https://doi.org/10.5281/zenodo.22098363)
 [![Paper III DOI](https://img.shields.io/badge/Paper_III-10.5281%2Fzenodo.22110723-blue.svg)](https://doi.org/10.5281/zenodo.22110723)
-[![Paper IV DOI](https://img.shields.io/badge/Paper_IV-10.5281%2Fzenodo.XXXXXXXX-blue.svg)](https://doi.org/10.5281/zenodo.XXXXXXXXX)
+[![Paper IV DOI](https://img.shields.io/badge/Paper_IV-10.5281%2Fzenodo.22128845-blue.svg)](https://doi.org/10.5281/zenodo.22128845)
 [![Monograph DOI](https://img.shields.io/badge/Monograph-10.5281%2Fzenodo.22067674-blue.svg)](https://doi.org/10.5281/zenodo.22067674)
 [![PyPI - apophatic-engine](https://img.shields.io/pypi/v/apophatic-engine.svg)](https://pypi.org/project/apophatic-engine/)
 [![PyPI - apophatic-opt](https://img.shields.io/pypi/v/apophatic-opt.svg)](https://pypi.org/project/apophatic-opt/)
@@ -45,7 +45,7 @@ This repository serves as the unified empirical and analytical publication hub e
 
 #### Paper IV: The Triad of Classical Intractabilities and Apophatic Complexity Bounds
 * **Source:** `latex/article_triade_intractabilities.tex`
-* **DOI:** [10.5281/zenodo.XXXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXXX)
+* **DOI:** [10.5281/zenodo.22128845](https://doi.org/10.5281/zenodo.22128845)
 * **Focus:** Subtractive gradient filtering ($\mathcal{A}_\sigma$) for 3D Navier-Stokes singularities, $N$-body vector relaxation ($\mathcal{O}(N^{1.94})$ scaling at $N=100$), and $P$ vs. $NP$ tree-search collapse using ZAP-SAT to lock onto the $Q_{87.5}$ sufficiency limit in 0 steps.
 
 ---

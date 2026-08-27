@@ -28,7 +28,7 @@ identifiers:
     value: "10.5281/zenodo.22110723"
     description: "Paper III DOI: Spatial Apophatic Dynamics"
   - type: doi
-    value: "10.5281/zenodo.XXXXXXXX"
+    value: "10.5281/zenodo.22128845"
     description: "Paper IV DOI: The Triad of Classical Intractabilities and Apophatic Complexity Bounds"
 keywords:
   - apophatic-physics
