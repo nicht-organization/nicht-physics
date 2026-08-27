@@ -5,6 +5,7 @@
 [![Paper II DOI](https://img.shields.io/badge/Paper_II-10.5281%2Fzenodo.22078036-blue.svg)](https://doi.org/10.5281/zenodo.22078036)
 [![Special Edition I DOI](https://img.shields.io/badge/Special_Edition_I-10.5281%2Fzenodo.22098363-blue.svg)](https://doi.org/10.5281/zenodo.22098363)
 [![Paper III DOI](https://img.shields.io/badge/Paper_III-10.5281%2Fzenodo.22110723-blue.svg)](https://doi.org/10.5281/zenodo.22110723)
+[![Paper IV DOI](https://img.shields.io/badge/Paper_IV-10.5281%2Fzenodo.XXXXXXXX-blue.svg)](https://doi.org/10.5281/zenodo.XXXXXXXXX)
 [![Monograph DOI](https://img.shields.io/badge/Monograph-10.5281%2Fzenodo.22067674-blue.svg)](https://doi.org/10.5281/zenodo.22067674)
 [![PyPI - apophatic-engine](https://img.shields.io/pypi/v/apophatic-engine.svg)](https://pypi.org/project/apophatic-engine/)
 [![PyPI - apophatic-opt](https://img.shields.io/pypi/v/apophatic-opt.svg)](https://pypi.org/project/apophatic-opt/)
@@ -40,13 +41,19 @@ This repository serves as the unified empirical and analytical publication hub e
 #### Paper III: Spatial Apophatic Dynamics
 * **Source:** `latex/article_apophatic_dynamics.tex`
 * **DOI:** [10.5281/zenodo.22110723](https://doi.org/10.5281/zenodo.22110723)
-* **Focus:** Thermal friction selection ($\text{Wéi}$), stochastic Gaussian quantile containment ($\approx 87.5\%$), and initial posture bounds ($\text{TFT}_{DC}$ vs. $\text{TFT}_{DD}$) in spatial game dynamics under continuous entropy noise ($\sigma$).
+* **Focus:** Thermal friction selection ($\text{W\'ei}$), stochastic Gaussian quantile containment ($\approx 87.5\%$), and initial posture bounds ($\text{TFT}_{DC}$ vs. $\text{TFT}_{DD}$) in spatial game dynamics under continuous entropy noise ($\sigma$).
+
+#### Paper IV: The Triad of Classical Intractabilities and Apophatic Complexity Bounds
+* **Source:** `latex/article_triade_intractabilities.tex`
+* **DOI:** [10.5281/zenodo.XXXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXXX)
+* **Focus:** Subtractive gradient filtering ($\mathcal{A}_\sigma$) for 3D Navier-Stokes singularities, $N$-body vector relaxation ($\mathcal{O}(N^{1.94})$ scaling at $N=100$), and $P$ vs. $NP$ tree-search collapse using ZAP-SAT to lock onto the $Q_{87.5}$ sufficiency limit in 0 steps.
 
 ---
 
 ### Special Empirical & Interdisciplinary Edition
 
 #### Special Edition I: Apophatic Optimization in Non-Equilibrium Systems
+* **Source:** `latex/article_apophatic_optimization.tex`
 * **DOI / Archival:** [10.5281/zenodo.22098363](https://doi.org/10.5281/zenodo.22098363)
 * **Focus:** Algorithmic realization of subtractive gradient filtering ($\mathcal{A}_\sigma$), assertion pressure decay ($P_A \to 0$), and baseline relaxation ($B_0 = 0$). Includes empirical benchmarks covering Heavy-Tail Cauchy noise containment, high-sparsity representation ($>91\%$ on Fashion-MNIST), and Kolmogorov substrate recovery.
 
@@ -55,21 +62,22 @@ This repository serves as the unified empirical and analytical publication hub e
 ## Multidisciplinary Scope & Theoretical Foundations
 
 1. **Fundamental Physics & Cosmology:** Inversion of interaction hierarchies, operational constants, Planck/Yang-Mills aperture boundaries, and cosmological acceleration as systemic relaxation ($\lim_{t \to \infty} P_A(t) = 0$).
-2. **Cognitive AI & Machine Learning:** Subtractive inference engines ($\neg X$), parameter collapse into invariant zero-states ($B_0$), and entropy reduction in non-equilibrium optimization.
-3. **Formal Logic & Metaphysics:** Epistemological apophaticism, zero-consistency geometry, and resolution of Gödelian incompleteness limits via operational subtraction.
-4. **Socio-Economic Dynamics:** Wu-Wei equilibrium modeling, assertion pressure decay in high-friction environments, and structural Prisoner's Dilemma inversions.
+2. **Computational Complexity & Fluid Dynamics:** Resolution of 3D Navier-Stokes velocity blow-ups, $N$-body interaction bottlenecks, and $NP$-hard search space explosions via subtractive baseline relaxation ($B_0$).
+3. **Cognitive AI & Machine Learning:** Subtractive inference engines ($\neg X$), parameter collapse into invariant zero-states ($B_0$), and entropy reduction in non-equilibrium optimization.
+4. **Formal Logic & Metaphysics:** Epistemological apophaticism, zero-consistency geometry, and resolution of Gödelian incompleteness limits via operational subtraction.
+5. **Socio-Economic Dynamics:** Wu-Wei equilibrium modeling, assertion pressure decay in high-friction environments, and structural Prisoner's Dilemma inversions.
 
 ---
 
 ## Repository Code Layout
 ```
 nicht-physics/
-├── CITATION.cff          # CFF metadata file (v0.0.4)
+├── CITATION.cff          # CFF metadata file (v0.0.5)
 ├── README.md             # Project overview
 ├── latex/
-│   ├── **.tex            # Article TeX source
-│   ├── images/           # plots and images
-│   └── references.bib    # Master BibTeX reference database
+│   ├── article_triade_intractabilities.tex # Paper IV TeX source
+│   ├── images/                        # Simulation and quantile spectrum plots
+│   └── references.bib                 # Master BibTeX reference database
 └── src/                  # Core simulation and evaluation scripts
 ```
 
