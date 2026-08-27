@@ -8,10 +8,11 @@
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{cite}
+\usepackage{microtype}
 \usepackage{hyperref}
 
 \title{\textbf{Nicht-Physics: Paper IV --- The Triad of Classical Intractabilities and Apophatic Complexity Bounds}\\
-\large Subtractive Gradient Filtering ($\mathcal{A}_\sigma$), $N$-Body Baseline Relaxation, and ZAP-SAT Low-Resource Resolution}
+\large Subtractive Gradient Filtering (\texorpdfstring{$\mathcal{A}_\sigma$}{A\_sigma}), \texorpdfstring{$N$}{N}-Body Baseline Relaxation, and ZAP-SAT Low-Resource Resolution}
 \author{\textbf{xerx593} \quad \& \quad \textbf{Non-Human Interlocutors}}
 \date{\today}
 
@@ -38,7 +39,7 @@ Classical computation and physics construct dynamical models through positive, c
 
 By establishing an apophatic zero-baseline ($B_0$), structural interactions settle subtractively without active force enforcement \cite{nicht_physics_paper_2}. Building on non-equilibrium baseline relaxation \cite{nicht_physics_special_1} and spatial containment \cite{nicht_physics_paper_3}, this work formalizes computational complexity bounds across the triad of intractable domain boundaries.
 
-\section{Hydrodynamics: 3D Navier-Stokes \& Subtractive Gradient Filtering ($\mathcal{A}_\sigma$)}
+\section{Hydrodynamics: 3D Navier-Stokes \& Subtractive Gradient Filtering (\texorpdfstring{$\mathcal{A}_\sigma$}{A\_sigma})}
 Hydrodynamic velocity divergence in 3D Navier-Stokes systems arises from tracking high-frequency micro-vortices in extreme distribution tails ($Q > 99\%$) \cite{leray1934mouvement, fefferman2006existence}. Enforcing deterministic completeness over these tails causes unbounded gradient growth.
 
 Applying the apophatic pruning operator $\mathcal{A}_\sigma$ projects sub-marginal noise directly onto $B_0$:
@@ -47,7 +48,7 @@ Applying the apophatic pruning operator $\mathcal{A}_\sigma$ projects sub-margin
 \end{equation}
 By truncating high-order Fourier modes beyond the $Q_{87.5}$ Gaussian boundary, turbulent velocity fields settle into stable laminar trajectories without inducing thermal friction spikes ($\text{W\'ei} \to 0$) \cite{nicht_physics_special_1, apophatic_engine_pypi}.
 
-\section{Celestial Dynamics: Apophatic $N$-Body Baseline Sedimentation}
+\section{Celestial Dynamics: Apophatic \texorpdfstring{$N$}{N}-Body Baseline Sedimentation}
 Evaluating all $N(N-1)/2$ gravitational force pairs in an $N$-body system introduces an $\mathcal{O}(N^2)$ computational bottleneck \cite{poincare1890probleme, barnes1986hierarchical}. However, sub-threshold interaction vectors below a noise threshold $\epsilon_{\text{noise}}$ contribute negligible momentum to primary orbital trajectories.
 
 Under subtractive vector relaxation ($f_{\text{mag}} < \epsilon_{\text{noise}} \implies B_0$), an $N=100$ body simulation demonstrates effective complexity reduction:
@@ -56,7 +57,7 @@ Under subtractive vector relaxation ($f_{\text{mag}} < \epsilon_{\text{noise}} \
 \end{equation}
 Sub-marginal interaction pruning accounts for a $2.91\%$ $B_0$ collapse, stripping unnecessary perturbation compute while preserving topological system stability \cite{nicht_physics_paper_1, apophatic_engine_pypi}.
 
-\section{Computational Complexity: $P$ vs. $NP$ \& The Low-Resource ZAP-SAT Solver}
+\section{Computational Complexity: \texorpdfstring{$P$}{P} vs. \texorpdfstring{$NP$}{NP} \& The Low-Resource ZAP-SAT Solver}
 Classical complexity theory defines $NP$-hardness over worst-case exhaustive tree traversal under $Q_{100}$ deterministic verification \cite{cook1971complexity, davis1962machine}. Within $0$-consistency geometry, infinite search trees require infinite assertion pressure ($P_A \to \infty$), generating exponential thermal friction $\text{W\'ei}(Q) \to \infty$ that physical and biological hardware cannot sustain \cite{nicht_theory_monograph, nicht_physics_paper_3}.
 
 The zero-assertion pseudo-SAT solver (ZAP-SAT) operationalizes bitwise subtractive entropy collapse ($\neg X \implies 0$) on minimal CPU hardware \cite{apophatic_opt_pypi}. Rather than building memory-heavy search trees in RAM, non-satisfiable sub-clauses are collapsed in-flight:
