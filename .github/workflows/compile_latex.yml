@@ -1,10 +1,6 @@
 name: Build LaTeX Documents
 
 on:
-  push:
-    branches: [ "main", "feature/*", "feat/*" ]
-    paths:
-      - 'latex/**'
   workflow_dispatch:
   workflow_run:
     workflows: ["Generate Simulation Images"]
@@ -25,6 +21,7 @@ jobs:
         with:
           working_directory: latex
           root_file: |
+            article_apophatic_dynamics.tex
             article_apophatic_optimization.tex
             article_forces_and_constants.tex
             article_yang_mills_mass_gap.tex
