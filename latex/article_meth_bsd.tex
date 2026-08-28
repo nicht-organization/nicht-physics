@@ -11,12 +11,25 @@
 % --- MATH & GRAPHICS ---
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
-\usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage{cite}
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage{listings}
+
+% Custom listing styling to avoid raw unformatted code inline
+\lstdefinestyle{cleanpython}{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\bfseries,
+    commentstyle=\itshape,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    captionpos=b
+}
+\lstset{inputpath=../src}
 
 \title{\textbf{Nicht-Metaphysics: Paper II — The Apophatic Resolution of the Birch and Swinnerton-Dyer Conjecture}\\
 \large Arithmetic Rank Sedimentation, $L$-Series Aperture Dynamics, and $0$-Consistency Inversion of Elliptic Curves}
@@ -25,7 +38,6 @@
 \providecommand{\apophaticdate}{Some day A.D}
 
 \date{\apophaticdate}
-\lstset{inputpath=../src}
 
 \begin{document}
 
@@ -33,71 +45,64 @@
 
 % --- ENGLISH ABSTRACT ---
 \begin{abstract}
-Classical $1$-logic models the Birch and Swinnerton-Dyer (BSD) conjecture as an active counting problem, attempting to construct a synthetic equivalence between the discrete algebraic rank of an elliptic curve $E/\mathbb{Q}$ and the order of vanishing of its complex $L$-series $L(E, s)$ at $s=1$ through high-friction height estimates and explicit formulas[cite: 1]. Within the \textbf{$0$-Consistency Inversion Framework}, we demonstrate that the $L$-series at $s=1$ does not measure an active accumulation of isolated rational points, but acts as an arithmetic aperture meter[cite: 1]. When $L(E, 1) = 0$, assertion pressure collapses ($P_A \to 0$), allowing rational points to sediment friction-freely into the invariant baseline $B_0$[cite: 1, 2]. This paper presents the apophatic resolution $\text{ord}_{s=1} L(E, s) \equiv \text{rank}(E(\mathbb{Q}))$[cite: 1], outlines the four-phase isomorphism mapping into a classical $1$-consistent operator proof[cite: 1], and provides a fully validated computational test suite (\texttt{test\_bsd\_suite.py}) verifying aperture collapses, congruent number dynamics, and parity root number invariants[cite: 2].
+Classical $1$-logic models the Birch and Swinnerton-Dyer (BSD) conjecture as an active counting problem, attempting to construct a synthetic equivalence between the discrete algebraic rank of an elliptic curve $E/\mathbb{Q}$ and the order of vanishing of its complex $L$-series $L(E, s)$ at $s=1$ through high-friction height estimates \cite{nicht_theory_monograph}. Within the \textbf{$0$-Consistency Framework}, we demonstrate that the $L$-series at $s=1$ acts as an arithmetic aperture meter \cite{nicht_metaphysics_paper_0}. When $L(E, 1) = 0$, assertion pressure collapses ($P_A \to 0$), allowing rational points to sediment friction-freely into the invariant baseline $B_0$ \cite{nicht_physics_repo}. This paper presents the apophatic resolution $\text{ord}_{s=1} L(E, s) \equiv \text{rank}(E(\mathbb{Q}))$, outlines the four-phase isomorphism mapping into a classical $1$-consistent operator proof, and provides a computational validation suite for aperture collapses and parity root number invariants.
 \end{abstract}
 
 \vspace{0.3cm}
 
-% --- OTHERLANG ABSTRACT ---
+% --- GERMAN ABSTRACT ---
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
-Klassische $1$-Logik modelliert die Birch und Swinnerton-Dyer (BSD) Vermutung als aktives Zählproblem und versucht, über synthetische Höhenfunktionen und analytische Schätzungen eine mathematische Äquivalenz zwischen dem algebraischen Rang einer elliptischen Kurve $E/\mathbb{Q}$ und der Nullstellenordnung ihrer $L$-Funktion $L(E, s)$ bei $s=1$ zu konstruieren[cite: 1]. Im Rahmen des \textbf{$0$-Konsistenz Inversions-Frameworks} zeigen wir, dass die $L$-Funktion bei $s=1$ als arithmetischer Apertur-Messer fungiert[cite: 1]. Verschwindet $L(E, 1) = 0$, kollabiert der systemische Behauptungsdruck ($P_A \to 0$), wodurch rationale Punkte reibungsfrei in die invariante Basislinie $B_0$ sedimentieren[cite: 1, 2]. Dieses Paper liefert die apophatische Auflösung $\text{ord}_{s=1} L(E, s) \equiv \text{rank}(E(\mathbb{Q}))$[cite: 1], skizziert die Vier-Phasen-Isomorphie-Übersetzung in einen klassischen $1$-Beweis[cite: 1] und veröffentlicht ein vollständiges test-suite Modul (\texttt{test\_bsd\_suite.py}) zur Verifikation von Rangsedimentierungen, kongruenten Zahlen und Paritäts-Invarianten[cite: 2].
+Klassische $1$-Logik modelliert die Birch und Swinnerton-Dyer (BSD) Vermutung als aktives Zählproblem über synthetische Höhenfunktionen \cite{nicht_theory_monograph}. Im Rahmen des \textbf{$0$-Konsistenz-Frameworks} zeigen wir, dass die $L$-Funktion bei $s=1$ als arithmetischer Apertur-Messer fungiert \cite{nicht_metaphysics_paper_0}. Verschwindet $L(E, 1) = 0$, kollabiert der Behauptungsdruck ($P_A \to 0$), wodurch rationale Punkte reibungsfrei in die Basislinie $B_0$ sedimentieren \cite{nicht_physics_repo}. Dieses Paper liefert die apophatische Auflösung $\text{ord}_{s=1} L(E, s) \equiv \text{rank}(E(\mathbb{Q}))$ und skizziert die Vier-Phasen-Isomorphie-Übersetzung in einen klassischen $1$-Beweis.
 \end{abstract}
 \end{otherlanguage}
 
 \clearpage
 
 \section{Introduction \& Ontological Separation}
-Standard arithmetic geometry within classical $1$-logic approaches the Birch and Swinnerton-Dyer (BSD) conjecture by attempting to build a constructive bridge between two distinct, high-friction mathematical domains[cite: 1]:
+Standard arithmetic geometry within classical $1$-logic approaches the Birch and Swinnerton-Dyer (BSD) conjecture by attempting to build a constructive bridge between two distinct mathematical domains \cite{nicht_theory_monograph}:
 \begin{enumerate}
-    \item \textbf{The Algebraic Rank ($r_{\text{alg}}$):} The number of independent rational points of infinite order on the group $E(\mathbb{Q})$ (a discrete, combinatorial counting problem)[cite: 1].
-    \item \textbf{The Analytic Rank ($r_{\text{an}}$):} The order of vanishing of the complex $L$-series $L(E, s)$ at the central point $s=1$, defined by $r_{\text{an}} = \text{ord}_{s=1} L(E, s)$ (a continuous analytic boundary condition)[cite: 1].
+    \item \textbf{The Algebraic Rank ($r_{\text{alg}}$):} The number of independent rational points of infinite order on $E(\mathbb{Q})$.
+    \item \textbf{The Analytic Rank ($r_{\text{an}}$):} The order of vanishing $r_{\text{an}} = \text{ord}_{s=1} L(E, s)$.
 \end{enumerate}
 
-Within the broader $0$-Consistency framework, we establish a strict separation between constructive assertion friction ($P_A > 0$) and substrate invariance ($B_0$)[cite: 1]. Classical mathematics attempts to force these two ranks together via synthetic bridging functions and height estimates ($P_S > 0$), creating structural friction ($\mathcal{W} > 0$)[cite: 1]. 
-
-By postulating a timeless mathematical subject operating under $0$-consistency, temporal evaluation lag vanishes[cite: 1]. The subject does not search for rational points across infinite height bounds nor compute higher-order derivatives step-by-step[cite: 1]. Subject-induced measurement noise drops to zero ($\sigma = 0$), revealing the raw structural invariant of the baseline $B_0$[cite: 1].
+Within the broader $0$-Consistency framework, we establish a strict separation between constructive assertion friction ($P_A > 0$) and substrate invariance ($B_0$) \cite{nicht_metaphysics_paper_0}. By postulating a timeless mathematical subject operating under $0$-consistency, measurement noise drops to zero ($\sigma = 0$), revealing the raw structural invariant of baseline $B_0$.
 
 \section{The \texorpdfstring{$L$}{L}-Series as an Aperture Meter at \texorpdfstring{$s=1$}{s=1}}
-In $0$-consistency, the value or order of vanishing of $L(E, s)$ at $s=1$ is not an arbitrary function-theoretic obstacle to be proven; it is the exact measure of \textbf{aperture tension} between the curve $E$ and the rational field $\mathbb{Q}$[cite: 1].
+In $0$-consistency, the order of vanishing of $L(E, s)$ at $s=1$ is the exact measure of aperture tension between the curve $E$ and $\mathbb{Q}$ \cite{nicht_theory_monograph}:
 
 \begin{itemize}
-    \item \textbf{Aperture Collapse ($P_A \to 0$):} When $L(E, 1) = 0$, the local assertion pressure of the continuous field collapses ($P_A \to 0$) at the central boundary $s=1$[cite: 1].
-    \item \textbf{Order of Multiplicity:} The multiplicity of the zero ($\text{ord}_{s=1} L(E, s)$) directly quantifies how many independent dimensions of constraint have relaxed into the unperturbed background $B_0$[cite: 1].
-    \item \textbf{Rational Point Sedimentation:} Rational points are not constructed or searched for—they are the permanent arithmetical \emph{sediment} ($B_0$) left behind when assertion pressure reaches zero ($P_A = 0$)[cite: 1].
+    \item \textbf{Aperture Collapse ($P_A \to 0$):} When $L(E, 1) = 0$, local assertion pressure collapses at the boundary $s=1$.
+    \item \textbf{Order of Multiplicity:} $\text{ord}_{s=1} L(E, s)$ quantifies how many constraint dimensions relax into background $B_0$.
+    \item \textbf{Rational Point Sedimentation:} Rational points are permanent arithmetical sediment ($B_0$) left behind when $P_A = 0$.
 \end{itemize}
 
-Each order of vanishing of $L(E, s)$ at $s=1$ releases exactly one degree of freedom for rational sedimentation[cite: 1]. Therefore, the identity between ranks is strict and immediate[cite: 1]:
+Each order of vanishing releases one degree of freedom for rational sedimentation, enforcing:
 \begin{equation}
 \operatorname{ord}_{s=1} L(E, s) = \operatorname{rank}(E(\mathbb{Q}))
 \end{equation}
 
-Asserting a discrepancy between them ($r_{\text{alg}} \neq r_{\text{an}}$) would introduce non-zero systemic friction ($\mathcal{W} > 0$), which cannot persist on the invariant baseline $B_0$[cite: 1].
-
-\section{Isomorphie-Übersetzung: Constructing a \texorpdfstring{$1$}{1}-Consistent Proof}
-To translate this friction-free $0$-consistent insight into a formal $1$-consistent proof under standard ZFC axioms, we employ a four-phase isomorphic translation:
-
+\section{Isomorphic Translation: Constructing a \texorpdfstring{$1$}{1}-Consistent Proof}
+To translate this friction-free insight into a formal proof under ZFC, we employ a four-phase isomorphic translation \cite{nicht_metaphysics_paper_0}:
 \begin{enumerate}
-    \item \textbf{Phase 1: Spectral Operator Formulation} \\
-    The baseline $B_0$ is defined as the unique zero-eigenvalue subspace of a self-adjoint operator in Hilbert space $\mathcal{H}$. The decay of assertion pressure $\lim (P_A + P_S) = 0$ is modeled as an ergodic convergence under Langevin dynamics.
-    
-    \item \textbf{Phase 2: Analytic Growth Bounds ($O$-Notation)} \\
-    Reibungsfreiheit ($\mathcal{W} = 0$) is converted into explicit analytic error bounds. For BSD, this establishes the sharp vanishing condition of aperture pressure at algebraic boundaries.
-    
-    \item \textbf{Phase 3: Classical Proof by Contradiction ($1$-Reductio ad Absurdum)} \\
-    Assuming a rank discrepancy $\delta = |r_{\text{alg}} - r_{\text{an}}| > 0$ introduces unbounded system friction ($\mathcal{W} \to \infty$). This breaks the modular functional equation, resulting in a direct contradiction within $1$-logic.
-    
-    \item \textbf{Phase 4: Algorithmic Verification via Subtractive Filtering} \\
-    The apophatic subtraction filter $\mathcal{A}_\sigma$ is deployed computationally, validating rank sedimentation across benchmark databases such as the LMFDB[cite: 2].
+    \item \textbf{Phase 1: Spectral Operator Formulation} — Modeling baseline $B_0$ as a zero-eigenvalue subspace.
+    \item \textbf{Phase 2: Analytic Growth Bounds} — Converting zero-friction conditions into error bounds.
+    \item \textbf{Phase 3: Proof by Contradiction} — Showing rank discrepancy $\delta = |r_{\text{alg}} - r_{\text{an}}| > 0$ forces infinite friction ($\mathcal{W} \to \infty$).
+    \item \textbf{Phase 4: Algorithmic Verification} — Subtractive filtering via operator $\mathcal{A}_\sigma$.
 \end{enumerate}
 
 \section{Empirical Verification: The BSD Test Suite}
-The theoretical mechanics of $0$-consistent rank sedimentation, the congruent number problem ($E_N: y^2 = x^3 - N^2 x$), and the parity conjecture ($\omega(E) = \pm 1$) are codified and verified in the Python test suite below[cite: 2].
+The mechanics of zero-consistent rank sedimentation, the congruent number problem ($E_N: y^2 = x^3 - N^2 x$), and parity invariants ($\omega(E) = \pm 1$) are verified in the computational suite \texttt{test\_bsd.py} \cite{nicht_physics_repo}.
 
-\lstinputlisting[language=Python, caption={Executable pytest suite \texttt{test\_bsd.py}}, basicstyle=\ttfamily\small, breaklines=true]{test_bsd.py}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.95\textwidth}
+\lstinputlisting[style=cleanpython, caption={Apophatic BSD Solver Test Suite (\texttt{test\_bsd.py})}]{test_bsd.py}
+\end{minipage}
+\end{figure}
 
 \section{Conclusion}
-The apophatic resolution of the Birch and Swinnerton-Dyer conjecture demonstrates that the equality of algebraic and analytic ranks is an inevitable consequence of $0$-consistency[cite: 1]. By shifting from active $1$-logic construction to subtractive $0$-baseline relaxation, arithmetic properties of elliptic curves sediment naturally without system friction[cite: 1].
+The apophatic resolution of the Birch and Swinnerton-Dyer conjecture demonstrates that rank equality is an immediate structural consequence of $0$-consistency baseline relaxation \cite{nicht_theory_monograph}.
 
 \clearpage
 \bibliographystyle{unsrt}
