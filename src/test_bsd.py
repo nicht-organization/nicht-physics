@@ -15,14 +15,14 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
-# Optional: Fallback Dummy / Implementation Mock des Solvers, 
-# falls ApophaticBSDSolver noch als eigenständiges Modul angebunden wird.
+# Optional: Fallback Dummy / Implementation Mock of the Solver, 
+# in case ApophaticBSDSolver is connected as a standalone module.
 try:
     from apophatic_opt import ApophaticBSDSolver
 except ImportError:
     class ApophaticBSDSolver:
         """
-        Subtaktiver BSD-L-Serien-Apertur-Filter basierend auf 0-Konsistenz.
+        Subtractive BSD L-series aperture filter based on 0-consistency.
         """
         def __init__(self, sigma_threshold=0.01, decay_rate=0.85):
             self.sigma_threshold = sigma_threshold
@@ -33,15 +33,15 @@ except ImportError:
             sedimented_zeros = 0
             
             for k, val in enumerate(l_derivatives):
-                # Subtraktive A_sigma Filterung an der Schwelle
+                # Subtractive A_sigma filtering at threshold
                 if abs(val) <= self.sigma_threshold:
                     sedimented_zeros += 1
                     p_a *= (1.0 - self.decay_rate)
                 else:
-                    # Störung/Reibung überschreitet Rauschschwelle
+                    # Friction/perturbation exceeds noise threshold
                     break
             
-            # Analytischer Rang aus Nullstellen-Sedimentation
+            # Analytic rank derived from zero sedimentation
             rank_r_an = max(0, sedimented_zeros)
             is_0_consistent = p_a < self.sigma_threshold
             
@@ -54,16 +54,16 @@ except ImportError:
 
 
 # ==============================================================================
-# 1. CORE BSD RANK TESTS (Elliptische Kurven Standard-Ränge)
+# 1. CORE BSD RANK TESTS (Elliptic Curve Standard Ranks)
 # ==============================================================================
 
 def test_bsd_rank_0_collapse():
     """
-    Rang 0: L(E, 1) != 0. 
-    Keine Nullstellen-Sedimentation. Die L-Funktion fällt nicht unter den Druck-Filter.
+    Rank 0: L(E, 1) != 0. 
+    No zero sedimentation. The L-function does not fall under the pressure filter.
     """
     solver = ApophaticBSDSolver(sigma_threshold=0.01)
-    # Derivative-Reihe: L(1) = 1.42 (keine Nullstelle)
+    # Derivative series: L(1) = 1.42 (no zero)
     l_derivatives = [1.420, 2.110, 5.890]
     
     res = solver.evaluate_l_series(l_derivatives)
@@ -73,11 +73,11 @@ def test_bsd_rank_0_collapse():
 
 def test_bsd_rank_1_sedimentation():
     """
-    Rang 1: L(E, 1) = 0, L'(E, 1) != 0.
-    Eine Apertur öffnet sich bei k=0.
+    Rank 1: L(E, 1) = 0, L'(E, 1) != 0.
+    An aperture opens at k=0.
     """
     solver = ApophaticBSDSolver(sigma_threshold=0.01, decay_rate=0.95)
-    # L(1) = 0.000 (Nullstelle), L'(1) = 1.418
+    # L(1) = 0.000 (zero), L'(1) = 1.418
     l_derivatives = [0.000, 1.418, 3.821]
     
     res = solver.evaluate_l_series(l_derivatives)
@@ -87,8 +87,8 @@ def test_bsd_rank_1_sedimentation():
 
 def test_bsd_rank_2_high_order_aperture():
     """
-    Rang 2: L(E, 1) = 0, L'(E, 1) = 0, L''(E, 1) != 0.
-    Zwei aufeinanderfolgende Nullstellen kollabieren in B_0.
+    Rank 2: L(E, 1) = 0, L'(E, 1) = 0, L''(E, 1) != 0.
+    Two consecutive zeros collapse into B_0.
     """
     solver = ApophaticBSDSolver(sigma_threshold=0.01, decay_rate=0.95)
     # L(1) = 0.000, L'(1) = 0.000, L''(1) = 2.718
@@ -100,43 +100,43 @@ def test_bsd_rank_2_high_order_aperture():
 
 
 # ==============================================================================
-# 2. CONGRUENT NUMBER PROBLEM (Elliptische Kurven E_N: y^2 = x^3 - N^2*x)
+# 2. CONGRUENT NUMBER PROBLEM (Elliptic Curves E_N: y^2 = x^3 - N^2*x)
 # ==============================================================================
 
 def test_congruent_number_n5_aperture():
     """
-    N = 5 ist eine kongruente Zahl (Fläche 5 eines rationalen rechtwinkligen Dreiecks).
-    Satz von Tunnell / BSD erzwingt r_an >= 1 -> L(E_5, 1) = 0.
+    N = 5 is a congruent number (area 5 of a rational right triangle).
+    Tunnell's Theorem / BSD enforces r_an >= 1 -> L(E_5, 1) = 0.
     """
     solver = ApophaticBSDSolver(sigma_threshold=0.01)
-    # L-Derivativ-Approximation für E_5
+    # L-derivative approximation for E_5
     l_derivatives_N5 = [0.000, 1.412, 3.890]
     
     res = solver.evaluate_l_series(l_derivatives_N5)
-    assert res["rank_r_an"] >= 1, "N=5 muss mindestens Rang 1 (kongruent) aufweisen"
+    assert res["rank_r_an"] >= 1, "N=5 must exhibit at least rank 1 (congruent)"
 
 
 def test_non_congruent_number_n1_isolation():
     """
-    N = 1 ist KEINE kongruente Zahl.
-    L(E_1, 1) != 0 (kein Kollaps in B_0 möglich, Rang 0).
+    N = 1 is NOT a congruent number.
+    L(E_1, 1) != 0 (no collapse into B_0 possible, rank 0).
     """
     solver = ApophaticBSDSolver(sigma_threshold=0.01)
-    # L-Derivativ-Approximation für E_1
+    # L-derivative approximation for E_1
     l_derivatives_N1 = [1.398, 2.110, 4.051]
     
     res = solver.evaluate_l_series(l_derivatives_N1)
-    assert res["rank_r_an"] == 0, "N=1 darf keine Nullstellen-Sedimentation zeigen"
+    assert res["rank_r_an"] == 0, "N=1 must not show zero sedimentation"
 
 
 # ==============================================================================
-# 3. PARITY CONJECTURE (Root Number / Vorzeichen-Apertur)
+# 3. PARITY CONJECTURE (Root Number / Sign Aperture)
 # ==============================================================================
 
 def test_parity_conjecture_odd_root_number():
     """
-    Wurzelfaktor w(E) = -1 erzwingt geometrisch einen ungeraden analytischen Rang (r_an in {1, 3, 5...}).
-    L(E, 1) MUSS zwingend 0 sein.
+    Root number w(E) = -1 geometrically enforces an odd analytic rank (r_an in {1, 3, 5...}).
+    L(E, 1) MUST be 0.
     """
     solver = ApophaticBSDSolver(sigma_threshold=0.01)
     root_number = -1
@@ -144,22 +144,22 @@ def test_parity_conjecture_odd_root_number():
     
     if root_number == -1:
         res = solver.evaluate_l_series(l_derivatives_odd)
-        # Paritäts-Invariante prüfen: Rang % 2 == 1
-        assert res["rank_r_an"] % 2 == 1, "w(E) = -1 muss ungeraden Rang liefern"
+        # Verify parity invariant: rank % 2 == 1
+        assert res["rank_r_an"] % 2 == 1, "w(E) = -1 must yield odd rank"
 
 
 def test_parity_conjecture_even_root_number():
     """
-    Wurzelfaktor w(E) = +1 erzwingt einen geraden analytischen Rang (r_an in {0, 2, 4...}).
+    Root number w(E) = +1 enforces an even analytic rank (r_an in {0, 2, 4...}).
     """
     solver = ApophaticBSDSolver(sigma_threshold=0.01)
     root_number = +1
-    # Fall A: Rang 0
+    # Case A: Rank 0
     l_derivatives_even_r0 = [0.812, 1.220, 3.100]
     
     if root_number == +1:
         res = solver.evaluate_l_series(l_derivatives_even_r0)
-        assert res["rank_r_an"] % 2 == 0, "w(E) = +1 muss geraden Rang liefern"
+        assert res["rank_r_an"] % 2 == 0, "w(E) = +1 must yield even rank"
 
 
 # ==============================================================================
@@ -168,7 +168,7 @@ def test_parity_conjecture_even_root_number():
 
 def test_zero_derivative_array_edge_case():
     """
-    Grenzfall: Extrem unendlicher Nullstellen-Kollaps (Rauschfreie Basislinie).
+    Edge case: Infinite zero collapse (noise-free baseline).
     """
     solver = ApophaticBSDSolver(sigma_threshold=0.01, decay_rate=0.90)
     l_derivatives_zero = [0.0, 0.0, 0.0, 0.0]

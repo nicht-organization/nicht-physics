@@ -1,5 +1,6 @@
 """
-test/test_hodgepoincare.py
+src/test_hodgepoincare.py
+
 Comprehensive Test Suite for Apophatic Differential Geometry and Topology.
 Verifies Hodge Cohomology Alignment and Poincare Ricci-Flow Metric Relaxation
 under 0-Consistency Baseline Mechanics.
@@ -19,7 +20,7 @@ try:
 except ImportError:
     class ApophaticDiffGeoSolver:
         """
-        Subtraktiver Differentialgeometrie- & Topologie-Solver basierend auf 0-Konsistenz.
+        Subtractive differential geometry & topology solver based on 0-consistency.
         """
         def __init__(self, sigma_threshold=0.01, decay_rate=0.85):
             self.sigma_threshold = sigma_threshold
@@ -30,7 +31,7 @@ except ImportError:
             aligned_cycles = 0
             
             for k, val in enumerate(form_integrals):
-                # Subtraktive Filterung von Integrations-Spannungen
+                # Subtractive filtering of integration tensions
                 if abs(val) <= self.sigma_threshold:
                     aligned_cycles += 1
                     p_a *= (1.0 - self.decay_rate)
@@ -51,10 +52,10 @@ except ImportError:
             relaxed_steps = []
 
             for norm in curvature_tensor_norms:
-                # Perelman-Apophatische Chirurgie an Singularitaten (norm > 1/sigma)
+                # Perelman-apophatic surgery on singularities (norm > 1/sigma)
                 if norm > (1.0 / self.sigma_threshold):
                     surgeries_performed += 1
-                    effective_norm = self.sigma_threshold  # A_sigma Trunktion
+                    effective_norm = self.sigma_threshold  # A_sigma truncation
                 else:
                     effective_norm = norm
 
@@ -71,16 +72,16 @@ except ImportError:
 
 
 # ==============================================================================
-# 1. HODGE CONJECTURE TESTS (Kohomologische Ausrichtung)
+# 1. HODGE CONJECTURE TESTS (Cohomological Alignment)
 # ==============================================================================
 
 def test_hodge_algebraic_cycle_alignment():
     """
-    Hodge-Klasse entspannt reibungsfrei: Integrationsdruck kollabiert.
-    De-Rham-Klasse deckt sich mit algebraischem Zyklus auf B_0.
+    Hodge class relaxes frictionlessly: integration pressure collapses.
+    De Rham class aligns with algebraic cycle on B_0.
     """
     solver = ApophaticDiffGeoSolver(sigma_threshold=0.01, decay_rate=0.95)
-    integration_noise = [0.000, 0.000, 1.850]  # k=0,1 zyklenrein
+    integration_noise = [0.000, 0.000, 1.850]  # k=0,1 cycle-pure
     
     res = solver.evaluate_hodge_integration_pressure(integration_noise)
     assert res["aligned_cycles"] == 2
@@ -90,7 +91,7 @@ def test_hodge_algebraic_cycle_alignment():
 
 def test_hodge_high_friction_non_algebraic():
     """
-    Nicht-algebraische Storung verbleibt oberhalb der Rauschschwelle (P_A > 0).
+    Non-algebraic perturbation remains above noise threshold (P_A > 0).
     """
     solver = ApophaticDiffGeoSolver(sigma_threshold=0.01)
     integration_noise = [2.450, 5.120, 8.900]
@@ -101,12 +102,12 @@ def test_hodge_high_friction_non_algebraic():
 
 
 # ==============================================================================
-# 2. POINCARE CONJECTURE TESTS (Ricci-Fluss Chirurgie & S^3 Kollaps)
+# 2. POINCARE CONJECTURE TESTS (Ricci-Flow Surgery & S^3 Collapse)
 # ==============================================================================
 
 def test_poincare_ricci_flow_smooth_relaxation():
     """
-    Gleichmasige Entspannung einer einfach zusammenhangenden 3-Mannigfaltigkeit in S^3.
+    Uniform relaxation of a simply connected 3-manifold into S^3.
     """
     solver = ApophaticDiffGeoSolver(sigma_threshold=0.01, decay_rate=0.90)
     curvature_profile = [0.005, 0.003, 0.001]
@@ -118,10 +119,10 @@ def test_poincare_ricci_flow_smooth_relaxation():
 
 def test_poincare_ricci_flow_with_apophatic_surgery():
     """
-    Singularitaten-Kollaps: A_sigma beschneidet krummungsexzessive Spikes (P_A -> 0).
+    Singularity collapse: A_sigma truncates curvature-excessive spikes (P_A -> 0).
     """
     solver = ApophaticDiffGeoSolver(sigma_threshold=0.01, decay_rate=0.90)
-    singular_curvature_profile = [0.005, 150.0, 0.002]  # 150.0 ist extreme Singularitat
+    singular_curvature_profile = [0.005, 150.0, 0.002]  # 150.0 is extreme singularity
     
     res = solver.relax_ricci_curvature(singular_curvature_profile)
     assert res["surgeries_performed"] == 1
@@ -134,7 +135,7 @@ def test_poincare_ricci_flow_with_apophatic_surgery():
 
 def test_nijenhuis_tensor_aperture_limit():
     """
-    Grenzfall S^6: Subtraktive Trunktion von Nijenhuis-Tensorspannungen.
+    Edge case S^6: Subtractive truncation of Nijenhuis tensor stresses.
     """
     solver = ApophaticDiffGeoSolver(sigma_threshold=0.05, decay_rate=0.80)
     nijenhuis_spikes = [0.01, 0.02, 0.03, 0.01]
