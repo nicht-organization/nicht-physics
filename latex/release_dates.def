@@ -1,7 +1,7 @@
-% ==============================================================================
+% ======================================================================
 % Central Production Release Date Registry for nicht-physics
 % Maps root filename (\jobname) to first_release_date & last_release_date
-% ==============================================================================
+% ======================================================================
 
 % Helper macro to set dates per file stem
 \newcommand{\registerarticledates}[3]{%
@@ -15,6 +15,10 @@
 \registerarticledates{article_apophatic_optimization}{August 25, 2026}{August 25, 2026}
 \registerarticledates{article_apophatic_dynamics}{August 27, 2026}{August 27, 2026}
 \registerarticledates{article_triade_intractabilities}{August 27, 2026}{August 27, 2026}
+\registerarticledates{article_meth_space}{August 29, 2026}{August 29, 2026}
+\registerarticledates{article_meth_riemann}{August 29, 2026}{August 29, 2026}
+\registerarticledates{article_meth_bsd}{August 29, 2026}{August 29, 2026}
+\registerarticledates{article_meth_hodgepoincare}{August 29, 2026}{August 29, 2026}
 
 % --- Automatic Resolution via \jobname (with Apophatic Fallback) ---
 \expandafter\ifx\csname firstdate@\jobname\endcsname\relax
