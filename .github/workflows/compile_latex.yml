@@ -27,6 +27,10 @@ jobs:
             article_math_riemann.tex
             article_triade_intractabilities.tex
             article_yang_mills_mass_gap.tex
+            article_meth_space.tex
+            article_meth_riemann.tex
+            article_meth_bsd.tex
+            article_meth_hodgepoincare.tex
           args: "-pdf -bibtex -file-line-error -interaction=nonstopmode"
 
       - name: Upload PDF Artifacts
