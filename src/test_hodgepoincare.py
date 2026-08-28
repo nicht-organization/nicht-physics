@@ -70,10 +70,9 @@ except ImportError:
                 "state": "B_0 Baseline (S^3)" if is_spherical else "Non-Isometric Noise"
             }
 
-
-# ==============================================================================
+# ======================================================================
 # 1. HODGE CONJECTURE TESTS (Cohomological Alignment)
-# ==============================================================================
+# ======================================================================
 
 def test_hodge_algebraic_cycle_alignment():
     """
@@ -88,7 +87,6 @@ def test_hodge_algebraic_cycle_alignment():
     assert res["is_hodge_aligned"] is True
     assert res["residual_P_A"] < 0.01
 
-
 def test_hodge_high_friction_non_algebraic():
     """
     Non-algebraic perturbation remains above noise threshold (P_A > 0).
@@ -100,10 +98,9 @@ def test_hodge_high_friction_non_algebraic():
     assert res["aligned_cycles"] == 0
     assert res["is_hodge_aligned"] is False
 
-
-# ==============================================================================
+# ======================================================================
 # 2. POINCARE CONJECTURE TESTS (Ricci-Flow Surgery & S^3 Collapse)
-# ==============================================================================
+# ======================================================================
 
 def test_poincare_ricci_flow_smooth_relaxation():
     """
@@ -116,7 +113,6 @@ def test_poincare_ricci_flow_smooth_relaxation():
     assert res["surgeries_performed"] == 0
     assert res["is_S3_isotropic"] is True
 
-
 def test_poincare_ricci_flow_with_apophatic_surgery():
     """
     Singularity collapse: A_sigma truncates curvature-excessive spikes (P_A -> 0).
@@ -128,10 +124,9 @@ def test_poincare_ricci_flow_with_apophatic_surgery():
     assert res["surgeries_performed"] == 1
     assert res["is_S3_isotropic"] is True
 
-
-# ==============================================================================
+# ======================================================================
 # 3. EDGE CASES & NIJENHUIS S^6 BOUNDARY
-# ==============================================================================
+# ======================================================================
 
 def test_nijenhuis_tensor_aperture_limit():
     """
@@ -143,3 +138,31 @@ def test_nijenhuis_tensor_aperture_limit():
     res = solver.evaluate_hodge_integration_pressure(nijenhuis_spikes)
     assert res["aligned_cycles"] == 4
     assert res["is_hodge_aligned"] is True
+
+def test_nijenhuis_exact_boundary_and_sedimentation_break():
+    """
+    Edge case: Exact boundary inclusion (|val| == sigma_threshold) 
+    followed by an immediate non-zero spike exceeding threshold.
+    Verifies:
+    1. Exact threshold equality (0.05) counts as an aligned cycle.
+    2. Exceeding threshold (0.050001) triggers 'break' and ignores trailing values.
+    """
+    solver = ApophaticDiffGeoSolver(sigma_threshold=0.05, decay_rate=0.80)
+    # 0.00 & 0.05 sit on/under boundary (2 cycles); 0.050001 breaks order; 0.01 ignored
+    nijenhuis_spikes = [0.00, 0.05, 0.050001, 0.01]
+    
+    res = solver.evaluate_hodge_integration_pressure(nijenhuis_spikes)
+    assert res["aligned_cycles"] == 2
+    assert res["is_hodge_aligned"] is True
+
+def test_poincare_ricci_surgery_exact_inversion_limit():
+    """
+    Edge case: Curvature norm sits exactly at the surgery threshold boundary (1 / sigma).
+    Verifies strict inequality (> 1/sigma) for apophatic Perelman surgery.
+    """
+    solver = ApophaticDiffGeoSolver(sigma_threshold=0.01, decay_rate=0.90)
+    # 100.0 == (1 / 0.01) -> No surgery performed; 100.0001 > (1 / 0.01) -> Surgery triggered
+    curvature_profile = [100.0, 100.0001]
+    
+    res = solver.relax_ricci_curvature(curvature_profile)
+    assert res["surgeries_performed"] == 1

@@ -52,11 +52,9 @@ except ImportError:
                 "state": "0-Consistency" if is_0_consistent else "1-Logic Friction"
             }
 
-
-# ==============================================================================
+# ======================================================================
 # 1. CORE BSD RANK TESTS (Elliptic Curve Standard Ranks)
-# ==============================================================================
-
+# ======================================================================
 def test_bsd_rank_0_collapse():
     """
     Rank 0: L(E, 1) != 0. 
@@ -69,7 +67,6 @@ def test_bsd_rank_0_collapse():
     res = solver.evaluate_l_series(l_derivatives)
     assert res["rank_r_an"] == 0
     assert res["residual_P_A"] == 1.0
-
 
 def test_bsd_rank_1_sedimentation():
     """
@@ -84,7 +81,6 @@ def test_bsd_rank_1_sedimentation():
     assert res["rank_r_an"] == 1
     assert res["residual_P_A"] < 0.10
 
-
 def test_bsd_rank_2_high_order_aperture():
     """
     Rank 2: L(E, 1) = 0, L'(E, 1) = 0, L''(E, 1) != 0.
@@ -98,11 +94,9 @@ def test_bsd_rank_2_high_order_aperture():
     assert res["rank_r_an"] == 2
     assert res["is_0_consistent"] is True
 
-
-# ==============================================================================
+# ======================================================================
 # 2. CONGRUENT NUMBER PROBLEM (Elliptic Curves E_N: y^2 = x^3 - N^2*x)
-# ==============================================================================
-
+# ======================================================================
 def test_congruent_number_n5_aperture():
     """
     N = 5 is a congruent number (area 5 of a rational right triangle).
@@ -114,7 +108,6 @@ def test_congruent_number_n5_aperture():
     
     res = solver.evaluate_l_series(l_derivatives_N5)
     assert res["rank_r_an"] >= 1, "N=5 must exhibit at least rank 1 (congruent)"
-
 
 def test_non_congruent_number_n1_isolation():
     """
@@ -128,11 +121,9 @@ def test_non_congruent_number_n1_isolation():
     res = solver.evaluate_l_series(l_derivatives_N1)
     assert res["rank_r_an"] == 0, "N=1 must not show zero sedimentation"
 
-
-# ==============================================================================
+# ======================================================================
 # 3. PARITY CONJECTURE (Root Number / Sign Aperture)
-# ==============================================================================
-
+# ======================================================================
 def test_parity_conjecture_odd_root_number():
     """
     Root number w(E) = -1 geometrically enforces an odd analytic rank (r_an in {1, 3, 5...}).
@@ -147,7 +138,6 @@ def test_parity_conjecture_odd_root_number():
         # Verify parity invariant: rank % 2 == 1
         assert res["rank_r_an"] % 2 == 1, "w(E) = -1 must yield odd rank"
 
-
 def test_parity_conjecture_even_root_number():
     """
     Root number w(E) = +1 enforces an even analytic rank (r_an in {0, 2, 4...}).
@@ -161,11 +151,9 @@ def test_parity_conjecture_even_root_number():
         res = solver.evaluate_l_series(l_derivatives_even_r0)
         assert res["rank_r_an"] % 2 == 0, "w(E) = +1 must yield even rank"
 
-
-# ==============================================================================
+# ======================================================================
 # 4. BORDER CASES & EDGE SCENARIOS
-# ==============================================================================
-
+# ======================================================================
 def test_zero_derivative_array_edge_case():
     """
     Edge case: Infinite zero collapse (noise-free baseline).
@@ -177,3 +165,29 @@ def test_zero_derivative_array_edge_case():
     assert res["rank_r_an"] == 4
     assert res["is_0_consistent"] is True
     assert math.isclose(res["residual_P_A"], 0.0001, abs_tol=1e-5)
+
+def test_exact_threshold_boundary_edge_case():
+    """
+    Edge case: Boundary inclusion (|val| == sigma_threshold).
+    Verifies that values exactly at the noise threshold boundary collapse to B_0.
+    """
+    solver = ApophaticBSDSolver(sigma_threshold=0.05)
+    # 0.0, 0.05, and -0.05 sit on/under boundary; 0.0500001 exceeds threshold
+    l_derivatives = [0.0, 0.05, -0.05, 0.0500001]
+    
+    res = solver.evaluate_l_series(l_derivatives)
+    assert res["rank_r_an"] == 3
+    assert res["is_0_consistent"] is True
+
+def test_non_monotonic_gap_edge_case():
+    """
+    Edge case: Early sedimentation stop due to an isolated non-zero derivative gap.
+    Subsequent sub-threshold values must be ignored once the sequence breaks.
+    """
+    solver = ApophaticBSDSolver(sigma_threshold=0.01)
+    # [0.0, 0.005] -> 2 zeros; 0.500 -> breaks order; 0.001 -> trailing value ignored
+    l_derivatives = [0.0, 0.005, 0.500, 0.001]
+    
+    res = solver.evaluate_l_series(l_derivatives)
+    assert res["rank_r_an"] == 2
+    assert res["rank_r_alg"] == 2

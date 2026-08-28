@@ -94,10 +94,43 @@ To translate this friction-free insight into a formal proof under ZFC, we employ
 \section{Empirical Verification: The BSD Test Suite}
 The mechanics of zero-consistent rank sedimentation, the congruent number problem ($E_N: y^2 = x^3 - N^2 x$), and parity invariants ($\omega(E) = \pm 1$) are verified in the computational suite \texttt{test\_bsd.py} \cite{nicht_physics_repo}.
 
+\subsection{Solver Implementation}
 \begin{figure}[H]
 \centering
 \begin{minipage}{0.95\textwidth}
-\lstinputlisting[style=cleanpython, caption={Apophatic BSD Solver Test Suite (\texttt{test\_bsd.py})}]{test_bsd.py}
+\lstinputlisting[firstline=23, lastline=53, style=cleanpython, caption={\texttt{test\_bsd.py-23:53}}]{test_bsd.py}
+\end{minipage}
+\end{figure}
+
+\subsection{Core BSD Rank Tests (Elliptic Curve Standard Ranks)}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.95\textwidth}
+\lstinputlisting[firstline=58, lastline=95, style=cleanpython, caption={\texttt{test\_bsd.py-58:95}}]{test_bsd.py}
+\end{minipage}
+\end{figure}
+
+\subsection{Congruent Number Problem Tests (Elliptic Curves \texorpdfstring{$E_N: y^2 = x^3 - N^2*x$}{E_N: y^2 = x^3 - N^2*x})}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.95\textwidth}
+\lstinputlisting[firstline=100, lastline=122, style=cleanpython, caption={\texttt{test\_bsd.py-100:122}}]{test_bsd.py}
+\end{minipage}
+\end{figure}
+
+\subsection{Parity Conjecture (Root Number / Sign Aperture)}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.95\textwidth}
+\lstinputlisting[firstline=127, lastline=152, style=cleanpython, caption={\texttt{test\_bsd.py-127:152}}]{test_bsd.py}
+\end{minipage}
+\end{figure}
+
+\subsection{Boreder Cases And Edge Scenarios}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.95\textwidth}
+\lstinputlisting[firstline=157, lastline=193, style=cleanpython, caption={\texttt{test\_bsd.py-157:193}}]{test_bsd.py}
 \end{minipage}
 \end{figure}
 
