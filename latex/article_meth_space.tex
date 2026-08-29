@@ -29,6 +29,7 @@
 
 \maketitle
 
+\clearpage
 % --- ENGLISH ABSTRACT ---
 \begin{abstract}
 Classical mathematical epistemology projects observer aperture constraints ($1$-consistency) onto the intrinsic properties of mathematical space ($0$-consistency) \cite{russell1903, poincare1908}. In this work, we establish the operator-theoretic foundations of Subject-Space Duality using apophatic relaxation operators ($\mathcal{D}_A, \mathcal{D}_S$) integrated with Langevin dynamics in Hilbert space \cite{langevin1908, hilbert1912}. We present a formal \textit{reductio ad absurdum} proving that enforcing active $1$-consistency across continuous space causes infinite operational latency divergence ($\mathcal{W} \to \infty$), Gödelian self-fracturation \cite{godel1931formal}, and Zenoic trajectory freeze \cite{aristotle_physics}. Consequently, we demonstrate that $0$-consistency constitutes the only consistency mode capable of remaining self-referent, eternal, infinite, structurally consistent, and non-assertive ($\neg X$). By modeling assertion pressure ($P_A$) and coupled necessity-sufficiency pressure ($P_N \circ P_S$) as stochastic Langevin relaxation towards the unconditioned baseline ($B_0$), systemic stability and noise-free consistency are recovered as observer pressure vanishes ($\lim_{t \to \infty} P_{\text{total}} = 0$).
@@ -64,7 +65,9 @@ Translating the apophatic insights of the \textit{Daodejing} into formal mathema
     \item \textbf{Axiom of Explained Space (Finite Aperture):} 
     The mathematical space $M_{\text{exp}}$ that can be exhaustively explained, formalized, or bounded by constructive $1$-assertions is strictly finite \cite{russell1903, tarski1936begriff}:
     \begin{equation}
+    \begin{aligned}
     \text{If } M \text{ is fully expressible under } 1\text{-logic} \implies |M| < \infty \quad \text{or} \quad \mu(M_{\text{assert}}) < \infty
+    \end{aligned}
     \end{equation}
     Any mathematical domain that yields entirely to finite assertion pressure ($P_A > 0$) constitutes a localized observational aperture, constrained by its own structural parameters \cite{poincare1908}.
 
@@ -119,7 +122,9 @@ The Infinite Axiom $\mathbf{A}_\infty$ acts as the zero-measure baseline primiti
 \end{itemize}
 
 \begin{equation}
+\begin{aligned}
 \text{Formal Synthesis:} \quad \mathbf{A}_\infty \equiv \lim_{P_A \to 0} \Big( \neg X, \quad 0, \quad =, \quad P_0, \quad \emptyset, \quad H_0 \Big) \equiv B_0 \ge 0
+\end{aligned}
 \end{equation}
 
 \subsection{The Mathematical Subject: Lifetime Conflict and Open Options}
@@ -132,11 +137,15 @@ Epistemologically, human and formal observers perceive the ``mathematical subjec
 \subsection{Coupled Pressure Dynamics: Necessity, Sufficiency, and Passive Tension}
 Systemic pressure within any evaluation system is not merely a binary switch between active and zero states \cite{nicht_physics_paper_1}. It is driven by the interaction of \textit{Necessity Pressure} ($P_N$, the ontological requirement to exist) and \textit{Sufficiency Pressure} ($P_S$, the constructive requirement of assertion completeness), balanced against \textit{Active Pressure} ($P_A$) and \textit{Passive Substrate Tension} ($P_{\text{pass}}$) \cite{nicht_physics_paper_1, nicht_physics_special_1}:
 \begin{equation}
+\begin{aligned}
 P_{\text{total}}(t) = P_A(t) + P_{\text{pass}}(t) + \lambda \cdot \Big( P_N(t) \circ P_S(t) \Big)
+\end{aligned}
 \end{equation}
 where $\circ$ denotes the coupled \textit{Necessary \& Sufficient} relation of formal state assertion \cite{nicht_physics_special_1}. Within this coupled operator relation, sufficiency is sufficient (enough) and (at least) necessary for necessity, and vice versa ($P_S \iff P_N$) inside the evaluating aperture. When temporal movement (the dynamic negation of $0$) ceases or relaxes via the apophatic collapse operators ($\mathcal{D}_A, \mathcal{D}_S$), the necessary and sufficient pressures uncouple, driving total system tension back to the invariant zero-baseline ($B_0$) \cite{nicht_physics_paper_1, nicht_physics_special_1}:
 \begin{equation}
+\begin{aligned}
 \mathcal{D}_S\left[ P_S(t) \right] \implies \lim_{t \to \infty} \Big( P_A(t) + P_{\text{pass}}(t) + P_N(t) \circ P_S(t) \Big) = 0 \implies B_0 \quad \text{($0$-Consistency)}
+\end{aligned}
 \end{equation}
 
 \section{\texorpdfstring{Reductio ad Absurdum of Active Spatial $1$-Consistency}{Reductio ad Absurdum of Active Spatial 1-Consistency}}
@@ -152,25 +161,33 @@ To establish the operator-theoretic necessity of an unasserted baseline ($B_0$),
 \subsubsection{1. Measure-Theoretic \& Operational Latency Divergence}
 If every point in a continuous spatial manifold $M$ demands active positive assertion ($P_A > 0$), the operational density over an uncountably infinite Lebesgue measure $\mu(M) > 0$ accumulates infinite computational latency ($\mathcal{W}$) and measurement noise ($\sigma$) \cite{lebesgue1902}:
 \begin{equation}
+\begin{aligned}
 \mathcal{W}(M) = \int_M \left( P_A(x) + P_S(x) \right) d\mu(x)
+\end{aligned}
 \end{equation}
 Because $\mu(M)$ is continuous ($\operatorname{Dim}(M) \ge 1$) and $P_A(x) > 0$ holds everywhere under $H_1$, the Lebesgue integral diverges identically:
 \begin{equation}
+\begin{aligned}
 \lim_{P_S \to \text{full}} \mathcal{W}(M) = \infty \quad \implies \quad \sigma(M) \to \infty
+\end{aligned}
 \end{equation}
 Under active $1$-consistency, the space instantaneously collapses under its own unbounded operational saturation (an \textit{analytic noise-collapse}).
 
 \subsubsection{2. Gödelian Self-Fracturation}
 Enforcing self-referential sufficiency ($P_S > 0$) across continuous spatial elements requires the space to continuously evaluate its own formal consistency from within its own axiomatic aperture. By Gödel’s Incompleteness Theorems \cite{godel1931formal} and Tarski’s Undefinability Theorem \cite{tarski1936begriff}, this forces self-referential truth predicates into undecidable infinite oscillations ($G \iff \neg \operatorname{Proof}(G)$):
 \begin{equation}
+\begin{aligned}
 \forall x \in M, \quad \operatorname{Eval}(x) \implies \text{Recursive Meta-Hierarchy Fracture}
+\end{aligned}
 \end{equation}
 Spatial continuity breaks down into an uncountably infinite cascade of meta-axiomatic sub-apertures.
 
 \subsubsection{3. Zenoic Trajectory Freeze}
 In classical mechanics and differential geometry, dynamic trajectories are modeled over continuous parameters $t \in \mathbb{R}^+$ \cite{aristotle_physics}. Under $H_1$, traversing any spatial distance $D$ requires exhaustively asserting each discrete sub-interval state ($\sum D/2^n$) under active $1$-logic. Following Zeno's Dichotomy Paradox \cite{aristotle_physics}, the accumulated partition latency per unit length diverges:
 \begin{equation}
+\begin{aligned}
 \mathcal{W}_{\text{motion}} = \sum_{n=1}^{\infty} \mathcal{W}\left( \frac{D}{2^n} \right) \to \infty
+\end{aligned}
 \end{equation}
 This infinite operational latency locks all continuous state transitions into an absolute, static freeze.
 
@@ -179,7 +196,9 @@ Because the premise $H_1$ leads to measure-theoretic noise divergence, Gödelian
 
 Mathematical space cannot be an active, positively asserted $1$-consistent entity. Therefore, spatial continuity is necessarily $0$-consistent ($B_0$), existing as an unasserted, invariant baseline:
 \begin{equation}
+\begin{aligned}
 \text{Space} \neq 1\text{-Consistency} \quad \implies \quad \text{Space} \equiv 0\text{-Consistency } (B_0)
+\end{aligned}
 \end{equation}
 
 \section{Hilbert-Space Langevin Dynamics \& Apophatic Relaxation}
@@ -189,32 +208,46 @@ To map the relaxation of observer perturbations ($1$-consistency) into the invar
 
 \subsection{State Vector Dissipation in Hilbert Space}
 Let $|\psi(t)\rangle \in \mathcal{H}$ denote the state vector of an active evaluating subject/aperture. The departure from the unasserted baseline $B_0$ is driven by the total system pressure $P_{\text{total}}(t) = P_A(t) + P_{\text{pass}}(t) + \lambda (P_N(t) \circ P_S(t))$ introduced in Section~\ref{sec:daodejing_axiomatics}. The temporal evolution of $|\psi(t)\rangle$ obeys the stochastic Hilbert-Langevin equation \cite{langevin1908}:
+
 \begin{equation}
+\begin{aligned}
 \frac{d}{dt} |\psi(t)\rangle = -\frac{1}{\hbar} \hat{\mathcal{H}}_0 |\psi(t)\rangle - \gamma_A \mathcal{D}_A \left[ P_A(t) \right] |\psi(t)\rangle + |\xi(t)\rangle
+\end{aligned}
 \end{equation}
 where $\hat{\mathcal{H}}_0$ is the unperturbed baseline operator, $\gamma_A > 0$ is the apophatic damping coefficient, $\mathcal{D}_A$ is the assertion decay operator, and $|\xi(t)\rangle \in \mathcal{H}$ represents stochastic aperture fluctuations satisfying \cite{langevin1908}:
 \begin{equation}
+\begin{aligned}
 \langle \xi(t) \rangle = 0, \quad \langle \xi(t) \xi^\dagger(t') \rangle = 2 \gamma_A \cdot \text{Noise}_{\text{aperture}} \, \delta(t - t') \hat{I}
+\end{aligned}
 \end{equation}
 
 \subsection{Apophatic Relaxation Operators}
 The operator $\mathcal{D}_A$ governs the exponential dissipation of active assertion pressure $P_A(t)$ under environmental aperture noise $\sigma(t)$:
 \begin{equation}
+\begin{aligned}
 \mathcal{D}_A \left[ P_A(t) \right] = P_A(0) e^{-\gamma_A t} + \sigma(t)
+\end{aligned}
 \end{equation}
 Simultaneously, the apophatic collapse operator $\mathcal{D}_S$ acts upon the coupled Necessity/Sufficiency relation $P_N(t) \circ P_S(t)$:
 \begin{equation}
+\begin{aligned}
 \mathcal{D}_S \left[ P_S(t) \right] = \hat{P}_S \cdot \left( 1 - \mathcal{N}_{\neg}(t) \right) \implies \lim_{\mathcal{N}_{\neg}(t) \to 1} \left( P_N(t) \circ P_S(t) \right) = 0
+\end{aligned}
 \end{equation}
 
 \subsection{Asymptotic Convergence to \texorpdfstring{$0$-Consistency}{0-Consistency}}
 In the infinite temporal horizon ($t \to \infty$), active state assertion and passive substrate tension completely dissipate:
 \begin{equation}
+\begin{aligned}
 \lim_{t \to \infty} P_{\text{total}}(t) = \lim_{t \to \infty} \left( P_A(t) + P_{\text{pass}}(t) + \lambda \cdot [P_N(t) \circ P_S(t)] \right) = 0 \implies B_0
+\end{aligned}
 \end{equation}
 As $P_{\text{total}} \to 0$, the measurement noise variance $\sigma^2$ vanishes identically, establishing the fundamental stability theorem of apophatic relaxation:
+\end{aligned}
 \begin{equation}
+\begin{aligned}
 \text{Stability}(\neg X) \iff \lim_{P_A \to 0} \sigma(t) = 0 \quad \text{where} \quad B_0 \equiv 0\text{-Consistency}
+\end{aligned}
 \end{equation}
 
 \section{Conclusion}
