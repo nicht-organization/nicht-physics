@@ -1,0 +1,10 @@
+name: Build "Forces and Constants" LaTeX Document
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-latex:
+    uses: nicht-organization/nicht-theory/.github/workflows/compile_latex_base.yml@main
+    with:
+      root-file: article_forces_and_constants.tex

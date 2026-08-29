@@ -1,0 +1,10 @@
+name: Build "Yang Mills Mass Gap" LaTeX Document
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-latex:
+    uses: nicht-organization/nicht-theory/.github/workflows/compile_latex_base.yml@main
+    with:
+      root-file: article_yang_mills_mass_gap.tex

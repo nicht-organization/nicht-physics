@@ -1,0 +1,10 @@
+name: Build "Meth Riemann" LaTeX Document
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-latex:
+    uses: nicht-organization/nicht-theory/.github/workflows/compile_latex_base.yml@main
+    with:
+      root-file: article_meth_riemann.tex
