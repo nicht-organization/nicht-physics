@@ -2,10 +2,7 @@ name: Generate Simulation Images
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'src/**/*.py'
-
+  workflow_call:
 jobs:
   generate_plots:
     runs-on: ubuntu-latest
