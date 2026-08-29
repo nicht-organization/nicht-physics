@@ -6,6 +6,7 @@ on:
 jobs:
   run-sim:
     uses: nicht-organization/nicht-physics/.github/workflows/generate_images.yml@main
+    secrets: inherit
   build-latex:
     uses: nicht-organization/nicht-theory/.github/workflows/compile_latex_base.yml@main
     with:
