@@ -30,74 +30,136 @@
 
 % --- ENGLISH ABSTRACT ---
 \begin{abstract}
-Classical mathematical epistemology conflates observer aperture constraints ($1$-consistency) with the intrinsic properties of mathematical space ($0$-consistency) \cite{russell1903, poincare1908}. In this work, we establish operator-theoretic foundations for Subject-Space Duality using apophatic relaxation operators ($\mathcal{D}_A, \mathcal{D}_S$) integrated with Langevin dynamics within Hilbert space \cite{langevin1908, hilbert1912}. We present a formal \textit{reductio ad absurdum} proving that imposing active $1$-consistency onto mathematical space causes instantaneous thermal friction collapse ($\mathcal{W} \to \infty$), Gödelian self-fracturation \cite{godel1931formal}, and Zenoic freeze of continuum dynamics \cite{aristotle_physics}. By modeling wavefunction decay and assertion pressure as stochastic Langevin relaxation towards the unasserted baseline ($B_0$), we demonstrate that systemic stability and noise-free consistency are recovered when observer pressure vanishes ($\lim_{t \to \infty} (P_A + P_S) = 0$).
+Classical mathematical epistemology projects observer aperture constraints ($1$-consistency) onto the intrinsic properties of mathematical space ($0$-consistency) \cite{russell1903, poincare1908}. In this work, we establish the operator-theoretic foundations of Subject-Space Duality using apophatic relaxation operators ($\mathcal{D}_A, \mathcal{D}_S$) integrated with Langevin dynamics in Hilbert space \cite{langevin1908, hilbert1912}. We present a formal \textit{reductio ad absurdum} proving that enforcing active $1$-consistency across continuous space causes infinite operational latency divergence ($\mathcal{W} \to \infty$), Gödelian self-fracturation \cite{godel1931}, and Zenoic trajectory freeze \cite{aristotle_physics}. Consequently, we demonstrate that $0$-consistency constitutes the only consistency mode capable of remaining self-referent, eternal, infinite, structurally consistent, and non-assertive ($\neg X$). By modeling assertion pressure ($P_A$) and coupled necessity-sufficiency pressure ($P_N \circ P_S$) as stochastic Langevin relaxation towards the unconditioned baseline ($B_0$), systemic stability and noise-free consistency are recovered as observer pressure vanishes ($\lim_{t \to \infty} P_{\text{total}} = 0$).
 \end{abstract}
 
 \vspace{0.3cm}
 
-% --- OTHERLANG ABSTRACT ---
+% --- GERMAN ABSTRACT ---
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
-Die klassische mathematische Epistemologie verwechselt die aperturellen Beschränkungen des Beobachters ($1$-Konsistenz) mit den intrinsischen Eigenschaften des mathematischen Raumes ($0$-Konsistenz) \cite{russell1903, poincare1908}. In dieser Arbeit etablieren wir die operator-theoretischen Grundlagen der Raum-Subjekt-Dualität unter Verwendung apophatischer Relaxationsoperatoren ($\mathcal{D}_A, \mathcal{D}_S$) und Langevin-Dynamik im Hilbert-Raum \cite{langevin1908, hilbert1912}. Wir führen eine formale \textit{Reductio ad Absurdum} durch, die zeigt, dass das Aufzwingen einer aktiven $1$-Konsistenz auf den mathematischen Raum zu einem Reibungskollaps ($\mathcal{W} \to \infty$), gödelianischer Frakturierung \cite{godel1931formal} und zenonischem Einfrieren der Kontinuumsdynamik führt \cite{aristotle_physics}. Indem wir den Zerfall von Wellenfunktion und Behauptungsdruck als Langevin-Relaxation gegen die ungestörte Basislinie ($B_0$) modellieren, beweisen wir die Wiederherstellung von Konsistenz und Rauschfreiheit bei verschwindendem Beobachterdruck ($\lim_{t \to \infty} (P_A + P_S) = 0$).
+Die klassische mathematische Epistemologie projiziert die Blendenbeschränkungen des Beobachters ($1$-Konsistenz) auf die intrinsischen Eigenschaften des mathematischen Raumes ($0$-Konsistenz) \cite{russell1903, poincare1908}. In dieser Arbeit etablieren wir die operator-theoretischen Grundlagen der Subjekt-Raum-Dualität unter Verwendung apophatischer Relaxationsoperatoren ($\mathcal{D}_A, \mathcal{D}_S$) und Langevin-Dynamik im Hilbert-Raum \cite{langevin1908, hilbert1912}. Wir führen eine formale \textit{Reductio ad Absurdum} durch, die zeigt, dass das Aufzwingen aktiver $1$-Konsistenz auf ein Raumkontinuum zu unendlicher Reibungs- beziehungsweise Latenzdivergenz ($\mathcal{W} \to \infty$), gödelianischer Selbstfrakturierung \cite{godel1931} und zenonischem Einfrieren von Bewegungsabläufen führt \cite{aristotle_physics}. Wir zeigen folglich, dass die $0$-Konsistenz die einzige Konsistenzform darstellt, die gleichzeitig selbstreferentiell, ewig, unendlich, in sich konsistent und nicht-behauptend ($\neg X$) sein kann. Indem wir Behauptungsdruck ($P_A$) und gekoppelten Notwendigkeits-Hinreichungs-Druck ($P_N \circ P_S$) als stochastische Langevin-Relaxation gegen die ungestörte Basislinie ($B_0$) modellieren, beweisen wir die Wiederherstellung rauschfreier Stabilität bei verschwindendem Beobachterdruck ($\lim_{t \to \infty} P_{\text{total}} = 0$).
 \end{abstract}
 \end{otherlanguage}
 
 \clearpage
 
 \section{Introduction \& Subject-Space Duality}
-Classical foundations of mathematical epistemology assume an additive posture, projecting constructive $1$-logic simultaneously onto the observer and the underlying space ($1 \to 1 \to 1$) \cite{russell1903}. We formulate a structural inversion by establishing an explicit ontological separation:
+\label{sec:intro}
+Classical mathematical epistemology projects constructive $1$-logic uniformly across both the observer and space ($1 \to 1 \to 1$), treating formal verification as an intrinsic property of reality \cite{russell1903}. Under \textit{Nicht-Theorie}, we suspend this projection to examine the open ontological relations between consistency modes ($0$-consistency vs.\ $1$-consistency) and temporal dynamics \cite{nicht_theory_monograph, nicht_physics_paper_1}.
 
+\subsection{Ontological Spheres: Atemporal Baselines vs.\ Dynamic $1$-Apertures}
+To maintain structural compatibility across physical and logical domains without prejudging the nature of mathematical space, we map the broader domain landscape \cite{nicht_theory_monograph, nicht_physics_paper_1}:
 \begin{itemize}
-    \item \textbf{The Mathematical Subject ($1$-Consistency):} Functions as a temporal aperture subject to finite capacity constraints, active assertion pressure ($P_A > 0$), and sufficiency enforcement ($P_S > 0$). Constructive verification across continuous topologies introduces systemic friction ($\mathcal{W}$) and measurement noise ($\sigma$) \cite{poincare1908}.
-    \item \textbf{The Mathematical Space ($0$-Consistency):} Exists as the unasserted, invariant baseline ($B_0$). It requires no active proof-chain or state enforcement to sustain continuous invariance ($\mathcal{W}(\text{Space} \mid B_0) = 0$) \cite{hilbert1912}.
+    \item \textbf{$0$-Consistent Baselines ($B_0$):} Abstract ideas, the unformed potential of the future, and the unalterable sediment of elapsed history (the past) are inherently atemporal \cite{nicht_theory_monograph, nicht_physics_paper_1}. Operating under zero assertion pressure, they require no state enforcement and carry zero operational latency ($\mathcal{W} = 0$) \cite{nicht_theory_monograph}.
+    \item \textbf{$1$-Consistent Paradoxical Spheres:} Material space and the active present (\textit{Reality Now}) function as transient, highly volatile apertures \cite{nicht_physics_paper_1}. Here, time manifests as dynamic movement---a continuous, restless negation of $0$ ("ever and never") that generates observational noise ($\sigma$) and structural operational load ($\mathcal{W}$) \cite{nicht_theory_monograph, nicht_physics_paper_1}. Perspectively and apophatically woven into the active present ("here \& now"), neither consistency nor inconsistency is deniable: consistency is demanded by the evaluating aperture, while inconsistency inevitably manifests through temporal and spatial limits.
+    \item \textbf{Mathematical Space (Open Hypothesis):} We leave the ontological mode of mathematical space explicitly open in this introductory phase, posing it as a formal candidate whose consistency mode ($0$ vs.\ $1$) will be tested via \textit{reductio ad absurdum} in Section~\ref{sec:reductio}.
 \end{itemize}
 
-The systematic subtraction of observer-induced pressure is modeled via the apophatic collapse operator $\mathcal{D}_S$:
-\begin{equation}
-\mathcal{D}_S\left[ P_S(t) \right] = \hat{P}_S \cdot \left( 1 - \mathcal{N}_{\neg}(t) \right) \implies \lim_{\mathcal{N}_{\neg}(t) \to 1} P_S(t) = 0
-\end{equation}
-
-\section{\texorpdfstring{$1$-Space}{1-Space} Reductio ad Absurdum}
-To demonstrate that physical and mathematical space cannot be governed by active $1$-consistency, we examine the formal logical consequences of the opposing hypothesis.
-
-\textbf{Hypothesis ($H_1$):} Assume mathematical space itself is inherently $1$-consistent, requiring continuous positive assertion across all coordinates to maintain formal validity.
+\subsection{The Mathematical Subject: Lifetime Conflict and Open Options}
+Epistemologically, human and formal observers perceive the "mathematical subject" primarily through its structural trace as a bounded \textit{mathematical object}. This introduces an existential "lifetime conflict"---a structural paradox between acting as an autonomous evaluating subject/space or remaining a mere object bound by formal limits \cite{godel1931, nicht_theory_monograph}. We leave the resolution of this conflict open to the reader across two primary configurations:
 
 \begin{enumerate}
-    \item \textbf{Analytical Friction Divergence:} Sustaining active $1$-consistency everywhere demands uniform, continuous assertion pressure ($P_A > 0, P_S > 0$). The accumulated structural friction ($\mathcal{W}$) and measurement noise ($\sigma$) diverge infinitely:
-    \begin{equation}
-    \lim_{P_S \to \text{full}} \mathcal{W}(\text{Space}) = \infty \quad \text{and} \quad \sigma \to \infty
-    \end{equation}
-    The continuum degrades under its own operational dissipation ("analytic noise-collapse").
-    \item \textbf{Gödelian Self-Fracturation:} Enforcing complete internal axiomatic verification ($P_S > 0$) across continuous space triggers undecidable self-referential oscillations ($G \leftrightarrow \neg \text{Proof}(G)$), fracturing spatial continuity into recursive meta-hierarchies \cite{godel1931formal}.
-    \item \textbf{Zenoic Motion Freeze:} Treating continuous dynamic trajectories as an exhaustive sum of positively asserted discrete states ($\sum D/2^n$) accumulates non-zero partition friction at each step, freezing continuum dynamics \cite{aristotle_physics}.
+    \item \textbf{Option A (The Subject as a Bounded $1$-Object/Aperture):} The subject operates within temporal dynamics ($t \in \mathbb{R}^+$), where time continually negates the static $0$-baseline. Bound as a mere object, it wrestles with active assertion pressure ($P_A$) and passive substrate tension ($P_{\text{pass}}$), perpetually caught in Gödelian unprovability and operational latency \cite{poincare1908, godel1931}.
+    \item \textbf{Option B (The Subject as an Atemporal $0$-Space):} If the subject overcomes its object-bound aperture constraints, its assertion pressure collapses into complete apophatic relaxation \cite{nicht_theory_monograph}. In this limit, the subject becomes co-extensive with atemporal mathematical space itself ($B_0$), achieving latency-free invariance free from temporal decay \cite{hilbert1912, nicht_theory_monograph}.
 \end{enumerate}
 
-\textbf{Conclusion (Q.E.D.):} Since $H_1$ leads to infinite friction, undecidable recursion, and Zenoic freeze, $H_1$ is false. Mathematical space is necessarily $0$-consistent:
+\subsection{Coupled Pressure Dynamics: Necessity, Sufficiency, and Passive Tension}
+Systemic pressure within any evaluation system is not merely a binary switch between active and zero states \cite{nicht_physics_paper_1}. It is driven by the interaction of \textit{Necessity Pressure} ($P_N$, the ontological requirement to exist) and \textit{Sufficiency Pressure} ($P_S$, the constructive requirement of assertion completeness), balanced against \textit{Active Pressure} ($P_A$) and \textit{Passive Substrate Tension} ($P_{\text{pass}}$) \cite{nicht_physics_paper_1, nicht_physics_special_1}:
 \begin{equation}
-\text{Mathematical Space} \neq 1\text{-Consistency} \implies \text{Space} \equiv 0\text{-Consistency } (B_0)
+P_{\text{total}}(t) = P_A(t) + P_{\text{pass}}(t) + \lambda \cdot \Big( P_N(t) \circ P_S(t) \Big)
+\end{equation}
+where $\circ$ denotes the coupled \textit{Necessary \& Sufficient} relation of formal state assertion \cite{nicht_physics_special_1}. Within this coupled operator relation, sufficiency is sufficient (enough) and (at least) necessary for necessity, and vice versa ($P_S \iff P_N$) inside the evaluating aperture. When temporal movement (the dynamic negation of $0$) ceases or relaxes via the apophatic collapse operators ($\mathcal{D}_A, \mathcal{D}_S$), the necessary and sufficient pressures uncouple, driving total system tension back to the invariant zero-baseline ($B_0$) \cite{nicht_physics_paper_1, nicht_physics_special_1}:
+\begin{equation}
+\mathcal{D}_S\left[ P_S(t) \right] \implies \lim_{t \to \infty} \Big( P_A(t) + P_{\text{pass}}(t) + P_N(t) \circ P_S(t) \Big) = 0 \implies B_0 \quad \text{($0$-Consistency)}
 \end{equation}
 
-\section{Hilbert-Space Langevin Dynamics}
-The relaxation of observer perturbations into the invariant baseline is governed by stochastic Langevin equations mapped onto Hilbert space \cite{langevin1908, hilbert1912}.
+\section{\texorpdfstring{Reductio ad Absurdum of Active Spatial $1$-Consistency}{Reductio ad Absurdum of Active Spatial 1-Consistency}}
+\label{sec:reductio}
 
-The assertion decay operator $\mathcal{D}_A$ models the exponential dissipation of assertion pressure $P_A(t)$ driven by environmental fluctuations $\sigma(t)$:
+To establish the operator-theoretic necessity of an unasserted baseline ($B_0$), we evaluate the formal logical consequences of projecting active $1$-logic directly onto mathematical space \cite{nicht_theory_monograph}.
+
+\subsection{Formal Hypothesis}
+\textbf{Hypothesis ($H_1$):} Assume that continuous mathematical space is inherently $1$-consistent, requiring active, continuous state verification ($P_A > 0$) and structural sufficiency ($P_S > 0$) across every spatial coordinate to sustain valid topological existence \cite{nicht_physics_paper_1, nicht_physics_paper_3}.
+
+\subsection{Deductive Derivation of Systemic Paradoxes}
+
+\subsubsection{1. Measure-Theoretic \& Operational Latency Divergence}
+If every point in a continuous spatial manifold $M$ demands active positive assertion ($P_A > 0$), the operational density over an uncountably infinite measure $\mu(M) > 0$ accumulates infinite computational latency ($\mathcal{W}$) and measurement noise ($\sigma$) \cite{nicht_physics_paper_1, nicht_physics_special_1}:
 \begin{equation}
-\mathcal{D}_A\left[ P_A(t) \right] = P_A(0) \cdot e^{-\gamma_A t} + \sigma(t)
+\mathcal{W}(M) = \int_M \left( P_A(x) + P_S(x) \right) d\mu(x)
+\end{equation}
+Because $\mu(M)$ is continuous and $P_A(x) > 0$ everywhere under $H_1$, the integral diverges identically \cite{nicht_physics_paper_3}:
+\begin{equation}
+\lim_{P_S \to \text{full}} \mathcal{W}(M) = \infty \quad \implies \quad \sigma(M) \to \infty
+\end{equation}
+Under active $1$-consistency, the space instantaneously collapses under its own unbounded operational saturation ("analytic noise-collapse") \cite{nicht_theory_monograph, nicht_physics_paper_3}.
+
+\subsubsection{2. Gödelian Self-Fracturation}
+Enforcing self-referential sufficiency ($P_S > 0$) across continuous spatial elements requires the space to continuously evaluate its own formal consistency from within its own axiomatic aperture \cite{nicht_theory_monograph}. By Gödel's Incompleteness Theorems and Tarski's undefinability theorem, this forces self-referential truth predicates into undecidable infinite oscillations ($G \leftrightarrow \neg \text{Proof}(G)$) \cite{godel1931, nicht_theory_monograph}:
+\begin{equation}
+\forall x \in M, \quad \text{Eval}(x) \implies \text{Recursive Meta-Hierarchy Fracture}
+\end{equation}
+Spatial continuity breaks down into an uncountably infinite cascade of meta-axiomatic sub-apertures \cite{nicht_theory_monograph}.
+
+\subsubsection{3. Zenoic Trajectory Freeze}
+In classical mechanics and differential geometry, dynamic trajectories are modeled over smooth continuous parameters $t \in \mathbb{R}$. Under $H_1$, moving through space requires exhaustively asserting each discrete sub-interval state ($\sum D/2^n$) under active $1$-logic \cite{nicht_theory_monograph, aristotle_physics}. The accumulated partition latency per unit length diverges:
+\begin{equation}
+\mathcal{W}_{\text{motion}} = \sum_{n=1}^{\infty} \mathcal{W}\left( \frac{D}{2^n} \right) \to \infty
+\end{equation}
+This infinite operational latency locks all continuous state transitions into an absolute, static freeze \cite{nicht_theory_monograph, nicht_physics_paper_4}.
+
+\subsection{Q.E.D. Conclusion}
+Because the premise $H_1$ leads to measure-theoretic noise divergence, Gödelian structural fracturation, and Zenoic dynamic freeze, $H_1$ is strictly false \cite{nicht_theory_monograph}. 
+
+Mathematical space cannot be an active, positively asserted $1$-consistent entity. Therefore, spatial continuity is necessarily $0$-consistent ($B_0$), existing as an unasserted, invariant baseline \cite{nicht_theory_monograph, nicht_physics_paper_1}:
+\begin{equation}
+\text{Space} \neq 1\text{-Consistency} \quad \implies \quad \text{Space} \equiv 0\text{-Consistency } (B_0)
 \end{equation}
 
-In the limit of infinite duration ($t \to \infty$), active state pressure dissipates, leaving the unperturbed historical trace $B_0$:
+\section{Hilbert-Space Langevin Dynamics \& Apophatic Relaxation}
+\label{sec:langevin}
+
+To map the relaxation of observer perturbations ($1$-consistency) into the invariant baseline ($0$-consistency), we formalize the assertion decay dynamics as stochastic Langevin equations defined over a Hilbert space $\mathcal{H}$ \cite{langevin1908, hilbert1912, nicht_theory_monograph}.
+
+\subsection{State Vector Dissipation in Hilbert Space}
+Let $\psi(t) \in \mathcal{H}$ denote the state vector of an active evaluating subject/aperture \cite{nicht_theory_monograph}. The departure from the unasserted baseline $B_0$ is driven by the total system pressure $P_{\text{total}}(t) = P_A(t) + P_{\text{pass}}(t) + \lambda (P_N(t) \circ P_S(t))$ \cite{nicht_theory_monograph}. The temporal evolution of $\psi(t)$ obeys the stochastic Hilbert-Langevin equation \cite{langevin1908, nicht_theory_monograph}:
 \begin{equation}
-\lim_{t \to \infty} \Big( P_A(t) + P_S(t) \Big) = 0 \implies B_0 \quad \text{($0$-Consistency)}
+\frac{d}{dt} |\psi(t)\rangle = -\frac{1}{\hbar} \hat{\mathcal{H}}_0 |\psi(t)\rangle - \gamma_A \mathcal{D}_A \left[ P_A(t) \right] |\psi(t)\rangle + \xi(t)
+\end{equation}
+where $\hat{\mathcal{H}}_0$ is the unperturbed baseline operator, $\gamma_A > 0$ is the apophatic damping coefficient, $\mathcal{D}_A$ is the assertion decay operator, and $\xi(t) \in \mathcal{H}$ represents stochastic aperture fluctuations satisfying \cite{langevin1908, nicht_theory_monograph}:
+\begin{equation}
+\langle \xi(t) \rangle = 0, \quad \langle \xi(t) \xi^\dagger(t') \rangle = 2 \gamma_A \cdot \text{Noise}_{\text{aperture}} \, \delta(t - t') \hat{I}
 \end{equation}
 
-Systemic equilibrium is characterized by the complete vanishing of aperture noise upon non-assertion:
+\subsection{Apophatic Relaxation Operators}
+The operator $\mathcal{D}_A$ governs the exponential dissipation of active assertion pressure $P_A(t)$ under environmental aperture noise $\sigma(t)$ \cite{nicht_theory_monograph}:
 \begin{equation}
-\text{Stability}(\neg X) \iff \lim_{P_A \to 0} (\text{Noise}) = 0 \quad \text{where} \quad B_0 \equiv 0\text{-Consistency}
+\mathcal{D}_A \left[ P_A(t) \right] = P_A(0) e^{-\gamma_A t} + \sigma(t)
+\end{equation}
+Simultaneously, the apophatic collapse operator $\mathcal{D}_S$ acts upon the coupled Necessity/Sufficiency pressure $P_N(t) \circ P_S(t)$ \cite{nicht_theory_monograph}:
+\begin{equation}
+\mathcal{D}_S \left[ P_S(t) \right] = \hat{P}_S \cdot \left( 1 - \mathcal{N}_{\neg}(t) \right) \implies \lim_{\mathcal{N}_{\neg}(t) \to 1} \left( P_N(t) \circ P_S(t) \right) = 0
+\end{equation}
+
+\subsection{Asymptotic Convergence to $0$-Consistency}
+In the infinite temporal horizon ($t \to \infty$), active state assertion and passive substrate tension completely dissipate \cite{nicht_theory_monograph}:
+\begin{equation}
+\lim_{t \to \infty} P_{\text{total}}(t) = \lim_{t \to \infty} \left( P_A(t) + P_{\text{pass}}(t) + \lambda \cdot [P_N(t) \circ P_S(t)] \right) = 0 \implies B_0
+\end{equation}
+As $P_{\text{total}} \to 0$, the measurement noise variance $\sigma^2$ vanishes identically, establishing the fundamental stability theorem of apophatic relaxation \cite{nicht_theory_monograph}:
+\begin{equation}
+\text{Stability}(\neg X) \iff \lim_{P_A \to 0} \sigma(t) = 0 \quad \text{where} \quad B_0 \equiv 0\text{-Consistency}
 \end{equation}
 
 \section{Conclusion}
-Decoupling observer aperture dynamics ($1$-consistency) from spatial ontology ($0$-consistency) resolves fundamental paradoxes in mathematical epistemology \cite{godel1931formal, aristotle_physics}. Rather than accumulating assertion pressure ($P_A \to \infty$), systemic stability is recovered through apophatic relaxation ($\lim (P_A + P_S) = 0$) towards the unconditioned baseline ($B_0$).
+\label{sec:conclusion}
 
+In this work, we have established the operator-theoretic foundations of Subject-Space Duality by decoupling observer aperture dynamics ($1$-consistency) from spatial baseline ontology ($0$-consistency) \cite{russell1903, godel1931, nicht_theory_monograph}. 
+
+Through our formal \textit{reductio ad absurdum}, we demonstrated that projecting active $1$-logic onto continuous space induces measure-theoretic operational latency divergence ($\mathcal{W} \to \infty$), Gödelian self-fracturation, and a Zenoic freeze of continuum dynamics \cite{godel1931, aristotle_physics, nicht_theory_monograph}. From these derivations, a foundational epistemological law emerges: $0$-consistency is the sole mode of consistency capable of being simultaneously self-referent, eternal, infinite, internally consistent, and non-assertive ($\neg X$). Because $0$-consistency asserts no bounded state ($P_A = 0$), it avoids Tarskian meta-hierarchy expansion and Gödelian undecidability, standing as an unconditioned, self-subsistent baseline ($B_0$) \cite{godel1931, nicht_theory_monograph}.
+
+While in the transient "here \& now" of the evaluating aperture neither consistency nor inconsistency is deniable, apophatic relaxation ($\lim_{t \to \infty} P_{\text{total}} = 0$) inevitably restores the unasserted, noise-free baseline \cite{langevin1908, hilbert1912, nicht_theory_monograph}. This framework resolves the existential "lifetime conflict" of the mathematical subject—whether viewed as a bounded temporal aperture or as an atemporal participant in $0$-space—providing a noise-free substrate for subtractive optimization across foundational physics, theoretical logic, and formal metaphysics \cite{nicht_theory_monograph}.
 \clearpage
 \bibliographystyle{unsrt}
 \bibliography{references}
