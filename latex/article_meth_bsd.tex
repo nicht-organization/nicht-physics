@@ -59,7 +59,7 @@
 
 % --- ENGLISH ABSTRACT ---
 \begin{abstract}
-Classical $1$-logic models the Birch and Swinnerton-Dyer (BSD) conjecture as an active counting problem, attempting to construct a synthetic equivalence between the discrete algebraic rank of an elliptic curve $E/\mathbb{Q}$ and the order of vanishing of its complex $L$-series $L(E, s)$ at $s=1$ through high-friction height estimates \cite{nicht_theory_monograph}. Within the \textbf{$0$-Consistency Framework}, we demonstrate that the $L$-series at $s=1$ acts as an arithmetic aperture meter \cite{nicht_metaphysics_paper_0}. When $L(E, 1) = 0$, assertion pressure collapses ($P_A \to 0$), allowing rational points to sediment friction-freely into the invariant baseline $B_0$ \cite{nicht_physics_repo}. This paper presents the apophatic resolution $\text{ord}_{s=1} L(E, s) \equiv \text{rank}(E(\mathbb{Q}))$, outlines the four-phase isomorphism mapping into a classical $1$-consistent operator proof, and provides a computational validation suite for aperture collapses and parity root number invariants.
+Classical $1$-logic models the Birch and Swinnerton-Dyer (BSD) conjecture \cite{birch_swinnerton_dyer_1965} as an active counting problem, attempting to construct a synthetic equivalence between the discrete algebraic rank of an elliptic curve $E/\mathbb{Q}$ and the order of vanishing of its complex $L$-series $L(E, s)$ at $s=1$ through high-friction height estimates \cite{nicht_theory_monograph}. Within the \textbf{$0$-Consistency Framework}, we demonstrate that the $L$-series at $s=1$ acts as an arithmetic aperture meter \cite{nicht_metaphysics_paper_0}. When $L(E, 1) = 0$, assertion pressure collapses ($P_A \to 0$), allowing rational points to sediment friction-freely into the invariant baseline $B_0$ \cite{nicht_physics_repo}. This paper presents the apophatic resolution $\text{ord}_{s=1} L(E, s) \equiv \text{rank}(E(\mathbb{Q}))$, outlines the four-phase isomorphism mapping into a classical $1$-consistent operator proof, and provides a computational validation suite for aperture collapses and parity root number invariants.
 \end{abstract}
 
 \vspace{0.3cm}
@@ -67,14 +67,14 @@ Classical $1$-logic models the Birch and Swinnerton-Dyer (BSD) conjecture as an 
 % --- GERMAN ABSTRACT ---
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
-Klassische $1$-Logik modelliert die Birch und Swinnerton-Dyer (BSD) Vermutung als aktives Zählproblem über synthetische Höhenfunktionen \cite{nicht_theory_monograph}. Im Rahmen des \textbf{$0$-Konsistenz-Frameworks} zeigen wir, dass die $L$-Funktion bei $s=1$ als arithmetischer Apertur-Messer fungiert \cite{nicht_metaphysics_paper_0}. Verschwindet $L(E, 1) = 0$, kollabiert der Behauptungsdruck ($P_A \to 0$), wodurch rationale Punkte reibungsfrei in die Basislinie $B_0$ sedimentieren \cite{nicht_physics_repo}. Dieses Paper liefert die apophatische Auflösung $\text{ord}_{s=1} L(E, s) \equiv \text{rank}(E(\mathbb{Q}))$ und skizziert die Vier-Phasen-Isomorphie-Übersetzung in einen klassischen $1$-Beweis.
+Klassische $1$-Logik modelliert die Birch und Swinnerton-Dyer (BSD) Vermutung \cite{birch_swinnerton_dyer_1965} als aktives Zählproblem über synthetische Höhenfunktionen \cite{nicht_theory_monograph}. Im Rahmen des \textbf{$0$-Konsistenz-Frameworks} zeigen wir, dass die $L$-Funktion bei $s=1$ als arithmetischer Apertur-Messer fungiert \cite{nicht_metaphysics_paper_0}. Verschwindet $L(E, 1) = 0$, kollabiert der Behauptungsdruck ($P_A \to 0$), wodurch rationale Punkte reibungsfrei in die Basislinie $B_0$ sedimentieren \cite{nicht_physics_repo}. Dieses Paper liefert die apophatische Auflösung $\text{ord}_{s=1} L(E, s) \equiv \text{rank}(E(\mathbb{Q}))$ und skizziert die Vier-Phasen-Isomorphie-Übersetzung in einen klassischen $1$-Beweis.
 \end{abstract}
 \end{otherlanguage}
 
 \clearpage
 
 \section{Introduction \& Ontological Separation}
-Standard arithmetic geometry within classical $1$-logic approaches the Birch and Swinnerton-Dyer (BSD) conjecture by attempting to build a constructive bridge between two distinct mathematical domains \cite{nicht_theory_monograph}:
+Standard arithmetic geometry within classical $1$-logic approaches the Birch and Swinnerton-Dyer (BSD) conjecture \cite{birch_swinnerton_dyer_1965} by attempting to build a constructive bridge between two distinct mathematical domains \cite{nicht_theory_monograph}:
 \begin{enumerate}
     \item \textbf{The Algebraic Rank ($r_{\text{alg}}$):} The number of independent rational points of infinite order on $E(\mathbb{Q})$.
     \item \textbf{The Analytic Rank ($r_{\text{an}}$):} The order of vanishing $r_{\text{an}} = \text{ord}_{s=1} L(E, s)$.
@@ -106,13 +106,12 @@ To translate this friction-free insight into a formal proof under ZFC, we employ
 \end{enumerate}
 
 \section{Empirical Verification: The BSD Test Suite}
-The mechanics of zero-consistent rank sedimentation, the congruent number problem ($E_N: y^2 = x^3 - N^2 x$), and parity invariants ($\omega(E) = \pm 1$) are verified in the computational suite \texttt{test\_bsd.py} \cite{nicht_physics_repo}.
-
+The mechanics of zero-consistent rank sedimentation within the Birch--Swinnerton-Dyer framework \cite{birch_swinnerton_dyer_1965}, the congruent number problem ($E_N: y^2 = x^3 - N^2 x$) characterized by Tunnell's theorem \cite{tunnell_1983}, and parity invariants ($\omega(E) = \pm 1$) are verified in the computational suite \texttt{test\_bsd.py} \cite{nicht_physics_repo, tunnell_1983}.
 \subsection{Solver Implementation}
 \begin{figure}[H]
 \centering
 \begin{minipage}{0.95\textwidth}
-\lstinputlisting[firstline=23, lastline=53, style=cleanpython, caption={\texttt{test\_bsd.py-23:53}}]{test_bsd.py}
+\lstinputlisting[firstline=22, lastline=54, style=cleanpython, caption={\texttt{test\_bsd.py-22:54}}]{test_bsd.py}
 \end{minipage}
 \end{figure}
 
@@ -120,7 +119,7 @@ The mechanics of zero-consistent rank sedimentation, the congruent number proble
 \begin{figure}[H]
 \centering
 \begin{minipage}{0.95\textwidth}
-\lstinputlisting[firstline=58, lastline=95, style=cleanpython, caption={\texttt{test\_bsd.py-58:95}}]{test_bsd.py}
+\lstinputlisting[firstline=57, lastline=96, style=cleanpython, caption={\texttt{test\_bsd.py-57:96}}]{test_bsd.py}
 \end{minipage}
 \end{figure}
 
@@ -128,7 +127,7 @@ The mechanics of zero-consistent rank sedimentation, the congruent number proble
 \begin{figure}[H]
 \centering
 \begin{minipage}{0.95\textwidth}
-\lstinputlisting[firstline=100, lastline=122, style=cleanpython, caption={\texttt{test\_bsd.py-100:122}}]{test_bsd.py}
+\lstinputlisting[firstline=99, lastline=123, style=cleanpython, caption={\texttt{test\_bsd.py-99:123}}]{test_bsd.py}
 \end{minipage}
 \end{figure}
 
@@ -136,7 +135,7 @@ The mechanics of zero-consistent rank sedimentation, the congruent number proble
 \begin{figure}[H]
 \centering
 \begin{minipage}{0.95\textwidth}
-\lstinputlisting[firstline=127, lastline=152, style=cleanpython, caption={\texttt{test\_bsd.py-127:152}}]{test_bsd.py}
+\lstinputlisting[firstline=126, lastline=153, style=cleanpython, caption={\texttt{test\_bsd.py-126:153}}]{test_bsd.py}
 \end{minipage}
 \end{figure}
 
@@ -144,7 +143,7 @@ The mechanics of zero-consistent rank sedimentation, the congruent number proble
 \begin{figure}[H]
 \centering
 \begin{minipage}{0.95\textwidth}
-\lstinputlisting[firstline=157, lastline=193, style=cleanpython, caption={\texttt{test\_bsd.py-157:193}}]{test_bsd.py}
+\lstinputlisting[firstline=156, lastline=193, style=cleanpython, caption={\texttt{test\_bsd.py-156:193}}]{test_bsd.py}
 \end{minipage}
 \end{figure}
 
