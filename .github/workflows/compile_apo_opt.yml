@@ -9,5 +9,6 @@ jobs:
     secrets: inherit
   build-latex:
     uses: nicht-organization/nicht-theory/.github/workflows/compile_latex_base.yml@main
+    needs: run-sim
     with:
       root-file: article_apophatic_optimization.tex
