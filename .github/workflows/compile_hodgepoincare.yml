@@ -1,0 +1,14 @@
+name: Build "Meth Hodge Poincaré" LaTeX Document
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-sim:
+    uses: nicht-organization/nicht-physics/.github/workflows/generate_images.yml@main
+    secrets: inherit
+  build-latex:
+    uses: nicht-organization/nicht-theory/.github/workflows/compile_latex_base.yml@main
+    needs: run-sim
+    with:
+      root-file: article_meth_hodgepoincare.tex
