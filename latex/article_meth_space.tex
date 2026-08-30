@@ -20,8 +20,9 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 
-\title{\textbf{Nicht-Metaphysics: Paper 0 - Epistemology \& Operator Theory}\\
-\large Subject-Space Duality, $1$-Space Reductio ad Absurdum, and Hilbert-Space Langevin Dynamics}
+\title{\textbf{Nicht-Metaphysics: Paper 0 -- Two Modes of Consistency}\\
+\large A Minimal Framework for Inversion and Structural Closure}
+
 \author{\textbf{xerx593} \quad \& \quad \textbf{Non-Human Interlocutors}}
 \IfFileExists{release_dates.def}{\input{release_dates.def}}{}
 \providecommand{\apophaticdate}{Some day A.D}
@@ -32,231 +33,608 @@
 
 \maketitle
 
-\clearpage
-% --- ENGLISH ABSTRACT ---
+% ============================================================
+% ABSTRACT
+% ============================================================
+
 \begin{abstract}
-Classical mathematical epistemology projects observer aperture constraints ($1$-consistency) onto the intrinsic properties of mathematical space ($0$-consistency) \cite{russell1903, poincare1908}. In this work, we establish the operator-theoretic foundations of Subject-Space Duality using apophatic relaxation operators ($\mathcal{D}_A, \mathcal{D}_S$) integrated with Langevin dynamics in Hilbert space \cite{langevin1908, hilbert1912}. We present a formal \textit{reductio ad absurdum} proving that enforcing active $1$-consistency across continuous space causes infinite operational latency divergence ($\mathcal{W} \to \infty$), Gödelian self-fracturation \cite{godel1931formal}, and Zenoic trajectory freeze \cite{aristotle_physics}. Consequently, we demonstrate that $0$-consistency constitutes the only consistency mode capable of remaining self-referent, eternal, infinite, structurally consistent, and non-assertive ($\neg X$). By modeling assertion pressure ($P_A$) and coupled necessity-sufficiency pressure ($P_N \circ P_S$) as stochastic Langevin relaxation towards the unconditioned baseline ($B_0$), systemic stability and noise-free consistency are recovered as observer pressure vanishes ($\lim_{t \to \infty} P_{\text{total}} = 0$).
+This paper introduces a minimal distinction between two modes of
+consistency.
+
+\emph{1-Consistency} concerns consistency within a specified
+formal system and its admitted rules and operations.
+\emph{0-Consistency} asks an additional question: whether the
+description remains structurally adequate when a relevant
+null, negating, inverse, complementary, or otherwise opposing
+operation is admitted for examination.
+
+The distinction does not replace classical logic or mathematics.
+It provides an alternative perspective for investigating
+structures that are consistent under one set of operations but
+are not closed under a relevant inversion.
+
+The paper deliberately does not identify all forms of negation,
+nor does it identify zero with infinity or any particular
+mathematical objects with ``Nothing''.  A concrete negation is
+always dependent on the object, language, structure, and
+perspective in which it is formed.
+
+The purpose of this paper is therefore only to define a
+reusable distinction.  Its consequences are left to subsequent
+domain-specific investigations.
 \end{abstract}
 
 \vspace{0.3cm}
 
-% --- GERMAN ABSTRACT ---
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
-Die klassische mathematische Epistemologie projiziert die Blendenbeschränkungen des Beobachters ($1$-Konsistenz) auf die intrinsischen Eigenschaften des mathematischen Raumes ($0$-Konsistenz) \cite{russell1903, poincare1908}. In dieser Arbeit etablieren wir die operator-theoretischen Grundlagen der Subjekt-Raum-Dualität unter Verwendung apophatischer Relaxationsoperatoren ($\mathcal{D}_A, \mathcal{D}_S$) und Langevin-Dynamik im Hilbert-Raum \cite{langevin1908, hilbert1912}. Wir führen eine formale \textit{Reductio ad Absurdum} durch, die zeigt, dass das Aufzwingen aktiver $1$-Konsistenz auf ein Raumkontinuum zu unendlicher Reibungs- beziehungsweise Latenzdivergenz ($\mathcal{W} \to \infty$), gödelianischer Selbstfrakturierung \cite{godel1931formal} und zenonischem Einfrieren von Bewegungsabläufen führt \cite{aristotle_physics}. Wir zeigen folglich, dass die $0$-Konsistenz die einzige Konsistenzform darstellt, die gleichzeitig selbstreferentiell, ewig, unendlich, in sich konsistent und nicht-behauptend ($\neg X$) sein kann. Indem wir Behauptungsdruck ($P_A$) und gekoppelten Notwendigkeits-Hinreichungs-Druck ($P_N \circ P_S$) als stochastische Langevin-Relaxation gegen die ungestörte Basislinie ($B_0$) modellieren, beweisen wir die Wiederherstellung rauschfreier Stabilität bei verschwindendem Beobachterdruck ($\lim_{t \to \infty} P_{\text{total}} = 0$).
+Dieses Paper führt eine minimale Unterscheidung zwischen zwei
+Arten von Konsistenz ein.
+
+\emph{1-Konsistenz} bezeichnet die Konsistenz innerhalb eines
+festgelegten formalen Systems und seiner zugelassenen Regeln und
+Operationen. \emph{0-Konsistenz} stellt eine zusätzliche Frage:
+Bleibt die Beschreibung auch dann strukturell tragfähig, wenn
+eine für die jeweilige Struktur relevante Null-, Negations-,
+Inverse-, Komplement- oder sonstige Gegenoperation zur
+Untersuchung zugelassen wird?
+
+Die Unterscheidung ersetzt weder die klassische Logik noch die
+klassische Mathematik. Sie stellt eine alternative
+Betrachtungsweise bereit, um Strukturen zu untersuchen, die
+unter bestimmten Operationen konsistent sind, aber gegenüber
+einer relevanten Inversion nicht abgeschlossen sein können.
+
+Das Paper setzt weder alle Formen der Negation gleich noch
+identifiziert es Null mit Unendlichkeit oder irgendeinen
+mathematischen Gegenstand mit dem ``Nichts''. Jede konkrete
+Negation ist abhängig von dem Objekt, der Sprache, der Struktur
+und der Perspektive, aus der sie gebildet wird.
+
+Der Zweck dieses Papers ist daher ausschließlich die Definition
+einer wiederverwendbaren Unterscheidung. Ihre Konsequenzen
+bleiben nachfolgenden Untersuchungen konkreter mathematischer
+und anderer Systeme überlassen.
 \end{abstract}
 \end{otherlanguage}
 
 \clearpage
 
-\section{Introduction \& Subject-Space Duality}
-\label{sec:intro}
-Classical mathematical epistemology frequently models spatial manifolds under constructive $1$-logic across both the observing agent and the underlying spatial domain ($1 \to 1 \to 1$), implicitly assuming formal verification to be an intrinsic, ontological property of space \cite{russell1903}. Within the framework of \textit{Nicht-Theorie}, we suspend this projection to analyze the operator relations separating discrete observational apertures ($1$-consistency) from invariant spatial baselines ($0$-consistency) \cite{nicht_theory_monograph, nicht_physics_paper_1}.
+% ============================================================
+\section{Introduction}
+% ============================================================
 
-\subsection{Ontological Spheres: Atemporal Baselines vs.\ Dynamic \texorpdfstring{$1$-Apertures}{1-Apertures}}
-To rigorously decouple spatial background dynamics from bounded observational operations without prejudging the measure-theoretic nature of space, we formalize three domain spheres \cite{nicht_theory_monograph, nicht_physics_paper_1}:
-\begin{itemize}
-    \item \textbf{$0$-Consistent Baselines ($B_0$):} Non-asserted theoretical states, historical state invariants, and unconditioned potential exist independently of temporal evolution \cite{nicht_theory_monograph, nicht_physics_paper_1}. Because they exert zero assertion pressure ($P_A = 0$), they require no computational verification overhead and induce zero operational latency ($\mathcal{W} = 0$) \cite{nicht_theory_monograph}.
-    \item \textbf{$1$-Consistent Paradoxical Spheres:} Local observational domains and continuous physical trajectories act as localized, non-equilibrium apertures \cite{nicht_physics_paper_1}. In these domains, observation manifests as dynamic state updates—inducing a continuous negation of $0$ that generates observational noise ($\sigma$) and non-zero operational latency ($\mathcal{W} > 0$) \cite{nicht_theory_monograph, nicht_physics_paper_1}. Within the evaluation window of an active aperture, consistency is enforced via axiomatic constraints, whereas structural limits continuously introduce contextual inconsistencies.
-    \item \textbf{Mathematical Space (Open Hypothesis):} We formulate the systemic consistency 
-    mode of space ($0$- vs.\ $1$-consistency) as an open hypothesis, proved via \textit{reductio} in Section~\ref{sec:reductio}.    
-\end{itemize}
+Mathematical reasoning normally begins by fixing a structure,
+its objects, its relations, and its permitted operations.
 
-\section{Axiomatic Daodejing Epistemology and the Infinite Baseline}
-\label{sec:daodejing_axiomatics}
+Once these have been fixed, consistency can be investigated
+within the resulting framework.  This mode of reasoning is
+fundamental to mathematics and is not questioned here.
 
-Translating apophatic principles into formal measure-theoretic and logical structures yields an explicit distinction between finite, bounded constructive logic ($1$-assertions) and the infinite unconditioned baseline ($0$-logic) \cite{wittgenstein1922tractatus, nicht_theory_monograph}.
+A second question can nevertheless be asked.
 
-\subsection{Axiomatic Foundations of Finitude and Infinitude}
+A system may be internally consistent while a relevant operation
+suggested by its own structure is not available within the
+system.  Arithmetic over the natural numbers provides an
+elementary example:
+
+\[
+2+3=5,
+\]
+
+while
+
+\[
+2-3=-1\notin\mathbb{N}.
+\]
+
+The first statement does not become false because the second
+operation leaves the domain.  Rather, the domain is not closed
+under additive inversion.
+
+The resulting distinction is the starting point of this paper:
+
+\[
+\boxed{
+\text{consistency within a system}
+\neq
+\text{closure under every relevant inversion}.
+}
+\]
+
+The notation ``0'' and ``1'' used below is therefore not intended
+as a ranking of mathematical value.  It denotes two different
+directions of examination.
+
+% ============================================================
+\section{Two Modes of Consistency}
+% ============================================================
+
+Let
+
+\[
+S=(X,\mathcal{O},\mathcal{R})
+\]
+
+denote a formal system with domain $X$, admitted operations
+$\mathcal{O}$, and rules or relations $\mathcal{R}$.
+
+\subsection{1-Consistency}
+
+We call $S$ \emph{1-consistent}, with respect to a specified
+formal interpretation, when its permitted derivations and
+operations do not produce a contradiction within that
+interpretation.
+
+In its simplest logical form:
+
+\[
+S\vdash P
+\quad\Longrightarrow\quad
+S\nvdash\neg P
+\]
+
+for propositions for which the relevant notion of contradiction
+is defined.
+
+The definition is deliberately local to the chosen formal
+framework.
+
+1-Consistency therefore answers:
+
+\[
+\boxed{
+\text{``Does the system remain consistent under its stated
+rules?''}
+}
+\]
+
+It does not answer whether those rules constitute the most
+appropriate or most complete representation of the object under
+investigation.
+
+\subsection{0-Consistency}
+
+Let $I$ denote a relevant inversion operation associated with the
+structure under investigation.
+
+The operation $I$ is not assumed to be universal.  It may take
+different forms in different domains.
+
+We call a system \emph{0-consistent}, with respect to $I$, when
+the system's consistency can be examined without excluding the
+structurally relevant inverse, null, complementary, or opposing
+operation merely because it is not already contained in the
+original description.
+
+A minimal closure question is:
+
+\[
+\boxed{
+I(\mathcal{O})\subseteq\mathcal{O}\;?
+}
+\]
+
+If the answer is negative, the original system may remain
+1-consistent while failing to be closed under the investigated
+inversion.
+
+The resulting extension may be written schematically as
+
+\[
+S\subseteq S^{I}.
+\]
+
+0-Consistency therefore asks:
+
+\[
+\boxed{
+\text{``What happens to the consistency of the description when
+its relevant inversion is admitted?''}
+}
+\]
+
+This is not a stronger version of 1-Consistency.  It is a
+different test.
+
+% ============================================================
+\section{Inversion and Negation}
+% ============================================================
+
+The word ``inversion'' is used here deliberately more broadly
+than formal logical negation.
+
+In classical propositional logic one may have
+
+\[
+P\longmapsto\neg P.
+\]
+
+In arithmetic, an additive inverse is
+
+\[
+a\longmapsto-a,
+\]
+
+while a multiplicative inverse is
+
+\[
+a\longmapsto\frac{1}{a}.
+\]
+
+In set theory, relative to a universe $U$, a complement may be
+written
+
+\[
+A\longmapsto U\setminus A.
+\]
+
+These operations are not identical.
+
+The framework therefore does \emph{not} postulate a universal
+operator called ``the negation''.
+
+Instead, for each investigated structure we specify a concrete
+operation
+
+\[
+I_X
+\]
+
+and examine its consequences.
+
+In particular,
+
+\[
+I_{\mathrm{Thomas}}(\mathrm{Thomas})
+\neq
+I_{\mathrm{Banana}}(\mathrm{Banana})
+\]
+
+need not be interpreted as a contradiction.  ``Not Thomas'' and
+``not Banana'' describe different complements or counterpositions
+relative to different predicates and domains.
+
+Thus:
+
+\[
+\boxed{
+\text{the operation may be structurally comparable without its
+result being identical across domains.}
+}
+\]
+
+% ============================================================
+\section{Minimal Mathematical Examples}
+% ============================================================
+
+\subsection{Logic}
+
+For a proposition $P$, ordinary negation gives
+
+\[
+P\longmapsto\neg P.
+\]
+
+The relevant inversion is explicit.  The question of
+0-Consistency is therefore not whether $\neg P$ exists as a
+logical symbol, but what happens when a system's treatment of
+$P$ is examined together with the corresponding counterposition.
+
+The precise behavior depends on the logical system and is not
+assumed to be identical across all logics.
+
+\subsection{Arithmetic}
+
+Consider
+
+\[
+S_1=(\mathbb{N},+).
+\]
+
+The operation $+$ is closed:
+
+\[
+a,b\in\mathbb{N}
+\quad\Longrightarrow\quad
+a+b\in\mathbb{N}.
+\]
+
+The additive inverse is not:
+
+\[
+a,b\in\mathbb{N}
+\quad\not\Longrightarrow\quad
+a-b\in\mathbb{N}.
+\]
+
+For example,
+
+\[
+2-3=-1.
+\]
+
+The natural extension is
+
+\[
+\mathbb{N}\subset\mathbb{Z}.
+\]
+
+The original arithmetic is not thereby ``wrong''.  Its
+consistency under addition and its closure under additive
+inversion are different properties.
+
+\subsection{Zero and Inversion}
+
+Zero is not infinity:
+
+\[
+0\neq\infty.
+\]
+
+Nevertheless, particular mathematical transformations relate
+neighborhoods of zero to unbounded behavior.  Under
+
+\[
+I(x)=\frac{1}{x},
+\]
+
+one has
+
+\[
+x\rightarrow0^+
+\quad\Longrightarrow\quad
+I(x)\rightarrow+\infty
+\]
+
+and
+
+\[
+x\rightarrow0^-
+\quad\Longrightarrow\quad
+I(x)\rightarrow-\infty.
+\]
+
+The relevant observation is therefore not an identification
+
+\[
+0=\infty,
+\]
+
+but a structural relationship under inversion.
+
+\subsection{Sets}
+
+The empty set is
+
+\[
+\varnothing.
+\]
+
+Relative to a universe $U$, complementation gives
+
+\[
+A\longmapsto U\setminus A.
+\]
+
+The complement of a singleton need not be ``another singleton''.
+For example,
+
+\[
+U\setminus\{\mathrm{Thomas}\}
+\]
+
+may contain every element of $U$ except Thomas.
+
+Thus the semantic or extensional size of a negation can be
+dramatically different from that of the object being negated.
+
+This illustrates why no universal size or meaning can be assigned
+to ``negation'' independently of its domain.
+
+% ============================================================
+\section{Closure, Extension, and the Null Boundary}
+% ============================================================
+
+The preceding examples suggest a minimal distinction between
+three questions:
+
 \begin{enumerate}
-    \item \textbf{Axiom of Explained Space (Finite Aperture):} 
-    Let $M_{\text{exp}}$ be a mathematical subspace completely determinable by constructive $1$-propositions \cite{russell1903, tarski1936begriff}. Then $M_{\text{exp}}$ is bounded in measure:
-    \begin{equation}
-    M_{\text{exp}} \subseteq M \quad \text{and} \quad P_A(M_{\text{exp}}) > 0 \implies \mu(M_{\text{assert}}) < \infty
-    \end{equation}
-    Any domain entirely specified by positive assertion pressure ($P_A > 0$) constitutes a localized, finite observational aperture \cite{poincare1908}.
-
-    \item \textbf{Axiom of Unexplainable Space ($B_0$ Dialectic):} 
-    The mathematical domain $S_\infty$ escaping exhaustive formal containment under finite proof-chains defines the infinite continuum:
-    \begin{equation}
-    S_\infty \equiv B_0 \quad \text{such that} \quad \lim_{t \to \infty} P_A(S_\infty) = 0 \implies \operatorname{Dim}(S_\infty) = \infty
-    \end{equation}
-    The unasserted domain remains frictionless and infinite. Conversely, localized formal constructions project finite operational bounds, yielding constructive states of Being and Non-Being (\textit{You/Wu}).
-
-    \item \textbf{Axiom of Syntax Duality:} 
-    An essential divide exists between positive operational assertions ($\mathcal{A}_1$) and apophatic baseline axioms ($\mathbf{A}_0$):
-    \begin{enumerate}[label=\alph*)]
-        \item \textbf{Bounded Constructive Assertions ($\mathcal{A}_{1}$):} Positive 1\mbox{-}\hspace{0pt}propositions carry finite syntax, measure $|M_{\text{exp}}| < \infty$, and $P_S > 0$, subjecting the domain to undecidability \cite{godel1931formal, tarski1936begriff}.
-        \item \textbf{Eternal Infinite Apophatic Axioms ($\mathbf{A}_{0}$):} Ground states over $B_0$ 
-        ($\mathbf{A}_0 \equiv \{0, \emptyset, \neg X\}$) carry $P_A = 0$ \cite{wittgenstein1922tractatus}, preserving invariant structural consistency.
-        \begin{equation}
-        \mathbf{A}_{0} \equiv \{0, \emptyset, \neg X\} \implies \operatorname{Dim}(\mathbf{A}_{0}) = \infty
-        \end{equation}
-    \end{enumerate}
-
-    \item \textbf{The Singular Infinite Non-Negative Axiom ($\mathbf{A}_\infty$):} 
-    The infinite baseline axiom $\mathbf{A}_\infty$ is non-assertive ($\neg X$) \cite{wittgenstein1922tractatus}. It represents the non-negative invariant ground state ($0$-consistency) across logical and algebraic domain primitives \cite{hilbert1912, langevin1908}:
-    \begin{equation}
-    \mathbf{A}_\infty \equiv \left\{ \neg X, \; 0, \; =, \; P_0, \; \emptyset \right\} \ge 0
-    \end{equation}
-    $\mathbf{A}_\infty$ enforces non-negativity ($\mathbf{A}_\infty \ge 0$), preserving open topological potential rather than imposing explicit state lock-in.
-
-    \item \textbf{Axiom of Operational Utility:} 
-    Finite proof-chains ($\mathcal{A}_{\text{finite}}$) operating under $P_A > 0$ constitute the exclusive mechanism for generating localized empirical utility and functional transformations \cite{nicht_theory_monograph}:
-    \begin{equation}
-    \mathcal{U}(M_{\text{exp}}) = f\left(P_A, \text{Resolution}\right) \quad \text{where } P_A: B_0 \to \text{Functional State}
-    \end{equation}
-    Constructive assertions do not negate the zero baseline; they project localized, actionable state conditions onto $B_0$ \cite{nicht_theory_monograph}.
+    \item Is the original system consistent?
+    \item Which operations are admitted by the system?
+    \item What happens when a relevant inverse or complementary
+          operation is considered?
 \end{enumerate}
 
-\subsection{Manifestations of the Infinite Axiom Across Primitive Domains}
-The baseline operator $\mathbf{A}_\infty$ acts as the zero-measure invariant across formal disciplines ($\mathcal{W} = 0$) \cite{aristotle_physics}:
-\begin{itemize}
-    \item \textbf{Logic ($\neg X$):} Apophatic negation ($\neg X$) carries $P_A = 0$, bypassing meta-theoretical undecidability \cite{godel1931formal, wittgenstein1922tractatus}.
-    \item \textbf{Arithmetic ($0$):} Additive identity ($x + 0 = x$) carrying zero computational magnitude.
-    \item \textbf{Algebra ($=$):} The equivalence relation ($A - B = 0$) and null kernel ($\ker T = \{x \mid T(x) = 0\}$).
-    \item \textbf{Geometry ($P_0$):} Null-dimensional points with zero Lebesgue measure ($\mu(P_0) = 0$).
-    \item \textbf{Set Theory ($\emptyset$):} The empty set with zero cardinality ($|\emptyset| = 0$).
-    \item \textbf{Analysis ($\mu_0$):} Null-measure sets allowing Lebesgue integration over boundaries.
-    \item \textbf{Category Theory ($\mathbf{0}$):} Zero objects establishing unique trivial morphisms.
-    \item \textbf{Information Theory ($H_0$):} Zero-entropy states ($H_0 = 0$) free of channel noise.
-    \item \textbf{Applied Systems:} Ground invariant state prior and posterior to transient dynamic cycles.
-\end{itemize}
+The first question belongs to 1-Consistency.
 
-\begin{equation}
-\mathbf{A}_\infty \equiv \lim_{P_A \to 0} \left( \neg X, \; 0, \; =, \; P_0, \; \emptyset, \; H_0 \right) \equiv B_0 \ge 0
-\end{equation}
+The third motivates 0-Consistency.
 
-\subsection{The Mathematical Subject: Lifetime Conflict and Open Options}
-Observational subjects interact with formal systems via bounded representations. This introduces a structural tension between functioning as an unconditioned space or a bounded object \cite{godel1931formal, nicht_theory_monograph}:
-\begin{enumerate}
-    \item \textbf{Option A (Subject as Bounded $1$-Object):} The subject operates as a discrete temporal aperture ($t \in \mathbb{R}^+$), incurring active assertion pressure ($P_A$) and operational latency ($\mathcal{W}$) under Gödelian constraints \cite{poincare1908, godel1931formal}.
-    \item \textbf{Option B (Subject as Atemporal $0$-Space):} Under complete apophatic relaxation, assertion pressure collapses ($P_A \to 0$), aligning the subject state with the invariant, latency-free baseline $B_0$ \cite{hilbert1912, nicht_theory_monograph}.
-\end{enumerate}
+The second specifies the boundary between them.
 
-\subsection{Coupled Pressure Dynamics: Necessity, Sufficiency, and Passive Tension}
-Total systemic pressure $P_{\text{total}}(t)$ inside an evaluating aperture is modeled as a coupled system of \textit{Necessity Pressure} ($P_N$), \textit{Sufficiency Pressure} ($P_S$), \textit{Active Pressure} ($P_A$), and \textit{Passive Substrate Tension} ($P_{\text{pass}}$) \cite{nicht_physics_paper_1, nicht_physics_special_1}:
-\begin{equation}
-P_{\text{total}}(t) = P_A(t) + P_{\text{pass}}(t) + \lambda \left( P_N(t) \circ P_S(t) \right)
-\end{equation}
-where $\circ$ denotes operational coupling inside the aperture ($P_S \iff P_N$) \cite{nicht_physics_special_1}. Applying apophatic relaxation operators ($\mathcal{D}_A, \mathcal{D}_S$) uncouples the system, driving total pressure back to $B_0$ \cite{nicht_physics_paper_1, nicht_physics_special_1}:
-\begin{equation}
-\mathcal{D}_S\left[ P_S(t) \right] \implies \lim_{t \to \infty} P_{\text{total}}(t) = 0 \implies B_0 \quad \text{($0$-Consistency)}
-\end{equation}
+This boundary is not assumed to be absolute.  A system may be
+closed under one operation and open under another.
 
-\section[Reductio ad Absurdum of Active Spatial 1-Consistency]{%
-  \texorpdfstring{Reductio ad Absurdum of\\Active Spatial $1$-Consistency}{Reductio ad Absurdum of Active Spatial 1-Consistency}}
-\label{sec:reductio}
+For example,
 
-We formulate the operator-theoretic definitions required to rigorously evaluate the logical consistency of projecting active $1$-logic across continuous space.
+\[
+(\mathbb{N},+)
+\]
 
-\subsection{Measure-Theoretic and Operator Foundations}
-Let $(\Omega, \mathcal{F}, \mu)$ be a continuous measure space, where $\Omega$ represents unconditioned ambient space and $\mu$ is the Lebesgue measure. Let $\mathcal{H}$ be a separable Hilbert space associated with observational state vectors $|\psi\rangle \in \mathcal{H}$.
+is closed under addition but not under subtraction.
 
-\begin{definition}[Assertion Pressure Operator]
-The Assertion Pressure $P_A$ is defined as a bounded positive linear operator $P_A: \mathcal{H} \to \mathcal{H}$ acting on spatial density states. Over a continuous spatial subspace $M \in \mathcal{F}$ with measure $\mu(M) > 0$, the spatially projected assertion density is given by the measurable functional $P_A(x) = \langle \psi_x | P_A | \psi_x \rangle > 0$.
-\end{definition}
+Likewise, a mathematical structure may be perfectly useful for
+one purpose while being inadequate for another.
 
-\begin{definition}[Operational Latency Functional]
-The Operational Latency $\mathcal{W}(M)$ induced over a spatial domain $M$ under assertion $P_A$ and sufficiency $P_S$ is the operator-norm integral:
-\begin{equation}
-\mathcal{W}(M) = \int_M \operatorname{Tr}\left( \rho_x (P_A(x) + P_S(x)) \right) d\mu(x)
-\end{equation}
-where $\rho_x$ is the local density matrix at spatial coordinate $x \in M$.
-\end{definition}
+Therefore:
 
-\begin{definition}[Apophatic Ground State $B_0$]
-The unasserted baseline $B_0$ is the invariant kernel subspace of the apophatic relaxation operators $\mathcal{D}_A, \mathcal{D}_S$:
-\begin{equation}
-B_0 \equiv \ker(\mathcal{D}_A \circ \mathcal{D}_S) = \{ |\psi_0\rangle \in \mathcal{H} \mid (P_A + P_S)|\psi_0\rangle = 0 \}
-\end{equation}
-$B_0$ carries measure $\mu(B_0) > 0$ and operational latency $\mathcal{W}(B_0) = 0$.
-\end{definition}
+\[
+\boxed{
+\text{non-closure is not automatically inconsistency.}
+}
+\]
 
-\subsection{Formal Hypothesis}
-\textbf{Hypothesis ($H_1$):} Continuous mathematical space is inherently $1$-consistent, requiring continuous active state verification ($P_A(x) > 0$) and structural sufficiency ($P_S(x) > 0$) at every spatial coordinate $x \in M$.
+Conversely,
 
-\subsection{Deductive Derivation of Systemic Paradoxes}
+\[
+\boxed{
+\text{consistency is not automatically closure under a relevant
+extension.}
+}
+\]
 
-\subsubsection{1. Measure-Theoretic \& Operational Latency Divergence}
-Let $M \subset \Omega$ be a continuous manifold of dimension $\operatorname{Dim}(M) \ge 1$ with Lebesgue measure $\mu(M) > 0$. If $H_1$ holds, the operational latency density $\mathcal{W}(M)$ accumulates continuously over $M$ \cite{lebesgue1902}:
-\begin{equation}
-\mathcal{W}(M) = \int_M \operatorname{Tr}\left( \rho_x (P_A(x) + P_S(x)) \right) d\mu(x)
-\end{equation}
-Because under $H_1$, $\operatorname{Tr}\left( \rho_x (P_A(x) + P_S(x)) \right) \ge \epsilon > 0$ holds strictly for all $x \in M$, integral divergence follows directly:
-\begin{equation}
-\lim_{\mu(M) \to \text{cont}} \mathcal{W}(M) = \infty \implies \sigma^2(M) \to \infty
-\end{equation}
-Active spatial $1$-consistency causes an immediate operational divergence (analytic noise-collapse). Note that if $M$ were discrete or finite ($|M| < \infty$), $\mathcal{W}(M)$ would remain bounded ($\mathcal{W} < \infty$). The divergence is explicitly induced by projecting $1$-logic onto an uncountable continuum.
+This distinction is the central reusable element of the
+framework.
 
-\subsubsection{2. Gödelian Self-Fracturation}
-Enforcing self-referential consistency ($P_S > 0$) over continuous spatial points forces each local neighborhood into recursive formal self-evaluation. By Gödel's Incompleteness Theorems \cite{godel1931formal} and Tarski's Undefinability Theorem \cite{tarski1936begriff}, self-referential truth predicates yield undecidable meta-hierarchies:
-\begin{equation}
-\forall x \in M, \quad \operatorname{Eval}(x) \implies \text{Infinite Recursive Axiomatic Fracturation}
-\end{equation}
-Spatial continuity breaks down into non-countable discrete axiomatic singularities.
+% ============================================================
+\section{Scope and the Necessary ``But''}
+% ============================================================
 
-\subsubsection{3. Zenoic Trajectory Freeze}
-Consider a dynamic state trajectory parameterized by continuous time $t \in \mathbb{R}^+$ traversing distance $D$ \cite{aristotle_physics}. Under $H_1$, traversing $D$ requires exhaustive verification of infinite sub-states $\sum D/2^n$. The cumulative latency yields \cite{aristotle_physics}:
-\begin{equation}
-\mathcal{W}_{\text{motion}} = \sum_{n=1}^{\infty} \mathcal{W}\left( \frac{D}{2^n} \right) \to \infty
-\end{equation}
-Divergent operational latency prevents finite state transitions, yielding a total dynamic freeze.
+The framework deliberately avoids turning any concrete
+negation into an absolute ``Nothing''.
 
-\subsection{Q.E.D. Conclusion}
-Because $H_1$ implies operational latency divergence, Gödelian fracturation, and dynamic freeze, $H_1$ is false. Mathematical space cannot be an actively asserted $1$-consistent domain. Space is necessarily $0$-consistent ($B_0$):
-\begin{equation}
-\text{Space} \neq 1\text{-Consistency} \implies \text{Space} \equiv 0\text{-Consistency } (B_0)
-\end{equation}
+For any concrete object $X$,
 
-\section{Hilbert-Space Langevin Dynamics \& Apophatic Relaxation}
-\label{sec:langevin}
+\[
+\neg X
+\]
 
-We model the dissipation of observer perturbations into the baseline $B_0$ using stochastic Langevin dynamics over a Hilbert space $\mathcal{H}$ \cite{hilbert1912, langevin1908}.
+is generally a description of what is not $X$ relative to some
+specified predicate, language, universe, or perspective.
 
-\subsection{State Vector Dissipation in Hilbert Space}
-Let $|\psi(t)\rangle \in \mathcal{H}$ represent an active observational state. Systemic deviation from baseline $B_0$ is governed by the stochastic differential equation \cite{langevin1908}:
-\begin{equation}
-\frac{d}{dt} |\psi(t)\rangle = -\frac{i}{\hbar} \hat{\mathcal{H}}_0 |\psi(t)\rangle - \gamma_A \mathcal{D}_A \left[ P_A(t) \right] |\psi(t)\rangle + |\xi(t)\rangle
-\end{equation}
-where $\hat{\mathcal{H}}_0$ is the unperturbed operator, $\gamma_A > 0$ is the apophatic damping factor, $\mathcal{D}_A$ is the assertion decay operator, and $|\xi(t)\rangle$ is stochastic noise satisfying \cite{langevin1908}:
-\begin{equation}
-\langle |\xi(t)\rangle \rangle = 0, \quad \langle |\xi(t)\rangle \langle \xi(t')| \rangle = 2 \gamma_A \cdot \text{Noise}_{\text{aperture}} \, \delta(t - t') \hat{I}
-\end{equation}
+Consequently,
 
-\subsection{Apophatic Relaxation Operators and Adjoint Coupling}
-The apophatic decay operator $\mathcal{D}_A$ and collapse operator $\mathcal{D}_S$ operate as dual adjoint structures ($\mathcal{D}_A = \mathcal{D}_S^\dagger$) over $\mathcal{H}$. $\mathcal{D}_A$ controls the temporal dissipation of assertion pressure $P_A(t)$ under aperture noise $\sigma(t)$:
-\begin{equation}
-\mathcal{D}_A \left[ P_A(t) \right] = P_A(0) e^{-\gamma_A t} + \sigma(t)
-\end{equation}
-The collapse operator $\mathcal{D}_S$ uncouples the necessity/sufficiency relation ($P_N \circ P_S$):
-\begin{equation}
-\mathcal{D}_S \left[ P_S(t) \right] = \hat{P}_S \cdot \left( 1 - \mathcal{N}_{\neg}(t) \right) \implies \lim_{\mathcal{N}_{\neg}(t) \to 1} \left( P_N(t) \circ P_S(t) \right) = 0
-\end{equation}
-In the active aperture state, $\mathcal{D}_A$ and $\mathcal{D}_S$ remain tightly coupled ($\mathcal{D}_A \circ \mathcal{D}_S \neq 0$). Under apophatic relaxation, they orthomodularly uncouple, returning the density state $\rho(t) = |\psi(t)\rangle\langle\psi(t)|$ into the kernel:
-\begin{equation}
-\lim_{t \to \infty} \rho(t) \in \ker(\mathcal{D}_A \circ \mathcal{D}_S) = B_0
-\end{equation}
+\[
+\neg X\neq\varnothing
+\]
 
-\subsection{Asymptotic Convergence to \texorpdfstring{$0$-Consistency}{0-Consistency}}
-As $t \to \infty$, total systemic pressure dissipates completely:
-\begin{equation}
-\lim_{t \to \infty} P_{\text{total}}(t) = 0 \implies B_0
-\end{equation}
-Concurrently, observational noise variance $\sigma^2(t)$ collapses, establishing the fundamental stability theorem:
-\begin{theorem}[Apophatic Stability Theorem]
-Let $|\psi(t)\rangle \in \mathcal{H}$ evolve according to the Hilbert-Langevin relaxation dynamics. The measurement variance $\sigma^2(t) = \langle \psi(t) | (P_A - \langle P_A \rangle)^2 | \psi(t) \rangle$ vanishes asymptotically if and only if assertion pressure collapses to the zero baseline $B_0$:
-\begin{equation}
-\text{Stability}(\neg X) \iff \lim_{P_A \to 0} \sigma^2(t) = 0 \quad \text{where} \quad B_0 \equiv \ker(\mathcal{D}_A \circ \mathcal{D}_S)
-\end{equation}
-\end{theorem}
+in general.
 
+Likewise, repeated negation need not terminate in a privileged
+absolute state:
+
+\[
+X
+\longmapsto
+\neg_X X
+\longmapsto
+\neg_{\neg_X X}(\neg_X X)
+\longmapsto\cdots
+\]
+
+Each step may introduce a new distinction and therefore a new
+``but''.
+
+The present framework does not attempt to identify this sequence
+with a metaphysical doctrine.
+
+It merely preserves the methodological boundary:
+
+\[
+\boxed{
+\text{a concrete negation is not the absolute Nothing.}
+}
+\]
+
+This distinction is important both for mathematical and
+empirical applications.
+
+The same applies to zero and infinity.  They may exhibit
+remarkably related behavior under particular transformations
+without becoming identical objects.
+
+% ============================================================
+\section{What This Framework Does Not Prescribe}
+% ============================================================
+
+This paper does not prescribe a replacement for classical
+logic.
+
+It introduces an alternative perspective on consistency.
+
+It does not attempt to refute classical mathematics.
+
+It treats established mathematics as both a working foundation
+and an object that may legitimately be questioned.
+
+It does not restrict the framework to metaphysical objects.
+The same distinction may be investigated in mathematical,
+computational, physical, biological, social, economic, or other
+systems.
+
+It does not claim to prove a particular open mathematical
+problem.
+
+Nor does it prescribe that a particular problem must have a
+solution under this framework.
+
+Instead, subsequent papers may ask whether changing the
+perspective from which a problem is represented reveals useful
+structure, invariants, obstructions, or solution strategies.
+
+In particular, the present paper does not assume that all
+negations are the same operation, that zero and infinity are
+identical, or that any particular inversion must produce a
+particular result.
+
+These questions belong to the individual application.
+
+% ============================================================
 \section{Conclusion}
-\label{sec:conclusion}
+% ============================================================
 
-In this work, we have formalized Subject-Space Duality by decoupling bounded observer aperture dynamics ($1$-consistency) from invariant spatial baselines ($0$-consistency) \cite{russell1903}. 
+The framework introduced here is intentionally small.
 
-Through formal \textit{reductio ad absurdum}, we showed that enforcing active $1$-consistency across continuous manifolds results in operational latency divergence ($\mathcal{W} \to \infty$), Gödelian fracturation \cite{godel1931formal}, and Zenoic trajectory freeze \cite{aristotle_physics}. Consequently, $0$-consistency represents the unique, unconditioned consistency mode capable of maintaining self-referential integrity and infinite measure without incurring Tarskian meta-hierarchy expansion \cite{tarski1936begriff}. Stochastic Hilbert-Langevin relaxation demonstrates that as observer pressure dissipates ($\lim_{t \to \infty} P_{\text{total}} = 0$), systems naturally return to the noise-free baseline ($B_0 \equiv \ker(\mathcal{D}_A \circ \mathcal{D}_S)$), providing a formal basis for non-ontological operator theory \cite{langevin1908, hilbert1912}.
+Given a formal system
+
+\[
+S=(X,\mathcal{O},\mathcal{R}),
+\]
+
+1-Consistency asks whether the system is consistent under its
+specified interpretation and operations.
+
+0-Consistency adds a second examination: identify a relevant
+inversion, null, complementary, or opposing operation and ask
+whether the description remains structurally adequate when that
+operation is admitted.
+
+The two questions are therefore:
+
+\[
+\boxed{
+\text{1C: consistency within the given frame}
+}
+\]
+
+and
+
+\[
+\boxed{
+\text{0C: consistency under examination of the relevant
+counter-frame}
+}
+\]
+
+Neither question is declared universally superior.
+
+The framework provides a distinction, not a predetermined
+conclusion.
+
+Its usefulness must therefore be established, if at all, by
+application.
+
+The following papers apply the same minimal distinction to
+specific mathematical problems.  They are free to confirm,
+modify, restrict, or reject the usefulness of the framework in
+their respective domains.
+
+\[
+\boxed{
+\text{Paper 0 defines the question.
+The subject papers are allowed to answer it differently.}
+}
+\]
 
 \clearpage
 \bibliographystyle{unsrt}
