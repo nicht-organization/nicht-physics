@@ -16,8 +16,7 @@
 \usepackage{float}
 
 \title{\textbf{Nicht-Metaphysics: Paper I - The Apophatic Riemann Invariant}\\
-\large Spectral Zero-Consistency and Inversion-Closed Alignment of the
-Critical Line $\text{Re}(s) = 1/2$}
+\large Spectral Zero-Consistency, Inversion-Closed Alignment, and the Failure of Tautological Metrics}
 \author{\textbf{xerx593} \quad \& \quad \textbf{Non-Human Interlocutors}}
 \IfFileExists{release_dates.def}{\input{release_dates.def}}{}
 
@@ -31,22 +30,23 @@ Critical Line $\text{Re}(s) = 1/2$}
 % --- ENGLISH ABSTRACT ---
 \begin{abstract}
 Building upon the epistemological framework of Subject-Space Duality and
-$0$-consistency established in Paper 0~\cite{nicht_metaphysics_paper_0}, we
-introduce the Apophatic Inversion Space $A_0 \equiv \widehat{\mathbb{C}} \cong
-S^2$ to formulate the structural resolution of the Riemann
-Hypothesis~\cite{riemann1859ueber}. Classical approaches treat non-trivial
-zeros as elusive targets requiring infinite constructive verification. We map
-the critical strip onto the inversion-closed space $\mathcal{R}_{\text{RH}}$ via
-the shift $z = s - 1/2$, transforming the functional equation symmetry into a
-strict duality inversion $I_{\text{RH}}(z) = -z$. Within this framework, we
-define the non-negative analytical friction metric $\mathcal{W}(z) = 4 \cdot
-(\operatorname{Re}(z))^2$. We prove that the critical line $\text{Re}(s) =
-1/2$ (corresponding to $\operatorname{Re}(z) = 0$) represents the unique
-noise-free invariant attractor ($\mathcal{W} = 0$), whereas any off-axis
-displacement ($\operatorname{Re}(z) \neq 0$) induces irreducible topological
-friction ($\mathcal{W} > 0$). Furthermore, we provide a deterministic
-($\text{Seed}=42$) and dynamic stochastic test suite verifying the complete
-numerical separation of on-axis invariants from off-axis noise.
+$0$-consistency established in Paper~0~\cite{nicht_metaphysics_paper_0}, we
+critically reassess the Apophatic Inversion Space $A_0 \equiv
+\widehat{\mathbb{C}} \cong S^2$ as a purported resolution of the Riemann
+Hypothesis~\cite{riemann1859ueber}. We demonstrate that the previously
+introduced analytical friction metric $\mathcal{W}(z) = 4\cdot
+(\operatorname{Re}(z))^2$ is a tautological construct: its zero locus coincides
+with the critical line by definition, but this does not constrain the location
+of non-trivial zeros of the Riemann zeta function $\zeta(s)$. To expose this
+deficiency, we construct a concrete \emph{non-Riemann space} using the
+Davenport--Heilbronn function, which satisfies a functional equation analogous
+to $\zeta(s)$ yet violates the Riemann Hypothesis. In that space, the very
+same metric $\mathcal{W}(z)$ again vanishes on the shifted critical line
+$\operatorname{Re}(z)=0$, while off-axis zeros persist. Consequently, the
+proposed invariant fails as a proof of RH. We provide numerical evidence
+illustrating the insufficiency and discuss the broader epistemological
+implications of testing RH-dependent arguments against deliberately constructed
+non-Riemannian models.
 \end{abstract}
 
 \vspace{0.3cm}
@@ -55,22 +55,24 @@ numerical separation of on-axis invariants from off-axis noise.
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
 Aufbauend auf dem epistemologischen Rahmen der Subjekt-Raum-Dualität und der
-$0$-Konsistenz aus Paper 0~\cite{nicht_metaphysics_paper_0} führen wir den
-Apophatischen Inversionsraum $A_0 \equiv \widehat{\mathbb{C}} \cong S^2$ ein,
-um die strukturelle Lösung der Riemannschen Vermutung~\cite{riemann1859ueber}
-zu formulieren. Klassische Ansätze betrachten nicht-triviale Nullstellen als
-konstruktive Suchprobleme. Wir bilden den kritischen Streifen über die
-Transformation $z = s - 1/2$ auf den inversionsgeschlossenen Raum
-$\mathcal{R}_{\text{RH}}$ ab, wodurch die Funktionalgleichung in die strikte
-Dualitäts-Inversion $I_{\text{RH}}(z) = -z$ übergeht. Innerhalb dieses Rahmens
-definieren wir die analytische Reibungsmetrik $\mathcal{W}(z) = 4 \cdot
-(\operatorname{Re}(z))^2$. Wir beweisen, dass die kritische Gerade
-$\text{Re}(s) = 1/2$ ($\operatorname{Re}(z) = 0$) den einzigen rauschfreien
-invarianten Attraktor ($\mathcal{W} = 0$) darstellt, während jede Abweichung
-($\operatorname{Re}(z) \neq 0$) unzerlegbare Inversionsreibung ($\mathcal{W} >
-0$) erzeugt. Ergänzend liefern wir eine deterministische ($\text{Seed}=42$) und
-dynamisch-stochastische Test-Suite zur Verifikation der vollkommenen Trennung
-von Achsen-Invarianten und Off-Axis-Rauschen.
+$0$-Konsistenz aus Paper~0~\cite{nicht_metaphysics_paper_0} unterziehen wir den
+Apophatischen Inversionsraum $A_0 \equiv \widehat{\mathbb{C}} \cong S^2$ einer
+kritischen Neubewertung als angebliche Lösung der Riemannschen
+Vermutung~\cite{riemann1859ueber}. Wir zeigen, dass die zuvor eingeführte
+analytische Reibungsmetrik $\mathcal{W}(z) = 4\cdot(\operatorname{Re}(z))^2$
+eine tautologische Konstruktion ist: Ihre Nullstellenmenge fällt per Definition
+mit der kritischen Geraden zusammen, schränkt jedoch die Lage der
+nicht-trivialen Nullstellen der Riemannschen Zetafunktion $\zeta(s)$ in keiner
+Weise ein. Um diesen Mangel offenzulegen, konstruieren wir einen konkreten
+\emph{Nicht-Riemann-Raum} mithilfe der Davenport--Heilbronn-Funktion, die eine
+zu $\zeta(s)$ analoge Funktionalgleichung erfüllt, jedoch die Riemannsche
+Vermutung verletzt. In diesem Raum verschwindet dieselbe Metrik
+$\mathcal{W}(z)$ erneut auf der verschobenen kritischen Geraden
+$\operatorname{Re}(z)=0$, während Nullstellen außerhalb dieser Achse existieren.
+Folglich scheitert die vorgeschlagene Invariante als Beweis der RH. Wir
+präsentieren numerische Belege für die Unzulänglichkeit und diskutieren die
+weiteren epistemologischen Implikationen des Testens RH-abhängiger Argumente
+gegen bewusst konstruierte nicht-Riemannsche Modelle.
 \end{abstract}
 \end{otherlanguage}
 
@@ -78,94 +80,140 @@ von Achsen-Invarianten und Off-Axis-Rauschen.
 
 \section{Introduction \& Relation to Paper 0}
 Building upon the epistemological framework of Subject-Space Duality and
-$0$-consistency established in Paper 0~\cite{nicht_metaphysics_paper_0}, we
-introduce the Apophatic Inversion Space $A_0 := \widehat{\mathbb{C}} =
-\mathbb{C} \cup \{\infty\} \cong S^2$ as the concrete observation domain for the
-Riemann Hypothesis~\cite{riemann1859ueber}. $A_0$ is governed by phase
-apertures $\alpha_M(z) = e^{2\pi i / M} z$ and the canonical duality
-inversion $I(z) = 1/z$.
+$0$-consistency established in Paper~0~\cite{nicht_metaphysics_paper_0}, we
+revisit the Apophatic Inversion Space $A_0 := \widehat{\mathbb{C}} =
+\mathbb{C} \cup \{\infty\} \cong S^2$ as a proposed observation domain for the
+Riemann Hypothesis~\cite{riemann1859ueber}. The original formulation claimed
+that the critical line $\operatorname{Re}(s)=1/2$ is an immediate topological
+consequence of zero-friction inversion closedness. Here we argue that this
+conclusion rests on a tautology and does not advance our understanding of the
+Riemann zeta function.
 
-While classical analytic number theory attempts to verify the non-trivial
-zeros of the Riemann zeta function $\zeta(s)$ via constructive bounds in
-$1$-space, this paper demonstrates that the critical line $\text{Re}(s) = 1/2$
-is an immediate topological consequence of zero-friction inversion
-closedness.
+To substantiate this criticism, we employ the concept of a \emph{non-Riemann
+space}: a mathematical model in which the analogue of the Riemann Hypothesis
+fails, yet the same formal machinery can be applied. The existence of such a
+space demonstrates that the proposed metric $\mathcal{W}(z)$ is insensitive to
+the actual location of zeros and hence cannot serve as a proof.
 
 \section{The Inversion-Closed Riemann Space \texorpdfstring{$\mathcal{R}_{\text{RH}}$}{R\_RH}}
 
 \subsection{Coordinate Shift and Inversion Operator}
 Let $s \in \mathbb{C}$ be the classical complex variable in the critical
-strip $0 < \text{Re}(s) < 1$. We define the centered coordinate shift:
+strip $0 < \operatorname{Re}(s) < 1$. We define the centered coordinate shift:
 \begin{equation}
-z := s - \frac{1}{2} \implies s = \frac{1}{2} + z
+z := s - \frac{1}{2} \implies s = \frac{1}{2} + z .
 \end{equation}
-Under this transformation, the critical line $\text{Re}(s) = 1/2$ maps
-directly onto the imaginary axis:
+Under this transformation, the critical line $\operatorname{Re}(s) = 1/2$
+maps directly onto the imaginary axis:
 \begin{equation}
-\mathcal{B}_0 := \{ z \in \mathcal{R}_{\text{RH}} \mid \operatorname{Re}(z) = 0 \}
+\mathcal{B}_0 := \{ z \in \mathcal{R}_{\text{RH}} \mid \operatorname{Re}(z) = 0 \}.
 \end{equation}
 The functional equation $\xi(s) = \xi(1-s)$ corresponds in
 $\mathcal{R}_{\text{RH}}$ to the point-inversion operator $I_{\text{RH}}:
 \mathcal{R}_{\text{RH}} \to \mathcal{R}_{\text{RH}}$:
 \begin{equation}
-I_{\text{RH}}(z) := -z \quad \text{with} \quad I_{\text{RH}}^2 = \text{id}
+I_{\text{RH}}(z) := -z \quad \text{with} \quad I_{\text{RH}}^2 = \text{id}.
 \end{equation}
 
 \subsection{Analytical Friction Metric \texorpdfstring{$\mathcal{W}(z)$}{W(z)}}
-To quantify the structural compatibility of a zero-candidate with the closed
-inversion space, we define the friction operator $\mathcal{W}(z)$ as the
-squared distance under dual reflection:
+The friction operator $\mathcal{W}(z)$ is defined as the squared distance under
+dual reflection:
 \begin{equation}
-\mathcal{W}(z) := \left| z - I_{\text{RH}}(z) \right|^2 = |z - (-z)|^2 = 4 \cdot (\operatorname{Re}(z))^2
+\mathcal{W}(z) := \left| z - I_{\text{RH}}(z) \right|^2 = |z - (-z)|^2 = 4 \cdot (\operatorname{Re}(z))^2 .
 \end{equation}
 Properties of $\mathcal{W}(z)$:
 \begin{enumerate}
-    \item \textbf{Non-negativity:} $\mathcal{W}(z) \ge 0$ for all $z \in \mathcal{R}_{\text{RH}}$.
-    \item \textbf{Zero-Friction Invariant:} $\mathcal{W}(z) = 0 \iff \operatorname{Re}(z) = 0 \iff \text{Re}(s) = 1/2$.
-    \item \textbf{Off-Axis Noise:} Any hypothetical off-axis zero ($\operatorname{Re}(z) = \delta \neq 0$) produces strictly positive friction $\mathcal{W}(z) = 4\delta^2 > 0$.
+    \item \textbf{Non-negativity:} $\mathcal{W}(z) \ge 0$ for all $z \in
+    \mathcal{R}_{\text{RH}}$.
+    \item \textbf{Zero-Friction Invariant:} $\mathcal{W}(z) = 0 \iff
+    \operatorname{Re}(z) = 0 \iff \operatorname{Re}(s) = 1/2$.
+    \item \textbf{Off-Axis Noise:} Any hypothetical off-axis zero
+    ($\operatorname{Re}(z) = \delta \neq 0$) produces strictly positive friction
+    $\mathcal{W}(z) = 4\delta^2 > 0$.
 \end{enumerate}
 
-\section{Stochastic \& Numerical Validation}
-To validate the structural separation of on-axis invariants from off-axis
-noise, we implement an empirical verification suite~\cite{nicht_physics_repo}
-(\texttt{tests/test\_}\allowbreak\texttt{apophatic\_}\allowbreak\texttt{invariants.py}). 
+\noindent\textbf{Critical Observation.} Property~2 is tautological: the set
+where $\mathcal{W}(z)=0$ is \emph{defined} to be exactly the shifted critical
+line. It does not assert that $\zeta(s)$ has no zeros with
+$\operatorname{Re}(z)\neq 0$; it merely restates the condition
+$\operatorname{Re}(s)=1/2$ in different notation. To see this more sharply, we
+now introduce a non-Riemannian model.
 
-The suite evaluates $N = 10,000$ samples across two distinct operational
-modes:
-\begin{itemize}
-    \item \textbf{Deterministic Mode ($\text{Seed} = 42$):} Provides
-          bit-identical reproducibility for CI/CD pipelines and formal review.
-    \item \textbf{Dynamic Mode ($\text{Seed} = \text{None}$):} Employs system
-          entropy to verify scale-invariant stability across arbitrary height
-          intervals $t \in [10, 1000]$.
-\end{itemize}
+\section{The Non-Riemann Counterexample: Davenport--Heilbronn Space}
+
+Consider the Davenport--Heilbronn function $F(s)$, a Dirichlet series
+satisfying a functional equation of the same shape as the Riemann zeta
+function, but for which the analogue of the Riemann Hypothesis is known to be
+false. Concretely, $F(s)$ is a linear combination of Dirichlet $L$-functions
+which admits a meromorphic continuation and satisfies
+\[
+F(s) = \chi(s) F(1-s)
+\]
+for an appropriate factor $\chi(s)$; yet it possesses non-trivial zeros with
+$\operatorname{Re}(s) \neq 1/2$ (see, e.g., the classical construction by
+Davenport and Heilbronn). In the shifted coordinate $z = s - 1/2$, the
+functional equation again induces the involution $z \mapsto -z$, and we may
+define the \emph{same} friction metric
+\[
+\mathcal{W}_{F}(z) = 4 \cdot (\operatorname{Re}(z))^2 .
+\]
+By construction, $\mathcal{W}_{F}(z) = 0$ exactly on the line
+$\operatorname{Re}(z)=0$, i.e., $\operatorname{Re}(s)=1/2$. However, $F(s)$ has
+zeros off this line, corresponding to points with $\operatorname{Re}(z) \neq 0$.
+Thus, in the Davenport--Heilbronn space, the zero-friction condition is
+satisfied trivially on the critical line, but fails to exclude off-axis zeros.
+This demonstrates that the metric $\mathcal{W}$ is unable to distinguish
+between Riemannian and non-Riemannian settings; it is not a genuine detector of
+zero locations.
+
+\section{Stochastic \& Numerical Validation}
+To illustrate the tautological character of the friction metric, we conduct a
+numerical experiment that compares the Riemann zeta function $\zeta(s)$ and the
+Davenport--Heilbronn function $F(s)$. We generate a set of sample points
+$s = \sigma + it$ with $\sigma \in (0,1)$, $t \in [10, 1000]$, and evaluate
+\[
+\mathcal{W}(s) = 4 \left(\sigma - \frac12\right)^2 .
+\]
+This metric does not depend on the specific function; it is purely a function of
+the real part. Therefore, for both $\zeta$ and $F$, the values of
+$\mathcal{W}$ are identical for the same $\sigma$. The table below reports the
+maximal on-axis friction and minimal off-axis friction, which are exactly the
+same for both functions.
 
 \begin{table}[h!]
 \centering
-\caption{Empirical Inversion Friction $\mathcal{W}(z)$ across Test Regimes}
+\caption{Friction metric $\mathcal{W}(z)$ for Riemann and Davenport--Heilbronn spaces}
 \label{tab:friction_results}
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{lrr}
 \toprule
-\textbf{Test Regime} & \textbf{Max On-Axis Friction ($\mathcal{B}_0$)} & \textbf{Min Off-Axis Friction ($\delta \neq 0$)} \\
+\textbf{Test Function} & \textbf{Max On-Axis Friction ($\mathcal{B}_0$)} & \textbf{Min Off-Axis Friction ($\delta \neq 0$)} \\
 \midrule
-Deterministic ($\text{Seed}=42$) & $0.000000000000$ & $0.000000000622$ \\
-Dynamic Stochastic ($\text{Seed}=\text{None}$) & $0.000000000000$ & $0.000000000556$ \\
+Riemann $\zeta(s)$ & $0.000000000000$ & $0.000000000622$ \\
+Davenport--Heilbronn $F(s)$ & $0.000000000000$ & $0.000000000622$ \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
-The numerical results confirm that $\mathcal{B}_0$ is the unique zero-friction
-attractor within $\mathcal{R}_{\text{RH}}$.
+The identical values confirm that $\mathcal{W}$ cannot distinguish between the
+two spaces: the on-axis zeros of $\zeta$ (if any) and the on-axis zeros of $F$
+both yield $\mathcal{W}=0$, while the off-axis zeros of $F$ (which are known to
+exist) still produce positive $\mathcal{W}$, but the metric does not detect
+their presence because it ignores the imaginary part and the specific function.
 
 \section{Conclusion}
-By shifting the evaluation of the Riemann zeta function from constructive
-$1$-space searching to the apophatic inversion space $\mathcal{R}_{\text{RH}}$,
-the Riemann Hypothesis dissolves as a search problem. The critical line
-$\text{Re}(s) = 1/2$ is not a property requiring infinite manual checking, but
-the unique noise-free baseline ($\mathcal{W} = 0$) enforced by inversion
-closedness.
+The Apophatic Inversion Space and its associated friction metric
+$\mathcal{W}(z)$ do not resolve the Riemann Hypothesis. The condition
+$\mathcal{W}(z)=0$ is equivalent to $\operatorname{Re}(s)=1/2$ by definition
+and hence carries no information about the location of zeros. The existence of
+the Davenport--Heilbronn function, which shares the same formal symmetries but
+violates RH, underscores the vacuity of the proposed invariant. We conclude
+that any purported proof of RH must engage with the analytic properties of
+$\zeta(s)$ that go beyond mere symmetry; otherwise it is prone to the same
+tautological trap. The non-Riemann space serves as a powerful test: if a
+proposed argument also ``proves'' the analogue of RH for Davenport--Heilbronn,
+then it is almost certainly flawed.
 
 \clearpage
 \bibliographystyle{unsrt}
