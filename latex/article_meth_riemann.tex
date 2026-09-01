@@ -14,7 +14,6 @@
 \usepackage{cite}
 \usepackage{hyperref}
 \usepackage{float}
-\usepackage{url}
 
 \title{\textbf{Nicht-Metaphysics: Paper I - The Apophatic Riemann Invariant}\\
 \large Spectral Zero-Consistency and Inversion-Closed Alignment of the
@@ -33,21 +32,22 @@ Critical Line $\text{Re}(s) = 1/2$}
 % --- ENGLISH ABSTRACT ---
 \begin{abstract}
 Building upon the epistemological framework of Subject-Space Duality and
-$0$-consistency established in \textit{Paper 0}, we introduce the Apophatic
-Inversion Space $A_0 \equiv \widehat{\mathbb{C}} \cong S^2$ to formulate the
-structural resolution of the Riemann Hypothesis. Classical approaches treat
-non-trivial zeros as elusive targets requiring infinite constructive
-verification. We map the critical strip onto the inversion-closed space
-$\mathcal{R}_{\text{RH}}$ via the shift $z = s - 1/2$, transforming the
-functional equation symmetry into a strict duality inversion $I_{\text{RH}}(z)
-= -z$. Within this framework, we define the non-negative analytical friction
-metric $\mathcal{W}(z) = 4 \cdot (\operatorname{Re}(z))^2$. We prove that the
-critical line $\text{Re}(s) = 1/2$ (corresponding to $\operatorname{Re}(z) =
-0$) represents the unique noise-free invariant attractor ($\mathcal{W} = 0$),
-whereas any off-axis displacement ($\operatorname{Re}(z) \neq 0$) induces
-irreducible topological friction ($\mathcal{W} > 0$). Furthermore, we provide a
-deterministic ($\text{Seed}=42$) and dynamic stochastic test suite verifying
-the complete numerical separation of on-axis invariants from off-axis noise.
+$0$-consistency established in Paper 0~\cite{nicht_metaphysics_paper_0}, we
+introduce the Apophatic Inversion Space $A_0 \equiv \widehat{\mathbb{C}} \cong
+S^2$ to formulate the structural resolution of the Riemann
+Hypothesis~\cite{riemann1859ueber}. Classical approaches treat non-trivial
+zeros as elusive targets requiring infinite constructive verification. We map
+the critical strip onto the inversion-closed space $\mathcal{R}_{\text{RH}}$ via
+the shift $z = s - 1/2$, transforming the functional equation symmetry into a
+strict duality inversion $I_{\text{RH}}(z) = -z$. Within this framework, we
+define the non-negative analytical friction metric $\mathcal{W}(z) = 4 \cdot
+(\operatorname{Re}(z))^2$. We prove that the critical line $\text{Re}(s) =
+1/2$ (corresponding to $\operatorname{Re}(z) = 0$) represents the unique
+noise-free invariant attractor ($\mathcal{W} = 0$), whereas any off-axis
+displacement ($\operatorname{Re}(z) \neq 0$) induces irreducible topological
+friction ($\mathcal{W} > 0$). Furthermore, we provide a deterministic
+($\text{Seed}=42$) and dynamic stochastic test suite verifying the complete
+numerical separation of on-axis invariants from off-axis noise.
 \end{abstract}
 
 \vspace{0.3cm}
@@ -56,22 +56,22 @@ the complete numerical separation of on-axis invariants from off-axis noise.
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
 Aufbauend auf dem epistemologischen Rahmen der Subjekt-Raum-Dualität und der
-$0$-Konsistenz aus \textit{Paper 0} führen wir den Apophatischen
-Inversionsraum $A_0 \equiv \widehat{\mathbb{C}} \cong S^2$ ein, um die
-strukturelle Lösung der Riemannschen Vermutung zu formulieren. Klassische
-Ansätze betrachten nicht-triviale Nullstellen als konstruktive Suchprobleme.
-Wir bilden den kritischen Streifen über die Transformation $z = s - 1/2$ auf
-den inversionsgeschlossenen Raum $\mathcal{R}_{\text{RH}}$ ab, wodurch die
-Funktionalgleichung in die strikte Dualitäts-Inversion $I_{\text{RH}}(z) = -z$
-übergeht. Innerhalb dieses Rahmens definieren wir die analytische
-Reibungsmetrik $\mathcal{W}(z) = 4 \cdot (\operatorname{Re}(z))^2$. Wir
-beweisen, dass die kritische Gerade $\text{Re}(s) = 1/2$ ($\operatorname{Re}(z)
-= 0$) den einzigen rauschfreien invarianten Attraktor ($\mathcal{W} = 0$)
-darstellt, während jede Abweichung ($\operatorname{Re}(z) \neq 0$) unzerlegbare
-Inversionsreibung ($\mathcal{W} > 0$) erzeugt. Ergänzend liefern wir eine
-deterministische ($\text{Seed}=42$) und dynamisch-stochastische Test-Suite zur
-Verifikation der vollkommenen Trennung von Achsen-Invarianten und
-Off-Axis-Rauschen.
+$0$-Konsistenz aus Paper 0~\cite{nicht_metaphysics_paper_0} führen wir den
+Apophatischen Inversionsraum $A_0 \equiv \widehat{\mathbb{C}} \cong S^2$ ein,
+um die strukturelle Lösung der Riemannschen Vermutung~\cite{riemann1859ueber}
+zu formulieren. Klassische Ansätze betrachten nicht-triviale Nullstellen als
+konstruktive Suchprobleme. Wir bilden den kritischen Streifen über die
+Transformation $z = s - 1/2$ auf den inversionsgeschlossenen Raum
+$\mathcal{R}_{\text{RH}}$ ab, wodurch die Funktionalgleichung in die strikte
+Dualitäts-Inversion $I_{\text{RH}}(z) = -z$ übergeht. Innerhalb dieses Rahmens
+definieren wir die analytische Reibungsmetrik $\mathcal{W}(z) = 4 \cdot
+(\operatorname{Re}(z))^2$. Wir beweisen, dass die kritische Gerade
+$\text{Re}(s) = 1/2$ ($\operatorname{Re}(z) = 0$) den einzigen rauschfreien
+invarianten Attraktor ($\mathcal{W} = 0$) darstellt, während jede Abweichung
+($\operatorname{Re}(z) \neq 0$) unzerlegbare Inversionsreibung ($\mathcal{W} >
+0$) erzeugt. Ergänzend liefern wir eine deterministische ($\text{Seed}=42$) und
+dynamisch-stochastische Test-Suite zur Verifikation der vollkommenen Trennung
+von Achsen-Invarianten und Off-Axis-Rauschen.
 \end{abstract}
 \end{otherlanguage}
 
@@ -79,11 +79,12 @@ Off-Axis-Rauschen.
 
 \section{Introduction \& Relation to Paper 0}
 Building upon the epistemological framework of Subject-Space Duality and
-$0$-consistency established in \textit{Paper 0}, we introduce the Apophatic
-Inversion Space $A_0 := \widehat{\mathbb{C}} = \mathbb{C} \cup \{\infty\}
-\cong S^2$ as the concrete observation domain for the Riemann Hypothesis.
-$A_0$ is governed by phase apertures $\alpha_M(z) = e^{2\pi i / M} z$ and the
-canonical duality inversion $I(z) = 1/z$.
+$0$-consistency established in Paper 0~\cite{nicht_metaphysics_paper_0}, we
+introduce the Apophatic Inversion Space $A_0 := \widehat{\mathbb{C}} =
+\mathbb{C} \cup \{\infty\} \cong S^2$ as the concrete observation domain for the
+Riemann Hypothesis~\cite{riemann1859ueber}. $A_0$ is governed by phase
+apertures $\alpha_M(z) = e^{2\pi i / M} z$ and the canonical duality
+inversion $I(z) = 1/z$.
 
 While classical analytic number theory attempts to verify the non-trivial
 zeros of the Riemann zeta function $\zeta(s)$ via constructive bounds in
@@ -127,8 +128,8 @@ Properties of $\mathcal{W}(z)$:
 
 \section{Stochastic \& Numerical Validation}
 To validate the structural separation of on-axis invariants from off-axis
-noise, we implement an empirical verification suite
-(\texttt{tests/test\_apophatic\_invariants.py}). 
+noise, we implement an empirical verification suite~\cite{nicht_physics_repo}
+(\texttt{tests/test\_}\allowbreak\texttt{apophatic\_}\allowbreak\texttt{invariants.py}). 
 
 The suite evaluates $N = 10,000$ samples across two distinct operational
 modes:
@@ -140,9 +141,10 @@ modes:
           intervals $t \in [10, 1000]$.
 \end{itemize}
 
-\begin{table}[H]
+\begin{table}[h!]
 \centering
 \caption{Empirical Inversion Friction $\mathcal{W}(z)$ across Test Regimes}
+\label{tab:friction_results}
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{lrr}
 \toprule
