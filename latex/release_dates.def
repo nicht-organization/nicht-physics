@@ -23,7 +23,7 @@
 % --- Automatic Resolution via \jobname (with Apophatic Fallback) ---
 \expandafter\ifx\csname firstdate@\jobname\endcsname\relax
   % Fallback for unregistered files or draft builds
-  \newcommand{\firstpublishdate}{Some day A.D.}
+  \newcommand{\firstpublishdate}{Some Day A.D.}
   \newcommand{\apophaticdate}{\firstpublishdate}
 \else
   % Load registered production dates

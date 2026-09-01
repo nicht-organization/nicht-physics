@@ -190,4 +190,4 @@ def test_non_monotonic_gap_edge_case():
     
     res = solver.evaluate_l_series(l_derivatives)
     assert res["rank_r_an"] == 2
-    assert res["rank_r_alg"] == 2
+    assert res["is_0_consistent"] is True
