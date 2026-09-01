@@ -15,10 +15,10 @@
 \registerarticledates{article_apophatic_optimization}{August 25, 2026}{August 25, 2026}
 \registerarticledates{article_apophatic_dynamics}{August 27, 2026}{August 27, 2026}
 \registerarticledates{article_triade_intractabilities}{August 27, 2026}{August 27, 2026}
-\registerarticledates{article_meth_space}{}{}
-\registerarticledates{article_meth_riemann}{}{}
-\registerarticledates{article_meth_bsd}{}{}
-\registerarticledates{article_meth_hodgepoincare}{}{}
+%\registerarticledates{article_meth_space}{}{}
+%\registerarticledates{article_meth_riemann}{}{}
+%\registerarticledates{article_meth_bsd}{}{}
+%\registerarticledates{article_meth_hodgepoincare}{}{}
 
 % --- Automatic Resolution via \jobname (with Apophatic Fallback) ---
 \expandafter\ifx\csname firstdate@\jobname\endcsname\relax
