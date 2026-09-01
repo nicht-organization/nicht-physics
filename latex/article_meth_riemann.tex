@@ -14,6 +14,7 @@
 \usepackage{cite}
 \usepackage{hyperref}
 \usepackage{float}
+\usepackage{url}
 
 \title{\textbf{Nicht-Metaphysics: Paper I - The Apophatic Riemann Invariant}\\
 \large Spectral Zero-Consistency and Inversion-Closed Alignment of the
@@ -90,7 +91,7 @@ $1$-space, this paper demonstrates that the critical line $\text{Re}(s) = 1/2$
 is an immediate topological consequence of zero-friction inversion
 closedness.
 
-\section{The Inversion-Closed Riemann Space $\mathcal{R}_{\text{RH}}$}
+\section{The Inversion-Closed Riemann Space \texorpdfstring{$\mathcal{R}_{\text{RH}}$}{R\_RH}}
 
 \subsection{Coordinate Shift and Inversion Operator}
 Let $s \in \mathbb{C}$ be the classical complex variable in the critical
@@ -110,7 +111,7 @@ $\mathcal{R}_{\text{RH}}$ to the point-inversion operator $I_{\text{RH}}:
 I_{\text{RH}}(z) := -z \quad \text{with} \quad I_{\text{RH}}^2 = \text{id}
 \end{equation}
 
-\subsection{Analytical Friction Metric $\mathcal{W}(z)$}
+\subsection{Analytical Friction Metric \texorpdfstring{$\mathcal{W}(z)$}{W(z)}}
 To quantify the structural compatibility of a zero-candidate with the closed
 inversion space, we define the friction operator $\mathcal{W}(z)$ as the
 squared distance under dual reflection:
@@ -127,7 +128,7 @@ Properties of $\mathcal{W}(z)$:
 \section{Stochastic \& Numerical Validation}
 To validate the structural separation of on-axis invariants from off-axis
 noise, we implement an empirical verification suite
-(`tests/test_apophatic_invariants.py`). 
+(\texttt{tests/test\_apophatic\_invariants.py}). 
 
 The suite evaluates $N = 10,000$ samples across two distinct operational
 modes:
@@ -142,6 +143,7 @@ modes:
 \begin{table}[H]
 \centering
 \caption{Empirical Inversion Friction $\mathcal{W}(z)$ across Test Regimes}
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{lrr}
 \toprule
 \textbf{Test Regime} & \textbf{Max On-Axis Friction ($\mathcal{B}_0$)} & \textbf{Min Off-Axis Friction ($\delta \neq 0$)} \\
@@ -149,7 +151,8 @@ modes:
 Deterministic ($\text{Seed}=42$) & $0.000000000000$ & $0.000000000622$ \\
 Dynamic Stochastic ($\text{Seed}=\text{None}$) & $0.000000000000$ & $0.000000000556$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 The numerical results confirm that $\mathcal{B}_0$ is the unique zero-friction
