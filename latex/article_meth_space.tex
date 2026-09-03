@@ -16,16 +16,18 @@
 % --- THEOREM ENVIRONMENTS ---
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{axiom}[theorem]{Axiom}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[lemma]{Lemma}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
 
-\title{\textbf{Nicht-Metaphysics: Paper 0 -- Two Modes of Consistency}\\
-\large A Minimal Mathematical Framework for Inversion, Closure, and Baseline Invariance}
+\title{%
+  \textbf{Nicht-Metaphysics: Paper 0 -- Two Modes of Consistency}\\
+  \large A Formal Framework for Frame-Consistency and Inversion Stability%
+}
 
-\author{\textbf{xerx593} \quad \& \quad \textbf{Non-Human Interlocutors}\\
-\small Institute of Applied Not-(but-(the-)only-)Knowledge}
+\author{%
+  \textbf{xerx593} \quad \& \quad \textbf{Non-Human Interlocutors}%
+}
 \IfFileExists{release_dates.def}{\input{release_dates.def}}{}
 
 \date{\apophaticdate}
@@ -34,44 +36,37 @@
 
 \maketitle
 
-% ============================================================
-% ABSTRACT
-% ============================================================
-
 \begin{abstract}
-This paper establishes a minimal, formal distinction between two modes of
-mathematical consistency.
-\emph{1-Consistency} denotes standard internal consistency of a formal system
-under its specified inference rules ($S \nvdash \bot$). \emph{0-Consistency}
-denotes the consistency of a system under arbitrary finite or transfinite
-iteration of a relevant self-negation or inversion operator $I$. We formalize
-0-Consistency as the 1-consistency of the inductive limit system 
-$S_I^\infty = \bigcup_{n \in \mathbb{N}} I^n(S)$ and define the Sufficient 
-Invariant Baseline $B_0 \equiv \operatorname{Fix}(I)$ as its structural ground
-state. While the logical labels $0$ and $1$ are dual under static truth-value 
-assignment, non-closure under $I$ breaks this symmetry, distinguishing local 
-rule-compliance from global inversion stability. This framework provides a 
-reusable, non-metaphysical foundation for specialized investigations in 
-geometry, number theory, and mathematical physics.
+This paper introduces a formal distinction between two modes of structural 
+evaluation in formal systems. \emph{Frame-Consistency} ($1\text{C}$) 
+denotes standard internal consistency ($S \nvdash \bot$) within a fixed 
+axiomatic frame $S$. \emph{Inversion Stability} ($0\text{C}$) evaluates 
+whether a system remains closed and non-contradictory under a specified 
+domain-specific counter-operation or inversion $I$. We define the 
+\emph{Invariant Baseline} $B_0$ as a sub-structure preserved as a set 
+under $I$ ($I(B_0) = B_0$). We show that non-closure under an inversion 
+operator is distinct from internal syntactic inconsistency. This distinction 
+provides a domain-agnostic foundation for domain-specific investigations 
+in number theory, algebraic geometry, and physics.
 \end{abstract}
 
 \vspace{0.3cm}
 
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
-Dieses Paper etabliert eine minimale, formale Unterscheidung zwischen zwei 
-Moden mathematischer Konsistenz. \emph{1-Konsistenz} bezeichnet die gewöhnliche
-innere Konsistenz eines formalen Systems unter seinen festgelegten 
-Ableitungsregeln ($S \nvdash \bot$). \emph{0-Konsistenz} bezeichnet die 
-Konsistenz eines Systems unter beliebiger endlicher oder transfiniter Iteration
-eines relevanten Selbstnegations- oder Inversionsoperators $I$. Wir 
-formalisieren 0-Konsistenz als die 1-Konsistenz des induktiven Limes-Systems
-$S_I^\infty = \bigcup_{n \in \mathbb{N}} I^n(S)$ und definieren die
-Hinreichende Invariante Basis $B_0 \equiv \operatorname{Fix}(I)$ als ihren
-strukturellen Grundzustand. Während die logischen Bezeichnungen $0$ und $1$
-unter statischer Wahrheitswertzuordnung dual sind, bricht eine 
-Nicht-Abgeschlossenheit unter $I$ diese Symmetrie und unterscheidet lokale
-Regelkonformität von globaler Inversionsstabilität.
+Dieses Paper führt eine formale Unterscheidung zwischen zwei Moden der 
+strukturellen Evaluierung in formalen Systemen ein. \emph{Rahmen-Konsistenz} 
+($1\text{C}$) bezeichnet die gewöhnliche innere Konsistenz ($S \nvdash \bot$) 
+innerhalb eines festgelegten axiomatischen Rahmens $S$. 
+\emph{Inversions-Stabilität} ($0\text{C}$) prüft, ob ein System unter einer 
+spezifizierten bereichsspezifischen Gegenoperation oder Inversion $I$ 
+abgeschlossen und widerspruchsfrei bleibt. Wir definieren die 
+\emph{Invariante Basis} $B_0$ als eine Unterstruktur, die unter $I$ als 
+Menge invariant bleibt ($I(B_0) = B_0$). Wir zeigen, dass 
+Nicht-Abgeschlossenheit unter einem Inversionsoperator nicht mit innerer 
+syntaktischer Inkonsistenz identisch ist. Diese Unterscheidung
+bietet eine bereichsunabhängige Grundlage für bereichsspezifische Untersuchungen
+in der Zahlentheorie, der algebraischen Geometrie und Physik.
 \end{abstract}
 \end{otherlanguage}
 
@@ -81,159 +76,169 @@ Regelkonformität von globaler Inversionsstabilität.
 \section{Introduction}
 % ============================================================
 
-Standard mathematical reasoning fixes a formal theory 
-$S = (\mathcal{L}, \mathcal{A}, \mathcal{R})$ with language 
-$\mathcal{L}$, axioms $\mathcal{A}$, and inference rules 
-$\mathcal{R}$, evaluating consistency entirely within 
-$\text{Th}(S)$. This operational baseline represents internal
-rule-compliance.
+Standard mathematical reasoning begins by fixing a formal system 
+$S = (\mathcal{L}, \mathcal{A}, \mathcal{R})$ with language $\mathcal{L}$, 
+axioms $\mathcal{A}$, and derivation rules $\mathcal{R}$. Consistency is 
+evaluated internally within the theoretical deductive closure $\text{Th}(S)$.
 
-However, formal systems frequently generate operations, such 
-as - additive inversion, multiplicative duality, or geometric
-complementation, whose domain extends beyond the originating
-system. A system may remain consistent within its defined
-boundaries while failing to sustain closure under arbitrary
-iteration of its intrinsic inversion operators.
+However, formal frameworks frequently generate intrinsic operations---such 
+as additive inversion, multiplicative duality, or functional 
+reflections---whose outputs may extend beyond the domain of $S$. Internal 
+consistency within $S$ does not guarantee structural closure under such 
+counter-operations.
 
-We define this boundary through the core distinction:
+We formalize this distinction via two operational perspectives:
 \[
 \boxed{
-\text{Internal Syntactic Consistency (1-Consistency)}
+\text{Frame-Consistency } (1\text{C})
 \quad\neq\quad
-\text{Closure Under Iterated Inversion (0-Consistency)}
+\text{Inversion Stability / Closure } (0\text{C})
 }
 \]
-This paper formalizes this distinction as a domain-agnostic
-foundation for subsequent applications in analytic number theory,
- algebraic geometry, and field theory.
 
-% ============================================================
-\section{Formalization of the Two Modes}
-% ============================================================
+\subsection{Parity Collapse in Shift-Invariant Limit Systems}
 
-Let $S = (\mathcal{L}, \mathcal{A}, \mathcal{R})$ be a formal system, and let 
-$\vdash_S$ denote syntactic provability. We denote logical absurdity by $\bot$.
-
-\subsection{1-Consistency}
-
-\begin{definition}[1-Consistency]
-A formal system $S$ is \emph{1-consistent} (denoted $1\text{C}$) if it cannot
-derive a contradiction under its specified rules:
+To evaluate boundary behavior under arbitrary iteration, we formalize the parity of limit objects in shift-invariant extended structures. Let $\mathcal{M}$ be an algebraic framework containing an infinite limit element $\Omega$ invariant under the unit shift operator $S(x) = x + 1$:
 \[
-S \nvdash_S \bot.
+S(\Omega) = \Omega + 1 = \Omega.
 \]
-Equivalent to standard consistency, 1-consistency validates internal coherence
-within a fixed axiomatic frame.
-\end{definition}
 
-\subsection{0-Consistency and Inversion Systems}
+\begin{lemma}[Non-Existence of Odd Shift-Invariant Limits]
+Let $\Omega \in \mathcal{M}$ satisfy $S(\Omega) = \Omega$. Then $\Omega \not\equiv 1 \pmod 2$.
+\end{lemma}
 
-Let $I: \mathcal{L} \to \mathcal{L}$ be a domain-specific inversion operator
-acting on sentences or structural objects in $S$.
-
-\begin{definition}[Iterated Inversion System]
-Given a formal system $S_0 = S$ and an inversion operator $I$, the $n$-th
-inversion extension $S_I^n$ is inductively defined as:
+\begin{proof}
+Assume for contradiction that $\Omega$ admits an odd residue, i.e., $\Omega \equiv 1 \pmod 2$. Applying the shift operator $S(x) = x + 1$ and evaluating modulo $2$ yields:
 \[
-S_I^{n+1} = S_I^n \cup \{ I(\varphi) \mid \varphi \in \text{Th}(S_I^n) \}.
+S(\Omega) \bmod 2 = (\Omega + 1) \bmod 2 \equiv (1 + 1) \bmod 2 \equiv 0 \pmod 2.
 \]
-The full inductive limit system $S_I^\infty$ is given by:
+By the structural identity $S(\Omega) = \Omega$, substituting $\Omega$ into the parity relation gives:
 \[
-S_I^\infty = \bigcup_{n \in \mathbb{N}} S_I^n.
+1 \equiv \Omega \bmod 2 = S(\Omega) \bmod 2 \equiv 0 \pmod 2.
 \]
-\end{definition}
+This yields $1 \equiv 0 \pmod 2$, producing logical absurdity ($\bot$). Thus, the assumption $\Omega \bmod 2 \equiv 1$ is false.
+\end{proof}
 
-\begin{definition}[0-Consistency]
-A system $S$ is \emph{0-consistent} with respect to $I$ (denoted $0\text{C}_I$)
-if its inductive limit system $S_I^\infty$ is 1-consistent:
+\begin{lemma}[Transfinite Parity Construction]
+Let $\omega = \sup_{n \in \mathbb{N}} n$ be the first infinite limit ordinal. Then $\omega \bmod 2 \equiv 0$.
+\end{lemma}
+
+\begin{proof}
+In ordinal arithmetic, left-multiplication of a limit ordinal $\omega$ by $2$ satisfies:
 \[
-S_I^\infty \nvdash \bot.
+2 \cdot \omega = \bigcup_{n < \omega} (2 \cdot n) = \omega.
 \]
-\end{definition}
-
-\subsection{The Sufficient Invariant Baseline ($B_0$)}
-
-\begin{definition}[Sufficient Invariant Baseline]
-The \emph{Sufficient Invariant Baseline} $B_0$ of a system $S$ under inversion
-$I$ is the fixed-point sub-space (or fixed theory):
+Applying Euclidean division to $\omega$ yields $\omega = 2 \cdot q + r$ with quotient $q = \omega$ and remainder $r \in \{0, 1\}$. Substituting $2 \cdot \omega = \omega$ into the division identity forces:
 \[
-B_0 \equiv \operatorname{Fix}(I) = \{ x \in \mathcal{L} \mid I(x) = x \}.
+\omega = \omega + r \implies r = 0.
 \]
-\end{definition}
+By symmetric reflection $I(\omega) = -\omega$, the negative limit state satisfies $(-\omega) \bmod 2 \equiv 0$.
+\end{proof}
 
-A system is trivially 0-consistent on $B_0$. Systemic friction or non-closure
-arises exclusively when operating on elements $x \notin B_0$.
-
-% ============================================================
-\section{Duality and Non-Closure}
-% ============================================================
-
-In classical propositional logic, truth-value assignments 
-$0 \mapsto \text{False}, 1 \mapsto \text{True}$ and $0 \mapsto \text{True}, 1 \mapsto \text{False}$
-are isomorphic under boolean negation $\neg$. 
-
-However, 0-Consistency goes beyond static boolean relabeling:
-\begin{enumerate}
-    \item If $I$ is an involution ($I^2 = \text{id}_{\mathcal{L}}$) and $S$ is
-    closed under $I$, $0\text{C}$ collapses to $1\text{C}$ on the extended
-    frame.
-    \item If $S$ is not closed under $I$, $S$ may be 1-consistent while being
-    0-inconsistent relative to $I$.
-\end{enumerate}
-
-\begin{theorem}[Separation of $1\text{C}$ and $0\text{C}$]
-There exist formal systems $S$ and inversion operators $I$ such that $S$ is 
-$1\text{C}$ but not $0\text{C}_I$.
+\begin{theorem}[Uniqueness of Zero-Parity Ground State]
+For any shift-invariant infinite baseline $\Omega \in \mathcal{M}$, the parity evaluation $\Omega \bmod 2 \equiv 0$ is unique.
 \end{theorem}
 
 \begin{proof}
-Consider the structure $S = (\mathbb{N}, +)$. $S$ is 1-consistent under Peano
-arithmetic. Define $I(a, b) = a - b$. Since $a - b \notin \mathbb{N}$ for 
-$a < b$, $S_I^1$ generates elements outside $\mathbb{N}$. Extending $S$ 
-naive-syntactically without ring structure updates introduces logical
-contradictions with the domain axioms of $\mathbb{N}$. Hence $S$ is 
-$1\text{C}$, but $0\text{C}_I$-inconsistent over $\mathbb{N}$.
+Euclidean division modulo $2$ restricts the residue set to $R \in \{0, 1\}$. By Lemma 2.1, $R = 1$ forces syntactic contradiction ($\bot$). By Lemma 2.2, $R = 0$ is constructively realized under limit ordinal multiplication. Therefore, $R = 0$ is the unique stable remainder.
 \end{proof}
 
 % ============================================================
-\section{Universal Inversion Axiom}
+\section{Two Modes of Consistency}
 % ============================================================
 
-To allow structural cross-referencing across mathematical sub-disciplines, we
-state the operational postulate governing universal self-negation.
+Let $S = (\mathcal{L}, \mathcal{A}, \mathcal{R})$ be a formal system, 
+and let $\vdash_S$ denote syntactic provability. Let $\bot$ denote logical 
+absurdity.
 
-\begin{axiom}[Universal Inversion Endofunctor]
-Let $\mathbf{Sys}$ denote the category of formal mathematical systems. There
-exists an inversion endofunctor $\mathcal{I}: \mathbf{Sys} \to \mathbf{Sys}$
-such that for any object $S \in \mathbf{Sys}$:
+\subsection{Frame-Consistency ($1\text{C}$)}
+
+\begin{definition}[Frame-Consistency]
+A formal system $S$ is \emph{Frame-Consistent} (denoted $1\text{C}$) if 
+no contradiction is derivable within its operational rules:
+\[
+S \nvdash_S \bot.
+\]
+\end{definition}
+
+\begin{remark}
+The notation $1\text{C}$ is local to this framework and denotes internal 
+rule-compliance within $S$. It is distinct from the technical notion of 
+$\Sigma_1$-consistency in formal arithmetic.
+\end{remark}
+
+\subsection{Inversion Stability ($0\text{C}$)}
+
+Let $I: \mathcal{D} \to \mathcal{D}'$ be a domain-specific inversion 
+operator acting on a domain $\mathcal{D} \subseteq \mathcal{L}$.
+
+\begin{definition}[Invariant Baseline $B_0$]
+An \emph{Invariant Baseline} $B_0 \subseteq \mathcal{D}$ for an inversion 
+operator $I$ is a sub-structure or domain that is invariant as a set 
+under $I$:
+\[
+I(B_0) = B_0.
+\]
+\end{definition}
+
+\begin{remark}
+An invariant baseline $B_0$ does not require pointwise fixed points 
+($\forall x \in B_0, I(x) = x$). It requires set-wise invariance under 
+the action of $I$.
+\end{remark}
+
+\begin{definition}[Inversion Extension and $0\text{C}$]
+Let $S_I$ denote the minimal inductive extension of $S$ closed under the 
+action of $I$. System $S$ is \emph{0-Consistent} with respect to $I$ 
+(denoted $0\text{C}_I$) if:
 \begin{enumerate}[label=(\roman*)]
-    \item $\mathcal{I}(S)$ maps structural predicates to their dual complements.
-    \item $\mathcal{I}^2 \cong \text{id}_{\mathbf{Sys}}$ up to canonical isomorphism.
-    \item $S$ is globally 0-consistent if and only if $\mathcal{I}(S)$ preserves
-    the satisfiability of $S$.
+    \item $S$ is closed under $I$ (i.e., $I(\mathcal{D}) \subseteq \mathcal{D}$), and
+    \item The extended theory $S_I$ is Frame-Consistent ($S_I \nvdash \bot$).
 \end{enumerate}
-\end{axiom}
+\end{definition}
 
 % ============================================================
-\section{Reference Mapping for Applied Papers}
+\section{Non-Closure vs. Inconsistency}
 % ============================================================
 
-This formal framework provides the foundational vocabulary for domain-specific
-applications:
+A primary source of conceptual confusion in structural logic is the 
+conflation of domain non-closure with internal logical inconsistency.
+
+\begin{example}[Arithmetic Non-Closure]
+Consider the system $S = (\mathbb{N}, +)$. $S$ is $1\text{C}$ (internally 
+consistent). Define the additive inversion operator $I(a, b) = a - b$.
+For $a < b$, $I(a,b) \notin \mathbb{N}$. The system $S$ is not closed 
+under $I$, making it $0\text{C}_I$-open. However, this non-closure 
+does not generate logical absurdity ($\bot$) within $S$; it merely 
+defines a boundary prompting extension to $\mathbb{Z}$.
+\end{example}
+
+\begin{theorem}[Separation of $1\text{C}$ and $0\text{C}$]
+Frame-consistency ($1\text{C}$) does not imply Inversion Stability ($0\text{C}_I$).
+\end{theorem}
+
+\begin{proof}
+Let $S = (\mathbb{N}, +)$ and $I(a, b) = a - b$. $S \nvdash \bot$, so $S$ is 
+$1\text{C}$. However, $I(2, 3) = -1 \notin \mathbb{N}$, so $S$ is not closed 
+under $I$. Thus, $S$ is $1\text{C}$ but not $0\text{C}_I$.
+\end{proof}
+
+% ============================================================
+\section{Core Reference Mapping}
+% ============================================================
+
+This framework allows downstream domain-specific papers to evaluate stability 
+under domain-appropriate inversion operators $I$ and invariant baselines $B_0$:
 
 \begin{table}[h!]
 \centering
 \small
 \begin{tabular}{lll}
 \hline
-\textbf{Domain / Paper} & \textbf{Concrete Inversion $I$} & \textbf{Invariant Baseline $B_0$} \\ 
-\hline
- Analytic Number Theory (RH) & Spectral reflection 
- $\xi(s) \mapsto \xi(1-s)$ & Critical line $\operatorname{Re}(s) = 1/2$ \\
- Elliptic Curves (BSD) & Analytic vanishing $L(E, s) \mapsto 0$ & Rank-aperture at $s=1$ \\
- Algebraic Geometry (Hodge) & Cohomological complementation & Pure Algebraic Cycles \\
- Gauge Theory (Yang-Mills) & Color-charge inversion $\mathcal{I}(F_{\mu\nu}^a)$ & Mass Gap Scale $\Delta > 0$ \\
-\hline
+\textbf{Domain} & \textbf{Inversion Operator $I$} & \textbf{Invariant Baseline $B_0$} \\ \hline
+Analytic Number Theory & Reflection $s \mapsto 1-s$ & Critical Line $\operatorname{Re}(s) = 1/2$ \\
+Elliptic Curves & Analytic Shift $s \mapsto 2-s$ & Central Point $s = 1$ \\
+Vector Spaces & Dual Map $V \mapsto V^*$ & Self-Dual Subspaces $V \cong V^*$ \\ \hline
 \end{tabular}
 \end{table}
 
@@ -241,12 +246,12 @@ applications:
 \section{Conclusion}
 % ============================================================
 
-Paper 0 establishes the distinction between internal system coherence
-($1\text{C}$) and inversion closure stability ($0\text{C}$). By formalizing
-0-Consistency via the inductive limit system $S_I^\infty$ and defining the
-invariant baseline $B_0 \equiv \operatorname{Fix}(I)$, this framework serves
-as a direct reference point for resolving structural paradoxes and boundary
-conditions across complex mathematical domains.
+Paper 0 establishes a precise distinction between internal syntactic rule 
+compliance ($1\text{C}$) and structural closure under counter-operations 
+($0\text{C}$). By defining the invariant baseline as an invariant set 
+$I(B_0) = B_0$, this framework provides a solid reference for domain-specific 
+applications without requiring metaphysical postulates or categorical 
+over-extensions.
 
 \clearpage
 \bibliographystyle{unsrt}
