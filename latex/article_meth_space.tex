@@ -38,16 +38,19 @@
 
 \begin{abstract}
 This paper introduces a formal distinction between two modes of structural 
-evaluation in formal systems. \emph{Frame-Consistency} ($\mathrm{C}_{\mathrm{frame}}$) 
+evaluation in formal systems \cite{nicht_theory_monograph, godel1931formal}.
+\emph{Frame-Consistency} ($\mathrm{C}_{\mathrm{frame}}$) 
 denotes standard internal consistency ($S \nvdash \bot$) within a fixed 
-axiomatic frame $S$. \emph{Inversion Stability} ($\mathrm{C}_{\mathrm{inv}}$) evaluates 
+axiomatic frame $S$ \cite{tarski1936begriff}. \emph{Inversion Stability}
+($\mathrm{C}_{\mathrm{inv}}$) evaluates 
 whether a system remains closed and non-contradictory under a specified 
 domain-specific counter-operation or inversion $I$. We define the 
 \emph{Invariant Baseline} $B_0$ as a sub-structure preserved as a set 
 under $I$ ($I(B_0) = B_0$). We show that non-closure under an inversion 
 operator is distinct from internal syntactic inconsistency. This distinction 
 provides a domain-agnostic foundation for domain-specific investigations 
-in number theory, algebraic geometry, and physics.
+in number theory \cite{riemann1859ueber}, algebraic geometry
+\cite{hodge1950topological}.
 \end{abstract}
 
 \vspace{0.3cm}
@@ -55,18 +58,20 @@ in number theory, algebraic geometry, and physics.
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
 Dieses Paper führt eine formale Unterscheidung zwischen zwei Moden der 
-strukturellen Evaluierung in formalen Systemen ein. \emph{Rahmen-Konsistenz} 
-($\mathrm{C}_{\mathrm{frame}}$) bezeichnet die gewöhnliche innere Konsistenz ($S \nvdash \bot$) 
-innerhalb eines festgelegten axiomatischen Rahmens $S$. 
-\emph{Inversions-Stabilität} ($\mathrm{C}_{\mathrm{inv}}$) prüft, ob ein System unter einer 
-spezifizierten bereichsspezifischen Gegenoperation oder Inversion $I$ 
-abgeschlossen und widerspruchsfrei bleibt. Wir definieren die 
+strukturellen Evaluierung in formalen Systemen ein
+\cite{nicht_theory_monograph, godel1931formal}.\emph{Rahmen-Konsistenz} 
+($\mathrm{C}_{\mathrm{frame}}$) bezeichnet die gewöhnliche innere Konsistenz
+($S \nvdash \bot$) innerhalb eines festgelegten axiomatischen Rahmens 
+$S$ \cite{tarski1936begriff}.\emph{Inversions-Stabilität} ($\mathrm{C}_{\mathrm{inv}}$)
+prüft, ob ein System unter einer spezifizierten bereichsspezifischen Gegenoperation
+oder Inversion $I$ abgeschlossen und widerspruchsfrei bleibt. Wir definieren die
 \emph{Invariante Basis} $B_0$ als eine Unterstruktur, die unter $I$ als 
 Menge invariant bleibt ($I(B_0) = B_0$). Wir zeigen, dass 
 Nicht-Abgeschlossenheit unter einem Inversionsoperator nicht mit innerer 
 syntaktischer Inkonsistenz identisch ist. Diese Unterscheidung
 bietet eine bereichsunabhängige Grundlage für bereichsspezifische Untersuchungen
-in der Zahlentheorie, der algebraischen Geometrie und Physik.
+in der Zahlentheorie \cite{riemann1859ueber}, der algebraischen Geometrie
+ \cite{hodge1950topological}.
 \end{abstract}
 \end{otherlanguage}
 
@@ -78,14 +83,16 @@ in der Zahlentheorie, der algebraischen Geometrie und Physik.
 
 Standard mathematical reasoning begins by fixing a formal system 
 $S = (\mathcal{L}, \mathcal{A}, \mathcal{R})$ with language $\mathcal{L}$, 
-axioms $\mathcal{A}$, and derivation rules $\mathcal{R}$. Consistency is 
-evaluated internally within the theoretical deductive closure $\text{Th}(S)$.
+axioms $\mathcal{A}$, and derivation rules $\mathcal{R}$ 
+\cite{russell1903, godel1931formal}. Consistency is evaluated internally 
+within the theoretical deductive closure $\text{Th}(S)$ 
+\cite{tarski1936begriff}.
 
 However, formal frameworks frequently generate intrinsic operations---such 
 as additive inversion, multiplicative duality, or functional 
-reflections---whose outputs may extend beyond the domain of $S$. Internal 
-consistency within $S$ does not guarantee structural closure under such 
-counter-operations.
+reflections---whose outputs may extend beyond the domain of $S$ 
+\cite{nicht_theory_monograph}. Internal consistency within $S$ does not 
+guarantee structural closure under such counter-operations.
 
 We formalize this distinction via two operational perspectives:
 \[
@@ -101,14 +108,15 @@ We formalize this distinction via two operational perspectives:
 % ============================================================
 
 Let $S = (\mathcal{L}, \mathcal{A}, \mathcal{R})$ be a formal system, 
-and let $\vdash_S$ denote syntactic provability. Let $\bot$ denote logical 
-absurdity.
+and let $\vdash_S$ denote syntactic provability \cite{godel1931formal}. 
+Let $\bot$ denote logical absurdity.
 
 \subsection{Frame-Consistency ($\mathrm{C}_{\mathrm{frame}}$)}
 
 \begin{definition}[Frame-Consistency]
-A formal system $S$ is \emph{Frame-Consistent} (denoted $\mathrm{C}_{\mathrm{frame}}$) if 
-no contradiction is derivable within its operational rules:
+A formal system $S$ is \emph{Frame-Consistent} 
+(denoted $\mathrm{C}_{\mathrm{frame}}$) if no contradiction is derivable 
+within its operational rules:
 \[
 S \nvdash_S \bot.
 \]
@@ -116,12 +124,14 @@ S \nvdash_S \bot.
 
 \subsection{Inversion Stability ($\mathrm{C}_{\mathrm{inv}}$)}
 
-Let $I: \mathcal{D} \to \mathcal{D}'$ be a domain-specific inversion 
-operator acting on a domain $\mathcal{D} \subseteq \mathcal{L}$.
+Let $\operatorname{Term}(\mathcal{L})$ denote the set of terms in language 
+$\mathcal{L}$ (or let $\mathcal{D}$ denote the domain of a model $\mathcal{M}$). 
+Let $I: \mathcal{D} \to \mathcal{D}'$ be a domain-specific inversion operator 
+acting on a term domain $\mathcal{D} \subseteq \operatorname{Term}(\mathcal{L})$.
 
 \begin{definition}[Invariant Baseline $B_0$]
 An \emph{Invariant Baseline} $B_0 \subseteq \mathcal{D}$ for an inversion 
-operator $I$ is a sub-structure or domain that is invariant as a set 
+operator $I$ is a sub-structure or term set that is invariant as a set 
 under $I$:
 \[
 I(B_0) = B_0.
@@ -149,56 +159,54 @@ action of $I$. System $S$ is \emph{Inversion-Stable} with respect to $I$
 % ============================================================
 
 A primary source of conceptual confusion in structural logic is the 
-conflation of domain non-closure with internal logical inconsistency.
+conflation of domain non-closure with internal logical inconsistency 
+\cite{russell1903, wittgenstein1922tractatus}.
 
 \begin{example}[Arithmetic Non-Closure]
-Consider the system $S = (\mathbb{N}, +)$. $S$ is $\mathrm{C}_{\mathrm{frame}}$ (internally 
-consistent). Define the additive inversion operator $I(a, b) = a - b$.
+Consider the system $S = (\mathbb{N}, +)$. $S$ is $\mathrm{C}_{\mathrm{frame}}$ 
+(internally consistent). Define the additive inversion operator $I(a, b) = a - b$.
 For $a < b$, $I(a,b) \notin \mathbb{N}$. The system $S$ is not closed 
 under $I$, making it unclosed under inversion. However, this non-closure 
 does not generate logical absurdity ($\bot$) within $S$; it merely 
 defines a boundary prompting extension to $\mathbb{Z}$.
 \end{example}
 
-\begin{theorem}[Separation of $\mathrm{C}_{\mathrm{frame}}$ and $\mathrm{C}_{\mathrm{inv}}$]
-Frame-consistency ($\mathrm{C}_{\mathrm{frame}}$) does not imply Inversion Stability ($\mathrm{C}_{\mathrm{inv}}$).
-\end{theorem}
+\begin{lemma}[Separation Lemma]
+Frame-consistency ($\mathrm{C}_{\mathrm{frame}}$) does not imply 
+Inversion Stability ($\mathrm{C}_{\mathrm{inv}}$).
+\end{lemma}
 
 \begin{proof}
 Let $S = (\mathbb{N}, +)$ and $I(a, b) = a - b$. $S \nvdash \bot$, so $S$ is 
-$\mathrm{C}_{\mathrm{frame}}$. However, $I(2, 3) = -1 \notin \mathbb{N}$, so $S$ is not closed 
-under $I$. Thus, $S$ is $\mathrm{C}_{\mathrm{frame}}$ but not $\mathrm{C}_{\mathrm{inv}}$.
+$\mathrm{C}_{\mathrm{frame}}$. However, $I(2, 3) = -1 \notin \mathbb{N}$, 
+so $S$ is not closed under $I$. Thus, $S$ is $\mathrm{C}_{\mathrm{frame}}$ 
+but not $\mathrm{C}_{\mathrm{inv}}$.
 \end{proof}
 
-% ============================================================
-\section{Core Reference Mapping}
-% ============================================================
 
-This framework allows downstream domain-specific papers to evaluate stability 
-under domain-appropriate inversion operators $I$ and invariant baselines $B_0$:
-
-\begin{table}[h!]
-\centering
-\small
-\begin{tabular}{lll}
-\hline
-\textbf{Domain} & \textbf{Inversion Operator $I$} & \textbf{Invariant Baseline $B_0$} \\ \hline
-Analytic Number Theory & Reflection $s \mapsto 1-s$ & Critical Line $\operatorname{Re}(s) = 1/2$ \\
-Elliptic Curves & Analytic Shift $s \mapsto 2-s$ & Central Point $s = 1$ \\
-Vector Spaces & Dual Map $V \mapsto V^*$ & Self-Dual Subspaces $V \cong V^*$ \\ \hline
-\end{tabular}
-\end{table}
 
 % ============================================================
 \section{Conclusion}
 % ============================================================
 
 Paper 0 establishes a precise distinction between internal syntactic rule 
-compliance ($\mathrm{C}_{\mathrm{frame}}$) and structural closure under counter-operations 
-($\mathrm{C}_{\mathrm{inv}}$). By defining the invariant baseline as an invariant set 
-$I(B_0) = B_0$, this framework provides a solid reference for domain-specific 
-applications without requiring metaphysical postulates or categorical 
-over-extensions.
+compliance ($\mathrm{C}_{\mathrm{frame}}$) and structural closure under 
+counter-operations ($\mathrm{C}_{\mathrm{inv}}$). By defining the invariant 
+baseline as an invariant set $I(B_0) = B_0$, this framework provides a solid 
+reference for domain-specific applications without requiring metaphysical 
+postulates or categorical over-extensions 
+\cite{nicht_physics_repo, apophatic_engine_pypi, apophatic_opt_pypi}.
+
+\begin{remark}[On the Structural Asymmetry of the (Nicht-)``Meta-Physical'']
+A foundational asymmetry governs the relationship between mathematical structure 
+and empirical reality: physical laws strictly require mathematical logic to articulate 
+symmetries, conservation laws, and dynamics, whereas mathematical logic requires no 
+physical substrate, linguistic scaffolding, or empirical instantiation. 
+Unfolding purely from primitive negation (the invariant baseline $\emptyset$), formal 
+structure remains autonomous. In this strict etymological sense 
+(\emph{meta} + \emph{physika}), mathematics constitutes the true ``meta-physics''---the 
+structural precondition operating beyond and prior to physical manifestation.
+\end{remark}
 
 \clearpage
 \bibliographystyle{unsrt}
