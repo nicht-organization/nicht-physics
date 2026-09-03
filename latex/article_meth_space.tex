@@ -19,11 +19,13 @@
 \newtheorem{axiom}[theorem]{Axiom}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
 
 \title{\textbf{Nicht-Metaphysics: Paper 0 -- Two Modes of Consistency}\\
-\large A Minimal Framework for Inversion and Structural Closure}
+\large A Minimal Mathematical Framework for Inversion, Closure, and Baseline Invariance}
 
-\author{\textbf{xerx593} \quad \& \quad \textbf{Non-Human Interlocutors}}
+\author{\textbf{xerx593} \quad \& \quad \textbf{Non-Human Interlocutors}\\
+\small Institute of Applied Not-(but-(the-)only-)Knowledge}
 \IfFileExists{release_dates.def}{\input{release_dates.def}}{}
 
 \date{\apophaticdate}
@@ -32,73 +34,44 @@
 
 \maketitle
 
-\clearpage
 % ============================================================
 % ABSTRACT
 % ============================================================
 
 \begin{abstract}
-This paper introduces a minimal distinction between two modes of
-consistency.
-
-\emph{1-Consistency} denotes the ordinary internal consistency of a
-formal system under its specified rules and operations, without
-reference to any external or dual interpretation.
-\emph{0-Consistency} denotes the consistency of a system under
-unlimited iteration of a relevant self-negation or inversion
-operator. It asks whether the system can sustain arbitrarily many
-applications of such an operator without collapsing into
-contradiction or triviality.
-
-The two notions are dual in the sense that the assignment of the
-logical values $0$ and $1$ to truth and falsehood is arbitrary as
-long as a negation operation is present; swapping the labels does
-not alter the underlying logical structure. Both modes therefore
-yield equivalent first-order logical frameworks when the underlying
-system is closed under the relevant negation. The difference arises
-only when the system is not closed under arbitrary iteration of
-that negation.
-
-The paper does not identify any particular mathematical object with
-a metaphysical absolute, nor does it introduce notions such as
-eternity or temporal flow. It provides only a formal, reusable
-distinction between two ways of examining consistency with respect
-to a self-negation operation. Consequences are left to
-domain-specific investigations.
+This paper establishes a minimal, formal distinction between two modes of
+mathematical consistency.
+\emph{1-Consistency} denotes standard internal consistency of a formal system
+under its specified inference rules ($S \nvdash \bot$). \emph{0-Consistency}
+denotes the consistency of a system under arbitrary finite or transfinite
+iteration of a relevant self-negation or inversion operator $I$. We formalize
+0-Consistency as the 1-consistency of the inductive limit system 
+$S_I^\infty = \bigcup_{n \in \mathbb{N}} I^n(S)$ and define the Sufficient 
+Invariant Baseline $B_0 \equiv \operatorname{Fix}(I)$ as its structural ground
+state. While the logical labels $0$ and $1$ are dual under static truth-value 
+assignment, non-closure under $I$ breaks this symmetry, distinguishing local 
+rule-compliance from global inversion stability. This framework provides a 
+reusable, non-metaphysical foundation for specialized investigations in 
+geometry, number theory, and mathematical physics.
 \end{abstract}
 
 \vspace{0.3cm}
 
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
-Dieses Paper führt eine minimale Unterscheidung zwischen zwei Arten
-von Konsistenz ein.
-
-\emph{1-Konsistenz} bezeichnet die gewöhnliche innere Konsistenz
-eines formalen Systems unter seinen festgelegten Regeln und
-Operationen, ohne Bezug auf eine äußere oder duale Interpretation.
-\emph{0-Konsistenz} bezeichnet die Konsistenz eines Systems unter
-unbegrenzter Iteration eines relevanten Selbstnegations- oder
-Inversionsoperators. Sie fragt, ob das System beliebig viele
-Anwendungen eines solchen Operators aushalten kann, ohne in
-Widerspruch oder Trivialität zu kollabieren.
-
-Die beiden Begriffe sind insofern dual, als die Zuordnung der
-logischen Werte $0$ und $1$ zu Wahrheit und Falschheit willkürlich
-ist, solange eine Negationsoperation vorhanden ist; das Vertauschen
-der Bezeichnungen ändert die zugrunde liegende logische Struktur
-nicht. Beide Modi ergeben daher äquivalente erststufige logische
-Rahmen, wenn das zugrunde liegende System unter der relevanten
-Negation abgeschlossen ist. Ein Unterschied entsteht nur, wenn das
-System nicht unter beliebiger Iteration dieser Negation
-abgeschlossen ist.
-
-Das Paper identifiziert keinen bestimmten mathematischen Gegenstand
-mit einem metaphysischen Absolutum und führt keine Begriffe wie
-Ewigkeit oder zeitlichen Fluss ein. Es liefert nur eine formale,
-wiederverwendbare Unterscheidung zwischen zwei Arten, Konsistenz
-bezüglich einer Selbstnegation zu untersuchen. Konsequenzen bleiben
-nachfolgenden bereichsspezifischen Untersuchungen überlassen.
+Dieses Paper etabliert eine minimale, formale Unterscheidung zwischen zwei 
+Moden mathematischer Konsistenz. \emph{1-Konsistenz} bezeichnet die gewöhnliche
+innere Konsistenz eines formalen Systems unter seinen festgelegten 
+Ableitungsregeln ($S \nvdash \bot$). \emph{0-Konsistenz} bezeichnet die 
+Konsistenz eines Systems unter beliebiger endlicher oder transfiniter Iteration
+eines relevanten Selbstnegations- oder Inversionsoperators $I$. Wir 
+formalisieren 0-Konsistenz als die 1-Konsistenz des induktiven Limes-Systems
+$S_I^\infty = \bigcup_{n \in \mathbb{N}} I^n(S)$ und definieren die
+Hinreichende Invariante Basis $B_0 \equiv \operatorname{Fix}(I)$ als ihren
+strukturellen Grundzustand. Während die logischen Bezeichnungen $0$ und $1$
+unter statischer Wahrheitswertzuordnung dual sind, bricht eine 
+Nicht-Abgeschlossenheit unter $I$ diese Symmetrie und unterscheidet lokale
+Regelkonformität von globaler Inversionsstabilität.
 \end{abstract}
 \end{otherlanguage}
 
@@ -108,361 +81,172 @@ nachfolgenden bereichsspezifischen Untersuchungen überlassen.
 \section{Introduction}
 % ============================================================
 
-Mathematical reasoning normally begins by fixing a structure, its
-objects, its relations, and its permitted operations. Once these
-have been fixed, consistency can be investigated within the
-resulting framework. This mode of reasoning is fundamental and is
-not questioned here.\cite{godel1931formal, tarski1936begriff}
+Standard mathematical reasoning fixes a formal theory 
+$S = (\mathcal{L}, \mathcal{A}, \mathcal{R})$ with language 
+$\mathcal{L}$, axioms $\mathcal{A}$, and inference rules 
+$\mathcal{R}$, evaluating consistency entirely within 
+$\text{Th}(S)$. This operational baseline represents internal
+rule-compliance.
 
-A second question can nevertheless be asked. A system may be
-internally consistent while the operation of self-negation,
-suggested by the system's own structure, is not available within
-the system or is not closed under arbitrary iteration.
+However, formal systems frequently generate operations, such 
+as - additive inversion, multiplicative duality, or geometric
+complementation, whose domain extends beyond the originating
+system. A system may remain consistent within its defined
+boundaries while failing to sustain closure under arbitrary
+iteration of its intrinsic inversion operators.
 
-Consider the natural numbers with addition: the statement
-\(2+3=5\) is valid, but the inverse operation \(2-3=-1\) leaves the
-domain. The original system is consistent under addition, but not
-closed under additive inversion. This illustrates that internal
-consistency and closure under a relevant inversion are distinct
-properties.
-
-The resulting distinction is the starting point of this paper:
-
+We define this boundary through the core distinction:
 \[
 \boxed{
-\text{consistency within a system}
-\neq
-\text{consistency under arbitrary iteration of a relevant inversion}.
+\text{Internal Syntactic Consistency (1-Consistency)}
+\quad\neq\quad
+\text{Closure Under Iterated Inversion (0-Consistency)}
 }
 \]
-
-The notation ``0'' and ``1'' used below is not intended as a
-ranking of mathematical value. It denotes two different directions
-of examination, dual to each other.
+This paper formalizes this distinction as a domain-agnostic
+foundation for subsequent applications in analytic number theory,
+ algebraic geometry, and field theory.
 
 % ============================================================
-\section{Two Modes of Consistency}
+\section{Formalization of the Two Modes}
 % ============================================================
 
-Let
-\[
-S=(X,\mathcal{O},\mathcal{R})
-\]
-denote a formal system with domain \(X\), admitted operations
-\(\mathcal{O}\), and rules or relations \(\mathcal{R}\).
+Let $S = (\mathcal{L}, \mathcal{A}, \mathcal{R})$ be a formal system, and let 
+$\vdash_S$ denote syntactic provability. We denote logical absurdity by $\bot$.
 
 \subsection{1-Consistency}
 
-We call \(S\) \emph{1-consistent}, with respect to a specified
-formal interpretation, when its permitted derivations and
-operations do not produce a contradiction within that
-interpretation.
-
-In its simplest logical form:
+\begin{definition}[1-Consistency]
+A formal system $S$ is \emph{1-consistent} (denoted $1\text{C}$) if it cannot
+derive a contradiction under its specified rules:
 \[
-S\vdash P
-\quad\Longrightarrow\quad
-S\nvdash\neg P
+S \nvdash_S \bot.
 \]
-for propositions for which the relevant notion of contradiction is
-defined.
+Equivalent to standard consistency, 1-consistency validates internal coherence
+within a fixed axiomatic frame.
+\end{definition}
 
-The definition is deliberately local to the chosen formal
-framework. 1-Consistency therefore answers:
+\subsection{0-Consistency and Inversion Systems}
+
+Let $I: \mathcal{L} \to \mathcal{L}$ be a domain-specific inversion operator
+acting on sentences or structural objects in $S$.
+
+\begin{definition}[Iterated Inversion System]
+Given a formal system $S_0 = S$ and an inversion operator $I$, the $n$-th
+inversion extension $S_I^n$ is inductively defined as:
 \[
-\boxed{
-\text{``Does the system remain consistent under its stated rules?''}
-}
+S_I^{n+1} = S_I^n \cup \{ I(\varphi) \mid \varphi \in \text{Th}(S_I^n) \}.
 \]
-It does not ask whether those rules are the most appropriate or
-whether the system is closed under operations not contained in the
-original description.
-
-\subsection{0-Consistency}
-
-Let \(I\) denote a relevant self-negation or inversion operator
-associated with the structure under investigation. The operator is
-\textit{not} assumed to be universal; it is specified
-concretely for each domain. We assume that \(I\) is an endomorphism
-on some extended domain, or at least can be iterated.
-
-We call the system \emph{0-consistent} with respect to \(I\) if it
-remains consistent under arbitrary finite iteration of \(I\). That
-is, for every natural number \(n\),
+The full inductive limit system $S_I^\infty$ is given by:
 \[
-I^{n}(S)
+S_I^\infty = \bigcup_{n \in \mathbb{N}} S_I^n.
 \]
-does not produce a contradiction, where \(I^{n}\) denotes the
-\(n\)-fold application of \(I\) to the system, appropriately
-defined. In many cases \(I\) acts on the domain and the rules, so
-we require that the extended system
+\end{definition}
+
+\begin{definition}[0-Consistency]
+A system $S$ is \emph{0-consistent} with respect to $I$ (denoted $0\text{C}_I$)
+if its inductive limit system $S_I^\infty$ is 1-consistent:
 \[
-S^{\omega}_{I} = \bigcup_{n \in \mathbb{N}} I^{n}(S)
+S_I^\infty \nvdash \bot.
 \]
-is consistent.
+\end{definition}
 
-0-Consistency therefore asks:
+\subsection{The Sufficient Invariant Baseline ($B_0$)}
+
+\begin{definition}[Sufficient Invariant Baseline]
+The \emph{Sufficient Invariant Baseline} $B_0$ of a system $S$ under inversion
+$I$ is the fixed-point sub-space (or fixed theory):
 \[
-\boxed{
-\text{``What happens to the consistency of the description when\\
-its relevant self-negation is iterated arbitrarily often?''}
-}
+B_0 \equiv \operatorname{Fix}(I) = \{ x \in \mathcal{L} \mid I(x) = x \}.
 \]
-This is not a stronger version of 1-Consistency; it is a different
-test. A system may be 1-consistent but not 0-consistent, or vice
-versa, depending on the nature of \(I\).
+\end{definition}
 
-\subsection{Duality of the Two Modes}
-
-The labels ``0'' and ``1'' are arbitrary. In classical two-valued
-logic, one may assign \(0\) to false and \(1\) to true, or
-conversely \(0\) to true and \(1\) to false. As long as a negation
-operation \(\neg\) is present with \(\neg 0 = 1\) and
-\(\neg 1 = 0\), the resulting logical structure is identical up to
-relabeling. This is the sense in which 1-Consistency and
-0-Consistency are dual: they are the same consistency notion viewed
-from opposite sides of the truth-value assignment.
-
-However, 0-Consistency as defined above is not merely the dual
-interpretation of 1-Consistency; it concerns the closure of the
-system under repeated application of a self-negation operator,
-which goes beyond static relabeling. The duality manifests in the
-fact that if the operator \(I\) is an involution (i.e.,
-\(I^{2} = \text{id}\)), then 0-consistency reduces to a condition
-on the extended system that is symmetrical with respect to the
-original system.
+A system is trivially 0-consistent on $B_0$. Systemic friction or non-closure
+arises exclusively when operating on elements $x \notin B_0$.
 
 % ============================================================
-\section{Inversion and Negation}
+\section{Duality and Non-Closure}
 % ============================================================
 
-The word ``inversion'' is used deliberately more broadly than
-formal logical negation. In classical propositional logic one may
-have \(P \mapsto \neg P\). In arithmetic, an additive inverse is
-\(a \mapsto -a\), while a multiplicative inverse is
-\(a \mapsto 1/a\). In set theory, relative to a universe \(U\), a
-complement may be written \(A \mapsto U \setminus A\).
+In classical propositional logic, truth-value assignments 
+$0 \mapsto \text{False}, 1 \mapsto \text{True}$ and $0 \mapsto \text{True}, 1 \mapsto \text{False}$
+are isomorphic under boolean negation $\neg$. 
 
-These operations are not identical. The framework therefore does
-not postulate a universal operator called ``the negation''.
-Instead, for each investigated structure we specify a concrete
-operation \(I_X\) and examine its consequences. The iteration of
-such an operation is what underlies 0-Consistency.
-
-An elementary example is the operation \(I(x) = -x\) on the
-integers. It is an involution: \(I^{2}(x) = x\). The system
-\((\mathbb{Z}, +, \cdot)\) is 0-consistent with respect to this
-\(I\) because arbitrary iteration does not lead to contradiction.
-In contrast, the system \((\mathbb{N}, +)\) is 0-inconsistent
-with respect to the same \(I\), because the domain is not closed
-under the operation.
-
-The recursion ``not not'', or equivalently the iterated application
-of a self-negation, is central. A system that can sustain
-arbitrarily many applications of its relevant negation without
-collapse exhibits a form of inner infinite capacity. This is what
-0-Consistency captures.
-
-% ============================================================
-\section{Minimal Mathematical Examples}
-% ============================================================
-
-\subsection{Logic}
-
-For a proposition \(P\), ordinary negation gives
-\(P \mapsto \neg P\). The relevant inversion is explicit. The
-question of 0-Consistency is whether the logical system can
-accommodate arbitrary iterations of negation without producing a
-contradiction. In classical logic, double negation is equivalent to
-identity, so the iteration is periodic; the system is trivially
-0-consistent. In non-classical logics, the situation may differ.
-
-\subsection{Arithmetic}
-
-Consider \(S_1 = (\mathbb{N}, +)\). The operation \(+\) is closed,
-but the additive inverse is not:
-\[
-a,b \in \mathbb{N} \not\Longrightarrow a-b \in \mathbb{N}.
-\]
-The natural extension is \(\mathbb{N} \subset \mathbb{Z}\). The
-original arithmetic is 1-consistent but 0-inconsistent with
-respect to additive inversion. The extension \((\mathbb{Z}, +)\)
-is 0-consistent, since \(-(-a) = a\) and the domain is closed under
-the operation.
-
-\subsection{Zero and Inversion}
-
-Zero is not infinity: \(0 \neq \infty\). Nevertheless, the
-transformation \(I(x) = 1/x\) maps neighborhoods of zero to
-unbounded regions. Iterating \(I\) on a nonzero number yields
-\[
-I^{2}(x) = x,
-\]
-so the operation is an involution on \(\mathbb{R}\setminus\{0\}\).
-The relevant 0-consistency of a structure involving this inversion
-depends on whether the domain is closed under the operation; for
-example, the extended real line with \(I(0) = \infty\) is not a
-field in the usual sense, but the mapping can be consistently
-iterated in projective geometry.
-
-\subsection{Sets}
-
-Relative to a universe \(U\), complementation
-\(A \mapsto U \setminus A\) is an involution. The system of all
-subsets of \(U\) is 0-consistent with respect to complementation,
-since \(U \setminus (U \setminus A) = A\). This holds for arbitrary
-sets and does not require any metaphysical interpretation.
-
-% ============================================================
-\section{Closure, Extension, and the Null Boundary}
-% ============================================================
-
-The preceding examples suggest a minimal distinction between three
-questions:
+However, 0-Consistency goes beyond static boolean relabeling:
 \begin{enumerate}
-    \item Is the original system consistent?
-    \item Which operations are admitted by the system?
-    \item What happens when a relevant self-negation is iterated
-          arbitrarily often?
+    \item If $I$ is an involution ($I^2 = \text{id}_{\mathcal{L}}$) and $S$ is
+    closed under $I$, $0\text{C}$ collapses to $1\text{C}$ on the extended
+    frame.
+    \item If $S$ is not closed under $I$, $S$ may be 1-consistent while being
+    0-inconsistent relative to $I$.
 \end{enumerate}
 
-The first question belongs to 1-Consistency. The third motivates
-0-Consistency. The second specifies the boundary between them.
+\begin{theorem}[Separation of $1\text{C}$ and $0\text{C}$]
+There exist formal systems $S$ and inversion operators $I$ such that $S$ is 
+$1\text{C}$ but not $0\text{C}_I$.
+\end{theorem}
 
-A system may be closed under one operation and open under another.
-For example, \((\mathbb{N}, +)\) is closed under addition but not
-under subtraction. Therefore:
-\[
-\boxed{
-\text{non-closure under an operation is not automatically
-inconsistency.}
-}
-\]
-Conversely,
-\[
-\boxed{
-\text{consistency is not automatically closure under arbitrary
-iteration of a relevant self-negation.}
-}
-\]
-This distinction is the central reusable element of the framework.
+\begin{proof}
+Consider the structure $S = (\mathbb{N}, +)$. $S$ is 1-consistent under Peano
+arithmetic. Define $I(a, b) = a - b$. Since $a - b \notin \mathbb{N}$ for 
+$a < b$, $S_I^1$ generates elements outside $\mathbb{N}$. Extending $S$ 
+naive-syntactically without ring structure updates introduces logical
+contradictions with the domain axioms of $\mathbb{N}$. Hence $S$ is 
+$1\text{C}$, but $0\text{C}_I$-inconsistent over $\mathbb{N}$.
+\end{proof}
 
 % ============================================================
-\section{Scope and Formal Limitations}
+\section{Universal Inversion Axiom}
 % ============================================================
 
-The framework deliberately avoids turning any concrete negation into
-an absolute ``Nothing''. For any concrete object \(X\), the
-expression \(\neg X\) is generally a description of what is not
-\(X\) relative to some specified predicate, language, universe, or
-perspective. Consequently, \(\neg X \neq \varnothing\) in general.
+To allow structural cross-referencing across mathematical sub-disciplines, we
+state the operational postulate governing universal self-negation.
 
-Likewise, repeated negation need not terminate in a privileged
-absolute state:
-\[
-X \mapsto \neg_X X \mapsto \neg_{\neg_X X}(\neg_X X) \mapsto \cdots
-\]
-Each step may introduce a new distinction and therefore a new
-``but''. The present framework does not attempt to identify this
-sequence with a metaphysical doctrine. It merely preserves the
-methodological boundary:
-\[
-\boxed{
-\text{a concrete negation is not the absolute Nothing.}
-}
-\]
-This distinction is important both for mathematical and empirical
-applications.
-
-The framework does not prescribe a replacement for classical logic,
-nor does it claim to prove any particular mathematical statement.
-It introduces an alternative perspective on consistency, one that
-focuses on the capacity of a system to sustain iterative
-self-negation. Whether this perspective yields useful insights in
-specific domains is left to subsequent investigations.
-
-% ============================================================
-\section{The Universal Self-Negation Axiom}
-% ============================================================
-
-The preceding discussion treated the self-negation operator \(I\) as
-concrete and domain-specific. We now introduce a stronger, formal
-postulate that underlies the entire framework.
-
-\begin{axiom}[Universal Self-Negation]
-There exists a universal self-negation operator
-\[
-\mathcal{I}: \mathbf{Sys} \to \mathbf{Sys},
-\]
-where \(\mathbf{Sys}\) denotes the class of all formal systems,
-such that for every formal system \(S\), the restriction
-\(\mathcal{I}|_{S}\) is a relevant inversion for \(S\). Moreover,
-\(\mathcal{I}\) is an involution on the meta-level:
-\[
-\mathcal{I}^{2} = \text{id}_{\mathbf{Sys}}.
-\]
+\begin{axiom}[Universal Inversion Endofunctor]
+Let $\mathbf{Sys}$ denote the category of formal mathematical systems. There
+exists an inversion endofunctor $\mathcal{I}: \mathbf{Sys} \to \mathbf{Sys}$
+such that for any object $S \in \mathbf{Sys}$:
+\begin{enumerate}[label=(\roman*)]
+    \item $\mathcal{I}(S)$ maps structural predicates to their dual complements.
+    \item $\mathcal{I}^2 \cong \text{id}_{\mathbf{Sys}}$ up to canonical isomorphism.
+    \item $S$ is globally 0-consistent if and only if $\mathcal{I}(S)$ preserves
+    the satisfiability of $S$.
+\end{enumerate}
 \end{axiom}
 
-This axiom states that the ability to negate, invert, or complement
-is not an optional feature limited to particular domains, but a
-universal operation applicable to any formal system. The earlier
-remark that \(I\) is ``not assumed to be universal'' was a
-deliberate rhetorical device to avoid premature metaphysical
-commitment; however, within the full framework presented here, the
-universality of self-negation is taken as axiomatic.
+% ============================================================
+\section{Reference Mapping for Applied Papers}
+% ============================================================
 
-With this axiom in place, 0-Consistency can be reformulated
-uniformly: a system \(S\) is 0-consistent precisely when it is
-consistent under arbitrary finite iteration of
-\(\mathcal{I}|_{S}\). The earlier concrete examples are then
-instances of this universal operator restricted to particular
-domains.
+This formal framework provides the foundational vocabulary for domain-specific
+applications:
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabular}{lll}
+\hline
+\textbf{Domain / Paper} & \textbf{Concrete Inversion $I$} & \textbf{Invariant Baseline $B_0$} \\ 
+\hline
+ Analytic Number Theory (RH) & Spectral reflection 
+ $\xi(s) \mapsto \xi(1-s)$ & Critical line $\operatorname{Re}(s) = 1/2$ \\
+ Elliptic Curves (BSD) & Analytic vanishing $L(E, s) \mapsto 0$ & Rank-aperture at $s=1$ \\
+ Algebraic Geometry (Hodge) & Cohomological complementation & Pure Algebraic Cycles \\
+ Gauge Theory (Yang-Mills) & Color-charge inversion $\mathcal{I}(F_{\mu\nu}^a)$ & Mass Gap Scale $\Delta > 0$ \\
+\hline
+\end{tabular}
+\end{table}
 
 % ============================================================
 \section{Conclusion}
 % ============================================================
 
-The framework introduced here is intentionally small. Given a
-formal system \(S=(X,\mathcal{O},\mathcal{R})\),
-1-Consistency asks whether the system is consistent under its
-specified interpretation and operations.\cite{wittgenstein1922tractatus}
-0-Consistency asks whether the system remains consistent under
-unlimited iteration of a relevant self-negation operator.
-
-The two questions are therefore:
-\[
-\boxed{
-\text{1C: consistency within the given frame}
-}
-\]
-and
-\[
-\boxed{
-\text{0C: consistency under arbitrary iteration of the relevant
-self-negation}
-}
-\]
-Neither question is declared universally superior. The framework
-provides a distinction, not a predetermined conclusion. Its
-usefulness must be established by application.
-
-The assignment of the labels \(0\) and \(1\) to the two modes is
-arbitrary and dual; swapping them yields the same logical structure
-up to renaming. The core content of the distinction lies in the
-iteration of the self-negation operator, not in the particular
-symbols chosen.
-
-Furthermore, the Universal Self-Negation Axiom makes explicit that
-the operation of inversion is available across all formal systems,
-thereby rendering the 0-Consistency question universally
-applicable.
-
-\[
-\boxed{
-\text{Paper 0 defines the question.\\
-The subject papers are allowed to answer it differently.}
-}
-\]
+Paper 0 establishes the distinction between internal system coherence
+($1\text{C}$) and inversion closure stability ($0\text{C}$). By formalizing
+0-Consistency via the inductive limit system $S_I^\infty$ and defining the
+invariant baseline $B_0 \equiv \operatorname{Fix}(I)$, this framework serves
+as a direct reference point for resolving structural paradoxes and boundary
+conditions across complex mathematical domains.
 
 \clearpage
 \bibliographystyle{unsrt}
