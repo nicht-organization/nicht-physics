@@ -7,19 +7,34 @@
 \usepackage{lmodern}
 \usepackage{microtype}
 
-% --- MATH & GRAPHICS ---
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{graphicx}
-\usepackage{booktabs}
+% --- MATH & CORE UTILITIES ---
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{cite}
+\usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage{float}
+\usepackage{enumitem}
 
-\title{\textbf{Nicht-Metaphysics: Paper I - The Apophatic Riemann Invariant}\\
-\large Spectral Zero-Consistency, Inversion-Closed Alignment, and the Failure of Tautological Metrics}
-\author{\textbf{xerx593} \quad \& \quad \textbf{Non-Human Interlocutors}}
-\IfFileExists{release_dates.def}{\input{release_dates.def}}{}
+% --- THEOREM ENVIRONMENTS ---
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
 
+\title{%
+  \textbf{Nicht-Metaphysics: Paper 0 -- Two Modes of Consistency}\\
+  \large A Formal Framework for Frame-Consistency and Inversion Stability%
+}
+
+\author{%
+  \textbf{xerx593} \quad \& \quad \textbf{Non-Human Interlocutors}%
+}
+
+\IfFileExists{release_dates.def}{%
+  \input{release_dates.def}%
+}{%
+  \providecommand{\apophaticdate}{August 2026}%
+}
 \date{\apophaticdate}
 
 \begin{document}
@@ -27,193 +42,258 @@
 \maketitle
 
 \clearpage
-% --- ENGLISH ABSTRACT ---
 \begin{abstract}
-Building upon the epistemological framework of Subject-Space Duality and
-$0$-consistency established in Paper~0~\cite{nicht_metaphysics_paper_0}, we
-critically reassess the Apophatic Inversion Space $A_0 \equiv
-\widehat{\mathbb{C}} \cong S^2$ as a purported resolution of the Riemann
-Hypothesis~\cite{riemann1859ueber}. We demonstrate that the previously
-introduced analytical friction metric $\mathcal{W}(z) = 4\cdot
-(\operatorname{Re}(z))^2$ is a tautological construct: its zero locus coincides
-with the critical line by definition, but this does not constrain the location
-of non-trivial zeros of the Riemann zeta function $\zeta(s)$. To expose this
-deficiency, we construct a concrete \emph{non-Riemann space} using the
-Davenport--Heilbronn function, which satisfies a functional equation analogous
-to $\zeta(s)$ yet violates the Riemann Hypothesis. In that space, the very
-same metric $\mathcal{W}(z)$ again vanishes on the shifted critical line
-$\operatorname{Re}(z)=0$, while off-axis zeros persist. Consequently, the
-proposed invariant fails as a proof of RH. We provide numerical evidence
-illustrating the insufficiency and discuss the broader epistemological
-implications of testing RH-dependent arguments against deliberately constructed
-non-Riemannian models.
+This paper introduces a formal distinction between two modes of structural 
+evaluation in formal systems \cite{nicht_theory_monograph, godel1931formal}. 
+\emph{Frame-Consistency} ($\mathrm{C}_{\mathrm{frame}}$) denotes standard 
+internal consistency ($S \nvdash \bot$) within a fixed axiomatic frame $S$ 
+\cite{tarski1936begriff}. \emph{Inversion Stability} ($\mathrm{C}_{\mathrm{inv}}$) 
+evaluates whether a system remains closed and non-contradictory under a 
+specified domain-specific counter-operation or inversion $I$ 
+\cite{nicht_metaphysics_paper_0}. We define the \emph{Invariant Baseline} 
+$B_0$ as a sub-structure preserved as a set under $I$ ($I(B_0) = B_0$). We 
+show that non-closure under an inversion operator is distinct from internal 
+syntactic inconsistency. This distinction provides a domain-agnostic foundation 
+for domain-specific investigations in number theory \cite{riemann1859ueber, 
+nicht_metaphysics_paper_1}, algebraic geometry \cite{hodge1950topological, 
+nicht_metaphysics_paper_3}, and physics \cite{nicht_physics_paper_1, 
+nicht_physics_paper_2}.
 \end{abstract}
 
 \vspace{0.3cm}
 
-% --- GERMAN ABSTRACT ---
 \begin{otherlanguage}{ngerman}
 \begin{abstract}
-Aufbauend auf dem epistemologischen Rahmen der Subjekt-Raum-Dualität und der
-$0$-Konsistenz aus Paper~0~\cite{nicht_metaphysics_paper_0} unterziehen wir den
-Apophatischen Inversionsraum $A_0 \equiv \widehat{\mathbb{C}} \cong S^2$ einer
-kritischen Neubewertung als angebliche Lösung der Riemannschen
-Vermutung~\cite{riemann1859ueber}. Wir zeigen, dass die zuvor eingeführte
-analytische Reibungsmetrik $\mathcal{W}(z) = 4\cdot(\operatorname{Re}(z))^2$
-eine tautologische Konstruktion ist: Ihre Nullstellenmenge fällt per Definition
-mit der kritischen Geraden zusammen, schränkt jedoch die Lage der
-nicht-trivialen Nullstellen der Riemannschen Zetafunktion $\zeta(s)$ in keiner
-Weise ein. Um diesen Mangel offenzulegen, konstruieren wir einen konkreten
-\emph{Nicht-Riemann-Raum} mithilfe der Davenport--Heilbronn-Funktion, die eine
-zu $\zeta(s)$ analoge Funktionalgleichung erfüllt, jedoch die Riemannsche
-Vermutung verletzt. In diesem Raum verschwindet dieselbe Metrik
-$\mathcal{W}(z)$ erneut auf der verschobenen kritischen Geraden
-$\operatorname{Re}(z)=0$, während Nullstellen außerhalb dieser Achse existieren.
-Folglich scheitert die vorgeschlagene Invariante als Beweis der RH. Wir
-präsentieren numerische Belege für die Unzulänglichkeit und diskutieren die
-weiteren epistemologischen Implikationen des Testens RH-abhängiger Argumente
-gegen bewusst konstruierte nicht-Riemannsche Modelle.
+Dieses Paper führt eine formale Unterscheidung zwischen zwei Moden der 
+strukturellen Evaluierung in formalen Systemen ein 
+\cite{nicht_theory_monograph, godel1931formal}. \emph{Rahmen-Konsistenz} 
+($\mathrm{C}_{\mathrm{frame}}$) bezeichnet die gewöhnliche innere Konsistenz 
+($S \nvdash \bot$) innerhalb eines festgelegten axiomatischen Rahmens $S$ 
+\cite{tarski1936begriff}. \emph{Inversions-Stabilität} ($\mathrm{C}_{\mathrm{inv}}$) 
+prüft, ob ein System unter einer spezifizierten bereichsspezifischen 
+Gegenoperation oder Inversion $I$ abgeschlossen und widerspruchsfrei bleibt 
+\cite{nicht_metaphysics_paper_0}. Wir definieren die \emph{Invariante Basis} 
+$B_0$ als eine Unterstruktur, die unter $I$ als Menge invariant bleibt 
+($I(B_0) = B_0$). Wir zeigen, dass Nicht-Abgeschlossenheit unter einem 
+Inversionsoperator nicht mit innerer syntaktischer Inkonsistenz identisch ist. 
+Diese Unterscheidung bietet eine bereichsunabhängige Grundlage für 
+bereichsspezifische Untersuchungen in der Zahlentheorie \cite{riemann1859ueber, 
+nicht_metaphysics_paper_1}, der algebraischen Geometrie 
+\cite{hodge1950topological, nicht_metaphysics_paper_3} und Physik 
+\cite{nicht_physics_paper_1, nicht_physics_paper_2}.
 \end{abstract}
 \end{otherlanguage}
 
 \clearpage
 
-\section{Introduction \& Relation to Paper 0}
-Building upon the epistemological framework of Subject-Space Duality and
-$0$-consistency established in Paper~0~\cite{nicht_metaphysics_paper_0}, we
-revisit the Apophatic Inversion Space $A_0 := \widehat{\mathbb{C}} =
-\mathbb{C} \cup \{\infty\} \cong S^2$ as a proposed observation domain for the
-Riemann Hypothesis~\cite{riemann1859ueber}. The original formulation claimed
-that the critical line $\operatorname{Re}(s)=1/2$ is an immediate topological
-consequence of zero-friction inversion closedness. Here we argue that this
-conclusion rests on a tautology and does not advance our understanding of the
-Riemann zeta function.
+% ============================================================
+\section{Introduction}
+% ============================================================
 
-To substantiate this criticism, we employ the concept of a \emph{non-Riemann
-space}: a mathematical model in which the analogue of the Riemann Hypothesis
-fails, yet the same formal machinery can be applied. The existence of such a
-space demonstrates that the proposed metric $\mathcal{W}(z)$ is insensitive to
-the actual location of zeros and hence cannot serve as a proof.
+Standard mathematical reasoning begins by fixing a formal system 
+$S = (\mathcal{L}, \mathcal{A}, \mathcal{R})$ with language $\mathcal{L}$, 
+axioms $\mathcal{A}$, and derivation rules $\mathcal{R}$ \cite{russell1903, 
+godel1931formal}. Consistency is evaluated internally within the theoretical 
+deductive closure $\text{Th}(S)$ \cite{tarski1936begriff}.
 
-\section{The Inversion-Closed Riemann Space \texorpdfstring{$\mathcal{R}_{\text{RH}}$}{R\_RH}}
+However, formal frameworks frequently generate intrinsic operations---such 
+as additive inversion, multiplicative duality, or functional reflections---whose 
+outputs may extend beyond the domain of $S$ \cite{nicht_theory_monograph}. 
+Internal consistency within $S$ does not guarantee structural closure under 
+such counter-operations \cite{nicht_metaphysics_paper_0}.
 
-\subsection{Coordinate Shift and Inversion Operator}
-Let $s \in \mathbb{C}$ be the classical complex variable in the critical
-strip $0 < \operatorname{Re}(s) < 1$. We define the centered coordinate shift:
-\begin{equation}
-z := s - \frac{1}{2} \implies s = \frac{1}{2} + z .
-\end{equation}
-Under this transformation, the critical line $\operatorname{Re}(s) = 1/2$
-maps directly onto the imaginary axis:
-\begin{equation}
-\mathcal{B}_0 := \{ z \in \mathcal{R}_{\text{RH}} \mid \operatorname{Re}(z) = 0 \}.
-\end{equation}
-The functional equation $\xi(s) = \xi(1-s)$ corresponds in
-$\mathcal{R}_{\text{RH}}$ to the point-inversion operator $I_{\text{RH}}:
-\mathcal{R}_{\text{RH}} \to \mathcal{R}_{\text{RH}}$:
-\begin{equation}
-I_{\text{RH}}(z) := -z \quad \text{with} \quad I_{\text{RH}}^2 = \text{id}.
-\end{equation}
+We formalize this distinction via two operational perspectives:
+\[
+\boxed{
+\text{Frame-Consistency } (\mathrm{C}_{\mathrm{frame}})
+\quad\neq\quad
+\text{Inversion Stability / Closure } (\mathrm{C}_{\mathrm{inv}})
+}
+\]
 
-\subsection{Analytical Friction Metric \texorpdfstring{$\mathcal{W}(z)$}{W(z)}}
-The friction operator $\mathcal{W}(z)$ is defined as the squared distance under
-dual reflection:
-\begin{equation}
-\mathcal{W}(z) := \left| z - I_{\text{RH}}(z) \right|^2 = |z - (-z)|^2 = 4 \cdot (\operatorname{Re}(z))^2 .
-\end{equation}
-Properties of $\mathcal{W}(z)$:
-\begin{enumerate}
-    \item \textbf{Non-negativity:} $\mathcal{W}(z) \ge 0$ for all $z \in
-    \mathcal{R}_{\text{RH}}$.
-    \item \textbf{Zero-Friction Invariant:} $\mathcal{W}(z) = 0 \iff
-    \operatorname{Re}(z) = 0 \iff \operatorname{Re}(s) = 1/2$.
-    \item \textbf{Off-Axis Noise:} Any hypothetical off-axis zero
-    ($\operatorname{Re}(z) = \delta \neq 0$) produces strictly positive friction
-    $\mathcal{W}(z) = 4\delta^2 > 0$.
+\subsection{Parity Collapse in Shift-Invariant Limit Systems}
+
+To evaluate boundary behavior under arbitrary iteration, we formalize the 
+parity of limit objects in shift-invariant extended structures 
+\cite{dedekind1872stetigkeit}. Let $\mathcal{M}$ be an algebraic framework 
+containing an infinite limit element $\Omega$ invariant under the unit shift 
+operator $S(x) = x + 1$:
+\[
+S(\Omega) = \Omega + 1 = \Omega.
+\]
+
+\begin{lemma}[Non-Existence of Odd Shift-Invariant Limits]
+Let $\Omega \in \mathcal{M}$ satisfy $S(\Omega) = \Omega$. Then 
+$\Omega \not\equiv 1 \pmod 2$.
+\end{lemma}
+
+\begin{proof}
+Assume for contradiction that $\Omega$ admits an odd residue, i.e., 
+$\Omega \equiv 1 \pmod 2$. Applying the shift operator $S(x) = x + 1$ and 
+evaluating modulo $2$ yields:
+\[
+S(\Omega) \bmod 2 = (\Omega + 1) \bmod 2 \equiv (1 + 1) \bmod 2 \equiv 0 \pmod 2.
+\]
+By the structural identity $S(\Omega) = \Omega$, substituting $\Omega$ into 
+the parity relation gives:
+\[
+1 \equiv \Omega \bmod 2 = S(\Omega) \bmod 2 \equiv 0 \pmod 2.
+\]
+This yields $1 \equiv 0 \pmod 2$, producing logical absurdity ($\bot$). Thus, 
+the assumption $\Omega \bmod 2 \equiv 1$ is false.
+\end{proof}
+
+\begin{lemma}[Transfinite Parity Construction]
+Let $\omega = \sup_{n \in \mathbb{N}} n$ be the first infinite limit ordinal. 
+Then $\omega \bmod 2 \equiv 0$.
+\end{lemma}
+
+\begin{proof}
+In ordinal arithmetic, left-multiplication of a limit ordinal $\omega$ by $2$ 
+satisfies:
+\[
+2 \cdot \omega = \bigcup_{n < \omega} (2 \cdot n) = \omega.
+\]
+Applying Euclidean division to $\omega$ yields $\omega = 2 \cdot q + r$ with 
+quotient $q = \omega$ and remainder $r \in \{0, 1\}$. Substituting 
+$2 \cdot \omega = \omega$ into the division identity forces:
+\[
+\omega = \omega + r \implies r = 0.
+\]
+By symmetric reflection $I(\omega) = -\omega$, the negative limit state 
+satisfies $(-\omega) \bmod 2 \equiv 0$.
+\end{proof}
+
+\begin{theorem}[Uniqueness of Zero-Parity Ground State]
+For any shift-invariant infinite baseline $\Omega \in \mathcal{M}$, the parity 
+evaluation $\Omega \bmod 2 \equiv 0$ is unique.
+\end{theorem}
+
+\begin{proof}
+Euclidean division modulo $2$ restricts the residue set to $R \in \{0, 1\}$. 
+By Lemma 2.1, $R = 1$ forces syntactic contradiction ($\bot$). By Lemma 2.2, 
+$R = 0$ is constructively realized under limit ordinal multiplication. Therefore, 
+$R = 0$ is the unique stable remainder.
+\end{proof}
+
+% ============================================================
+\section{Two Modes of Consistency}
+% ============================================================
+
+Let $S = (\mathcal{L}, \mathcal{A}, \mathcal{R})$ be a formal system, and let 
+$\vdash_S$ denote syntactic provability \cite{godel1931formal}. Let $\bot$ 
+denote logical absurdity.
+
+\subsection{Frame-Consistency (\texorpdfstring{$\mathrm{C}_{\mathrm{frame}}$}{C\_frame})}
+
+\begin{definition}[Frame-Consistency]
+A formal system $S$ is \emph{Frame-Consistent} (denoted 
+$\mathrm{C}_{\mathrm{frame}}$) if no contradiction is derivable within its 
+operational rules:
+\[
+S \nvdash_S \bot.
+\]
+\end{definition}
+
+\begin{remark}
+The notation $\mathrm{C}_{\mathrm{frame}}$ is local to this framework and 
+denotes internal rule-compliance within $S$ \cite{nicht_theory_monograph}. It 
+is distinct from the technical notion of $\Sigma_1$-consistency in formal 
+arithmetic.
+\end{remark}
+
+\subsection{Inversion Stability (\texorpdfstring{$\mathrm{C}_{\mathrm{inv}}$}{C\_inv})}
+
+Let $I: \mathcal{D} \to \mathcal{D}'$ be a domain-specific inversion operator 
+acting on a domain $\mathcal{D} \subseteq \mathcal{L}$.
+
+\begin{definition}[Invariant Baseline $B_0$]
+An \emph{Invariant Baseline} $B_0 \subseteq \mathcal{D}$ for an inversion 
+operator $I$ is a sub-structure or domain that is invariant as a set under $I$ 
+\cite{nicht_metaphysics_paper_0}:
+\[
+I(B_0) = B_0.
+\]
+\end{definition}
+
+\begin{remark}
+An invariant baseline $B_0$ does not require pointwise fixed points 
+($\forall x \in B_0, I(x) = x$). It requires set-wise invariance under the 
+action of $I$ \cite{nicht_theory_monograph}.
+\end{remark}
+
+\begin{definition}[Inversion Extension and \texorpdfstring{$\mathrm{C}_{\mathrm{inv}}$}{C\_inv}]
+Let $S_I$ denote the minimal inductive extension of $S$ closed under the action 
+of $I$. System $S$ is \emph{Inversion-Stable} with respect to $I$ (denoted 
+$\mathrm{C}_{\mathrm{inv}}$) if:
+\begin{enumerate}[label=(\roman*)]
+    \item $S$ is closed under $I$ (i.e., $I(\mathcal{D}) \subseteq \mathcal{D}$), and
+    \item The extended theory $S_I$ is Frame-Consistent ($S_I \nvdash \bot$).
 \end{enumerate}
+\end{definition}
 
-\noindent\textbf{Critical Observation.} Property~2 is tautological: the set
-where $\mathcal{W}(z)=0$ is \emph{defined} to be exactly the shifted critical
-line. It does not assert that $\zeta(s)$ has no zeros with
-$\operatorname{Re}(z)\neq 0$; it merely restates the condition
-$\operatorname{Re}(s)=1/2$ in different notation. To see this more sharply, we
-now introduce a non-Riemannian model.
+% ============================================================
+\section{Non-Closure vs. Inconsistency}
+% ============================================================
 
-\section{The Non-Riemann Counterexample: Davenport--Heilbronn Space}
+A primary source of conceptual confusion in structural logic is the conflation 
+of domain non-closure with internal logical inconsistency \cite{russell1903, 
+wittgenstein1922tractatus}.
 
-Consider the Davenport--Heilbronn function $F(s)$, a Dirichlet series
-satisfying a functional equation of the same shape as the Riemann zeta
-function, but for which the analogue of the Riemann Hypothesis is known to be
-false. Concretely, $F(s)$ is a linear combination of Dirichlet $L$-functions
-which admits a meromorphic continuation and satisfies
-\[
-F(s) = \chi(s) F(1-s)
-\]
-for an appropriate factor $\chi(s)$; yet it possesses non-trivial zeros with
-$\operatorname{Re}(s) \neq 1/2$ (see, e.g., the classical construction by
-Davenport and Heilbronn). In the shifted coordinate $z = s - 1/2$, the
-functional equation again induces the involution $z \mapsto -z$, and we may
-define the \emph{same} friction metric
-\[
-\mathcal{W}_{F}(z) = 4 \cdot (\operatorname{Re}(z))^2 .
-\]
-By construction, $\mathcal{W}_{F}(z) = 0$ exactly on the line
-$\operatorname{Re}(z)=0$, i.e., $\operatorname{Re}(s)=1/2$. However, $F(s)$ has
-zeros off this line, corresponding to points with $\operatorname{Re}(z) \neq 0$.
-Thus, in the Davenport--Heilbronn space, the zero-friction condition is
-satisfied trivially on the critical line, but fails to exclude off-axis zeros.
-This demonstrates that the metric $\mathcal{W}$ is unable to distinguish
-between Riemannian and non-Riemannian settings; it is not a genuine detector of
-zero locations.
+\begin{example}[Arithmetic Non-Closure]
+Consider the system $S = (\mathbb{N}, +)$. $S$ is $\mathrm{C}_{\mathrm{frame}}$ 
+(internally consistent). Define the additive inversion operator $I(a, b) = a - b$.
+For $a < b$, $I(a,b) \notin \mathbb{N}$. The system $S$ is not closed under $I$, 
+making it $\mathrm{C}_{\mathrm{inv}}$-open. However, this non-closure does not 
+generate logical absurdity ($\bot$) within $S$; it merely defines a boundary 
+prompting extension to $\mathbb{Z}$.
+\end{example}
 
-\section{Stochastic \& Numerical Validation}
-To illustrate the tautological character of the friction metric, we conduct a
-numerical experiment that compares the Riemann zeta function $\zeta(s)$ and the
-Davenport--Heilbronn function $F(s)$. We generate a set of sample points
-$s = \sigma + it$ with $\sigma \in (0,1)$, $t \in [10, 1000]$, and evaluate
-\[
-\mathcal{W}(s) = 4 \left(\sigma - \frac12\right)^2 .
-\]
-This metric does not depend on the specific function; it is purely a function of
-the real part. Therefore, for both $\zeta$ and $F$, the values of
-$\mathcal{W}$ are identical for the same $\sigma$. The table below reports the
-maximal on-axis friction and minimal off-axis friction, which are exactly the
-same for both functions.
+\begin{theorem}[Separation of \texorpdfstring{$\mathrm{C}_{\mathrm{frame}}$}{C\_frame} and \texorpdfstring{$\mathrm{C}_{\mathrm{inv}}$}{C\_inv}]
+Frame-consistency ($\mathrm{C}_{\mathrm{frame}}$) does not imply Inversion 
+Stability ($\mathrm{C}_{\mathrm{inv}}$).
+\end{theorem}
+
+\begin{proof}
+Let $S = (\mathbb{N}, +)$ and $I(a, b) = a - b$. $S \nvdash \bot$, so $S$ is 
+$\mathrm{C}_{\mathrm{frame}}$. However, $I(2, 3) = -1 \notin \mathbb{N}$, so 
+$S$ is not closed under $I$. Thus, $S$ is $\mathrm{C}_{\mathrm{frame}}$ but 
+not $\mathrm{C}_{\mathrm{inv}}$.
+\end{proof}
+
+% ============================================================
+\section{Core Reference Mapping}
+% ============================================================
+
+This framework allows downstream domain-specific papers to evaluate stability 
+under domain-appropriate inversion operators $I$ and invariant baselines $B_0$:
 
 \begin{table}[h!]
 \centering
-\caption{Friction metric $\mathcal{W}(z)$ for Riemann and Davenport--Heilbronn spaces}
-\label{tab:friction_results}
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{lrr}
-\toprule
-\textbf{Test Function} & \textbf{Max On-Axis Friction ($\mathcal{B}_0$)} & \textbf{Min Off-Axis Friction ($\delta \neq 0$)} \\
-\midrule
-Riemann $\zeta(s)$ & $0.000000000000$ & $0.000000000622$ \\
-Davenport--Heilbronn $F(s)$ & $0.000000000000$ & $0.000000000622$ \\
-\bottomrule
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llll}
+\hline
+\textbf{Domain} & \textbf{Inversion Operator $I$} & \textbf{Invariant Baseline $B_0$} & \textbf{References} \\ \hline
+Analytic Number Theory & Reflection $s \mapsto 1-s$ & Critical Line $\operatorname{Re}(s) = 1/2$ & \cite{riemann1859ueber, nicht_metaphysics_paper_1} \\
+Elliptic Curves & Analytic Shift $s \mapsto 2-s$ & Central Point $s = 1$ & \cite{birch_swinnerton_dyer_1965, tunnell_1983, nicht_metaphysics_paper_2} \\
+Algebraic Geometry & Cohomological Duality & Self-Dual Subspaces $V \cong V^*$ & \cite{hodge1950topological, nicht_metaphysics_paper_3} \\
+Quantum Gauge Theory & Topological Reflection & Color-Neutral Substrate & \cite{nicht_physics_paper_2} \\ \hline
 \end{tabular}%
 }
 \end{table}
 
-The identical values confirm that $\mathcal{W}$ cannot distinguish between the
-two spaces: the on-axis zeros of $\zeta$ (if any) and the on-axis zeros of $F$
-both yield $\mathcal{W}=0$, while the off-axis zeros of $F$ (which are known to
-exist) still produce positive $\mathcal{W}$, but the metric does not detect
-their presence because it ignores the imaginary part and the specific function.
-
+% ============================================================
 \section{Conclusion}
-The Apophatic Inversion Space and its associated friction metric
-$\mathcal{W}(z)$ do not resolve the Riemann Hypothesis. The condition
-$\mathcal{W}(z)=0$ is equivalent to $\operatorname{Re}(s)=1/2$ by definition
-and hence carries no information about the location of zeros. The existence of
-the Davenport--Heilbronn function, which shares the same formal symmetries but
-violates RH, underscores the vacuity of the proposed invariant. We conclude
-that any purported proof of RH must engage with the analytic properties of
-$\zeta(s)$ that go beyond mere symmetry; otherwise it is prone to the same
-tautological trap. The non-Riemann space serves as a powerful test: if a
-proposed argument also ``proves'' the analogue of RH for Davenport--Heilbronn,
-then it is almost certainly flawed.
+% ============================================================
+
+Paper 0 establishes a precise distinction between internal syntactic rule 
+compliance ($\mathrm{C}_{\mathrm{frame}}$) and structural closure under 
+counter-operations ($\mathrm{C}_{\mathrm{inv}}$) \cite{nicht_metaphysics_paper_0, 
+nicht_theory_monograph}. By defining the invariant baseline as an invariant set 
+$I(B_0) = B_0$, this framework provides a solid reference for domain-specific 
+applications without requiring metaphysical postulates or categorical 
+over-extensions \cite{nicht_physics_repo, apophatic_engine_pypi, apophatic_opt_pypi}.
 
 \clearpage
 \bibliographystyle{unsrt}
